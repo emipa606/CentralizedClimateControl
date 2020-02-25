@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest>
+  <identifier>CentralizedClimateControl(Continued)</identifier>
+  <version>1.0.0.0</version>
+  <dependencies>
+    <li>HugsLib</li>
+  </dependencies>
+  <incompatibleWith />
+  <loadBefore />
+  <loadAfter>	
+    <li>HugsLib</li>
+  </loadAfter>
+  <manifestUri>https://raw.githubusercontent.com/emipa606/CentralizedClimateControl/master/About/Manifest.xml</manifestUri>
+  <downloadUri>https://github.com/emipa606/CentralizedClimateControl/releases</downloadUri>
+</Manifest>
