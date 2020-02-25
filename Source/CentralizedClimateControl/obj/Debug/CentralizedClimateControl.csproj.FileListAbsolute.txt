@@ -1,0 +1,5 @@
+E:\Steam\steamapps\common\RimWorld\Mods\CentralizedClimateControl\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.csprojAssemblyReference.cache
+E:\Steam\steamapps\common\RimWorld\Mods\CentralizedClimateControl\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.csproj.CoreCompileInputs.cache
+E:\Steam\steamapps\common\RimWorld\Mods\CentralizedClimateControl\1.1\Assemblies\CentralizedClimateControl.dll
+E:\Steam\steamapps\common\RimWorld\Mods\CentralizedClimateControl\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.dll
+E:\Steam\steamapps\common\RimWorld\Mods\CentralizedClimateControl\1.1\Assemblies\$HugsLibChecker.dll
