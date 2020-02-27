@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Regular Wall Vent -->
+
+  <WallAirVent.label>壁式排风口</WallAirVent.label>
+  <WallAirVent.description>壁式排风口.</WallAirVent.description>
+  <WallAirVent_Blueprint.label>壁式排风口 (蓝图)</WallAirVent_Blueprint.label>
+  <WallAirVent_Blueprint_Install.label>壁式排风口 (蓝图)</WallAirVent_Blueprint_Install.label>
+  <WallAirVent_Frame.label>壁式排风口 (建造中)</WallAirVent_Frame.label>
+  <WallAirVent_Frame.description>壁式排风口.</WallAirVent_Frame.description>
+
+
+  <!-- Small Wall Vent -->
+
+  <WallAirVentSmall.label>小型壁式排风口</WallAirVentSmall.label>
+  <WallAirVentSmall.description>小型壁式排风口.</WallAirVentSmall.description>
+  <WallAirVentSmall_Blueprint.label>小型壁式排风口 (蓝图)</WallAirVentSmall_Blueprint.label>
+  <WallAirVentSmall_Blueprint_Install.label>小型壁式排风口 (蓝图)</WallAirVentSmall_Blueprint_Install.label>
+  <WallAirVentSmall_Frame.label>壁式排风口 (建造中)</WallAirVentSmall_Frame.label>
+  <WallAirVentSmall_Frame.description>壁式排风口.</WallAirVentSmall_Frame.description>
+
+
+  <!-- Regular Surround Vents -->
+
+  <SurroundAirVent.label>独立排风口</SurroundAirVent.label>
+  <SurroundAirVent.description>向四面八方排风.</SurroundAirVent.description>
+  <SurroundAirVent_Blueprint.label>独立排风口 (蓝图)</SurroundAirVent_Blueprint.label>
+  <SurroundAirVent_Blueprint_Install.label>独立排风口 (蓝图)</SurroundAirVent_Blueprint_Install.label>
+  <SurroundAirVent_Frame.label>独立排风口 (建造中)</SurroundAirVent_Frame.label>
+  <SurroundAirVent_Frame.description>向四面八方排风.</SurroundAirVent_Frame.description>
+
+
+  <!-- Wide Surround Vents -->
+
+  <SurroundAirVentWide.label>加宽独立排风口</SurroundAirVentWide.label>
+  <SurroundAirVentWide.description>向四面八方排风.</SurroundAirVentWide.description>
+  <SurroundAirVentWide_Blueprint.label>加宽独立排风口 (蓝图)</SurroundAirVentWide_Blueprint.label>
+  <SurroundAirVentWide_Blueprint_Install.label>加宽独立排风口 (蓝图)</SurroundAirVentWide_Blueprint_Install.label>
+  <SurroundAirVentWide_Frame.label>加宽独立排风口 (建造中)</SurroundAirVentWide_Frame.label>
+  <SurroundAirVentWide_Frame.description>向四面八方排风.</SurroundAirVentWide_Frame.description>
+
+
+  <!-- Legacy Support: Full Size Vents -->
+
+  <AirVent.label>排风口</AirVent.label>
+  <AirVent.description>排风口.</AirVent.description>
+  <AirVent_Blueprint_Install.label>排风口 (蓝图)</AirVent_Blueprint_Install.label>
+
+
+</LanguageData>

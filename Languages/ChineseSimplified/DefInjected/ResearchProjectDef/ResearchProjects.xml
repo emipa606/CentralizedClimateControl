@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <BasicClimateControl.label>基础温控系统</BasicClimateControl.label>
+  <BasicClimateControl.description>使用基础的温控系统,以保持您的殖民地冬暖夏凉,空气清新.</BasicClimateControl.description>
+
+  <IndustrialClimateControl.label>高级温控系统</IndustrialClimateControl.label>
+  <IndustrialClimateControl.description>建造大型入风口和空气处理机吧.</IndustrialClimateControl.description>
+
+
+</LanguageData>

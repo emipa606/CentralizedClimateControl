@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <IntakeFan.label>入风口</IntakeFan.label>
+  <IntakeFan.description>入风口.</IntakeFan.description>
+  <IntakeFan_Blueprint.label>入风口 (蓝图)</IntakeFan_Blueprint.label>
+  <IntakeFan_Blueprint_Install.label>入风口 (蓝图)</IntakeFan_Blueprint_Install.label>
+  <IntakeFan_Frame.label>入风口 (建造中)</IntakeFan_Frame.label>
+  <IntakeFan_Frame.description>入风口.</IntakeFan_Frame.description>
+
+  <redAirPipe.label>红色输气管</redAirPipe.label>
+  <redAirPipe.description>用于输送空气的红色管道.</redAirPipe.description>
+  <redAirPipe_Blueprint.label>红色通气管道 (蓝图)</redAirPipe_Blueprint.label>
+  <redAirPipe_Frame.label>红色输气管 (建造中)</redAirPipe_Frame.label>
+  <redAirPipe_Frame.description>用于输送空气的红色管道.</redAirPipe_Frame.description>
+
+  <blueAirPipe.label>蓝色输气管</blueAirPipe.label>
+  <blueAirPipe.description>用于输送空气的蓝色管道.</blueAirPipe.description>
+  <blueAirPipe_Blueprint.label>蓝色输气管 (蓝图)</blueAirPipe_Blueprint.label>
+  <blueAirPipe_Frame.label>蓝色输气管 (建造中)</blueAirPipe_Frame.label>
+  <blueAirPipe_Frame.description>用于输送空气的蓝色管道.</blueAirPipe_Frame.description>
+
+  <cyanAirPipe.label>青色输气管</cyanAirPipe.label>
+  <cyanAirPipe.description>用于输送空气的青色管道.</cyanAirPipe.description>
+  <cyanAirPipe_Blueprint.label>青色输气管 (蓝图)</cyanAirPipe_Blueprint.label>
+  <cyanAirPipe_Frame.label>青色输气管 (建造中)</cyanAirPipe_Frame.label>
+  <cyanAirPipe_Frame.description>用于输送空气的青色管道.</cyanAirPipe_Frame.description>
+
+  <AirThermal.label>空气处理机</AirThermal.label>
+  <AirThermal.description>将输入的空气加热/冷却改变至目标温度.</AirThermal.description>
+  <AirThermal_Blueprint.label>空气处理机 (蓝图)</AirThermal_Blueprint.label>
+  <AirThermal_Blueprint_Install.label>空气处理机 (蓝图)</AirThermal_Blueprint_Install.label>
+  <AirThermal_Frame.label>空气处理机 (建造中)</AirThermal_Frame.label>
+  <AirThermal_Frame.description>将输入的空气加热/冷却改变至目标温度.</AirThermal_Frame.description>
+
+  <LargeIntakeFan.label>大型入风口</LargeIntakeFan.label>
+  <LargeIntakeFan.description>大型入风口.</LargeIntakeFan.description>
+  <LargeIntakeFan_Blueprint.label>大型入风口 (蓝图)</LargeIntakeFan_Blueprint.label>
+  <LargeIntakeFan_Blueprint_Install.label>大型入风口 (蓝图)</LargeIntakeFan_Blueprint_Install.label>
+  <LargeIntakeFan_Frame.label>大型入风口 (建造中)</LargeIntakeFan_Frame.label>
+  <LargeIntakeFan_Frame.description>大型入风口.</LargeIntakeFan_Frame.description>
+
+  <LargeAirThermal.label>大型空气处理机</LargeAirThermal.label>
+  <LargeAirThermal.description>将输入的空气加热/冷却改变至目标温度.</LargeAirThermal.description>
+  <LargeAirThermal_Blueprint.label>大型空气处理机 (蓝图)</LargeAirThermal_Blueprint.label>
+  <LargeAirThermal_Blueprint_Install.label>大型空气处理机 (蓝图)</LargeAirThermal_Blueprint_Install.label>
+  <LargeAirThermal_Frame.label>大型空气处理机 (建造中)</LargeAirThermal_Frame.label>
+  <LargeAirThermal_Frame.description>将输入的空气加热/冷却改变至目标温度.</LargeAirThermal_Frame.description>
+
+
+</LanguageData>
