@@ -7,7 +7,6 @@
     <baseCost>800</baseCost>
     <techLevel>Industrial</techLevel>
     <prerequisites>
-      <li>Electricity</li>
       <li>AirConditioning</li>
     </prerequisites>
     <researchViewX>2</researchViewX>
@@ -22,8 +21,6 @@
     <techLevel>Industrial</techLevel>
     <prerequisites>
       <li>BasicClimateControl</li>
-      <li>Electricity</li>
-      <li>AirConditioning</li>
     </prerequisites>
     <researchViewX>3</researchViewX>
     <researchViewY>5</researchViewY>
