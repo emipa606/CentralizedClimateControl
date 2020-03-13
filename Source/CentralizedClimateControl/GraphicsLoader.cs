@@ -6,6 +6,7 @@ namespace CentralizedClimateControl
     public class GraphicsLoader
     {
         // Actual Atlas
+        public static Graphic BlankPipeAtlas = GraphicDatabase.Get<Graphic_Single>("Things/Building/Blank_AirPipe_Atlas", ShaderDatabase.Transparent);
         public static Graphic HotPipeAtlas = GraphicDatabase.Get<Graphic_Single>("Things/Building/Hot_AirPipe_Atlas", ShaderDatabase.Transparent);
         public static Graphic ColdPipeAtlas = GraphicDatabase.Get<Graphic_Single>("Things/Building/Cold_AirPipe_Atlas", ShaderDatabase.Transparent);
         public static Graphic FrozenPipeAtlas = GraphicDatabase.Get<Graphic_Single>("Things/Building/Frozen_AirPipe_Atlas", ShaderDatabase.Transparent);
@@ -17,8 +18,11 @@ namespace CentralizedClimateControl
         public static Graphic AnyPipeOverlayAtlas = GraphicDatabase.Get<Graphic_Single>("Things/Building/Any_AirPipe_Overlay_Atlas", ShaderDatabase.MetaOverlay);
 
         public static GraphicPipe GraphicHotPipe = new GraphicPipe(GraphicsLoader.HotPipeAtlas, AirFlowType.Hot);
+        public static GraphicPipe GraphicHotPipeHidden = new GraphicPipe(GraphicsLoader.BlankPipeAtlas, AirFlowType.Hot);
         public static GraphicPipe GraphicColdPipe = new GraphicPipe(GraphicsLoader.ColdPipeAtlas, AirFlowType.Cold);
+        public static GraphicPipe GraphicColdPipeHidden = new GraphicPipe(GraphicsLoader.BlankPipeAtlas, AirFlowType.Cold);
         public static GraphicPipe GraphicFrozenPipe = new GraphicPipe(GraphicsLoader.FrozenPipeAtlas, AirFlowType.Frozen);
+        public static GraphicPipe GraphicFrozenPipeHidden = new GraphicPipe(GraphicsLoader.BlankPipeAtlas, AirFlowType.Frozen);
 
         public static GraphicPipe_Overlay GraphicHotPipeOverlay = new GraphicPipe_Overlay(HotPipeOverlayAtlas, AnyPipeOverlayAtlas, AirFlowType.Hot);
         public static GraphicPipe_Overlay GraphicColdPipeOverlay = new GraphicPipe_Overlay(ColdPipeOverlayAtlas, AnyPipeOverlayAtlas, AirFlowType.Cold);

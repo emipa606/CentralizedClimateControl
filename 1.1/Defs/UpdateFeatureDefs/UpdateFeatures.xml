@@ -90,4 +90,14 @@ Your saves wont be affected by this update. I have updated some art assets. Some
 - Research Tab is now removed. The researches can be found in the Main Tab (linked to Electricity)
 </content>
 	</HugsLib.UpdateFeatureDef>
+	
+		<HugsLib.UpdateFeatureDef ParentName="CCCUpdateFeatureBase">
+		<defName>CentralizedClimateControl_1_4_0</defName>
+		<assemblyVersion>1.4.1</assemblyVersion>
+		<content>
+| &lt;b&gt;Hidden pipes:&lt;/b&gt;
+- There are now possible to build hidden air-pipes. They cost a bit more but will not be visible on the ground.
+</content>
+	</HugsLib.UpdateFeatureDef>
+	
 </Defs>
