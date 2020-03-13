@@ -40,5 +40,9 @@
   <CentralizedClimateControl.Command.SwitchPipe.Red>Red Pipe Only</CentralizedClimateControl.Command.SwitchPipe.Red>
   <CentralizedClimateControl.Command.SwitchPipe.Blue>Blue Pipe Only</CentralizedClimateControl.Command.SwitchPipe.Blue>
   <CentralizedClimateControl.Command.SwitchPipe.Cyan>Cyan Pipe Only</CentralizedClimateControl.Command.SwitchPipe.Cyan>
+  
+  <CentralizedClimateControl.Settings.ModName>Centralized Climate Control</CentralizedClimateControl.Settings.ModName>
+  <CentralizedClimateControl.Settings.HidepipesTitle>Hide pipes</CentralizedClimateControl.Settings.HidepipesTitle>
+  <CentralizedClimateControl.Settings.HidepipesDescription>Should the pipes be hidden?</CentralizedClimateControl.Settings.HidepipesDescription>
 
 </LanguageData>

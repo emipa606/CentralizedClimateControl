@@ -9,5 +9,7 @@ namespace CentralizedClimateControl
     public class Building_HotAirPipe: Building_AirPipe
     {
         public override Graphic Graphic => GraphicsLoader.GraphicHotPipe;
+
     }
+   
 }
