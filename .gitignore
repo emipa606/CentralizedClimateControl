@@ -230,3 +230,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Rimworld specific
+_PublisherPlus.xml

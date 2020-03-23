@@ -19,74 +19,11 @@
     </statBases>
   </ThingDef>
 
-  <ThingDef ParentName="CentralizedClimateControlBuilding">
-    <defName>IntakeFan</defName>
-    <label>intakeFan</label>
-    <thingClass>CentralizedClimateControl.Building_IntakeFan</thingClass>
-    <graphicData>
-      <texPath>Things/Building/IntakeFan</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
-    </graphicData>
-    <size>(1,1)</size>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>Impassable</passability>
-    <blockWind>true</blockWind>
-    <fillPercent>1</fillPercent>
-    <coversFloor>true</coversFloor>
-    <blockLight>true</blockLight>
-    <canOverlapZones>false</canOverlapZones>
-    <castEdgeShadows>true</castEdgeShadows>
-    <staticSunShadowHeight>1.0</staticSunShadowHeight>
-    <statBases>
-      <WorkToBuild>1600</WorkToBuild>
-      <MaxHitPoints>100</MaxHitPoints>
-	  <Mass>20</Mass>
-      <Flammability>1.0</Flammability>
-    </statBases>
-    <tickerType>Rare</tickerType>
-    <description>A IntakeFan.</description>
-    <costList>
-      <Steel>100</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-    <building>
-      <canPlaceOverWall>true</canPlaceOverWall>
-    </building>
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>150</basePowerConsumption>
-      </li>
-      <li Class="CentralizedClimateControl.CompProperties_AirFlow">
-        <compClass>CentralizedClimateControl.CompAirFlowProducer</compClass>
-        <baseAirFlow>300.0</baseAirFlow>
-        <flowType>Any</flowType>
-      </li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Breakdownable"/>
-    </comps>
-    <designationCategory>CentralClimateControl</designationCategory>
-    <designationHotKey>Misc4</designationHotKey>
-    <researchPrerequisites>
-      <li>BasicClimateControl</li>
-    </researchPrerequisites>
-    <placeWorkers>
-      <li>CentralizedClimateControl.PlaceWorker_IntakeFan</li>
-    </placeWorkers>
-  </ThingDef>
-
   <ThingDef Abstract="True" Name="AirPipe">
     <label>airpipe</label>
     <description>Air Pipes.</description>
     <thingClass>CentralizedClimateControl.Building_AirPipe</thingClass>
+	<designatorDropdown>CCC_Pipes</designatorDropdown>
     <category>Building</category>
     <building>
       <isInert>true</isInert>
@@ -117,7 +54,16 @@
     </placeWorkers>
     <clearBuildingArea>false</clearBuildingArea>
   </ThingDef>
-
+  
+  <ThingDef Abstract="True" Name="HiddenAirPipe" ParentName="AirPipe">    
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <WorkToBuild>55</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
+  </ThingDef>
+  
   <ThingDef ParentName="AirPipe">
     <defName>redAirPipe</defName>
     <label>Red Air Pipe</label>
@@ -152,7 +98,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="AirPipe">
+  <ThingDef ParentName="HiddenAirPipe">
     <defName>redAirPipeHidden</defName>
     <label>Red Air Pipe Hidden</label>
     <description>Red Pipes for carrying air underground.</description>
@@ -220,7 +166,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="AirPipe">
+  <ThingDef ParentName="HiddenAirPipe">
     <defName>blueAirPipeHidden</defName>
     <label>Blue Air Pipe Hidden</label>
     <description>Blue Pipes for carrying air underground.</description>
@@ -288,7 +234,7 @@
     </comps>
   </ThingDef>
   
-  <ThingDef ParentName="AirPipe">
+  <ThingDef ParentName="HiddenAirPipe">
     <defName>cyanAirPipeHidden</defName>
     <label>Cyan Air Pipe Hidden</label>
     <description>Cyan Air Pipes for carrying air underground.</description>
@@ -323,9 +269,75 @@
   </ThingDef>
   
   <ThingDef ParentName="CentralizedClimateControlBuilding">
+    <defName>IntakeFan</defName>
+    <label>intakeFan</label>
+    <thingClass>CentralizedClimateControl.Building_IntakeFan</thingClass>
+	<designatorDropdown>CCC_Intake</designatorDropdown>
+    <graphicData>
+      <texPath>Things/Building/IntakeFan</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(1,1)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <fillPercent>1</fillPercent>
+    <coversFloor>true</coversFloor>
+    <blockLight>true</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <statBases>
+      <WorkToBuild>1600</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+	  <Mass>20</Mass>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <tickerType>Rare</tickerType>
+    <description>A IntakeFan.</description>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <building>
+      <canPlaceOverWall>true</canPlaceOverWall>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+      <li Class="CentralizedClimateControl.CompProperties_AirFlow">
+        <compClass>CentralizedClimateControl.CompAirFlowProducer</compClass>
+        <baseAirFlow>300.0</baseAirFlow>
+        <flowType>Any</flowType>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <designationCategory>CentralClimateControl</designationCategory>
+    <designationHotKey>Misc4</designationHotKey>
+    <researchPrerequisites>
+      <li>BasicClimateControl</li>
+    </researchPrerequisites>
+    <placeWorkers>
+      <li>CentralizedClimateControl.PlaceWorker_IntakeFan</li>
+    </placeWorkers>
+  </ThingDef>
+
+  <ThingDef ParentName="CentralizedClimateControlBuilding">
     <defName>AirThermal</defName>
     <label>airThermal</label>
     <thingClass>CentralizedClimateControl.Building_AirThermal</thingClass>
+	<designatorDropdown>CCC_ACC</designatorDropdown>
     <graphicData>
       <texPath>Things/Building/AirThermal</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -391,6 +403,7 @@
     <defName>LargeIntakeFan</defName>
     <label>largeIntakeFan</label>
     <thingClass>CentralizedClimateControl.Building_IntakeFan</thingClass>
+	<designatorDropdown>CCC_Intake</designatorDropdown>
     <graphicData>
       <drawSize>(2,2)</drawSize>
       <texPath>Things/Building/LargeIntakeFan</texPath>
@@ -456,6 +469,7 @@
     <defName>LargeAirThermal</defName>
     <label>largeAirThermal</label>
     <thingClass>CentralizedClimateControl.Building_AirThermal</thingClass>
+	<designatorDropdown>CCC_ACC</designatorDropdown>
     <graphicData>
       <texPath>Things/Building/LargeAirThermal</texPath>
       <drawSize>(2,2)</drawSize>
