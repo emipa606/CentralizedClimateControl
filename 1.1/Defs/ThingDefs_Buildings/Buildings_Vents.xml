@@ -6,7 +6,6 @@
 		<category>Building</category>
 		<thingClass>Building</thingClass>
 		<minifiedDef>MinifiedThing</minifiedDef>
-		<designatorDropdown>CCC_Vents</designatorDropdown>
 		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
 		<selectable>true</selectable>
 		<drawerType>MapMeshAndRealTime</drawerType>

@@ -272,7 +272,6 @@
     <defName>IntakeFan</defName>
     <label>intakeFan</label>
     <thingClass>CentralizedClimateControl.Building_IntakeFan</thingClass>
-	<designatorDropdown>CCC_Intake</designatorDropdown>
     <graphicData>
       <texPath>Things/Building/IntakeFan</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -337,7 +336,6 @@
     <defName>AirThermal</defName>
     <label>airThermal</label>
     <thingClass>CentralizedClimateControl.Building_AirThermal</thingClass>
-	<designatorDropdown>CCC_ACC</designatorDropdown>
     <graphicData>
       <texPath>Things/Building/AirThermal</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -403,7 +401,6 @@
     <defName>LargeIntakeFan</defName>
     <label>largeIntakeFan</label>
     <thingClass>CentralizedClimateControl.Building_IntakeFan</thingClass>
-	<designatorDropdown>CCC_Intake</designatorDropdown>
     <graphicData>
       <drawSize>(2,2)</drawSize>
       <texPath>Things/Building/LargeIntakeFan</texPath>
@@ -469,7 +466,6 @@
     <defName>LargeAirThermal</defName>
     <label>largeAirThermal</label>
     <thingClass>CentralizedClimateControl.Building_AirThermal</thingClass>
-	<designatorDropdown>CCC_ACC</designatorDropdown>
     <graphicData>
       <texPath>Things/Building/LargeAirThermal</texPath>
       <drawSize>(2,2)</drawSize>
