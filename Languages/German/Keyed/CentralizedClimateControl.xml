@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <TargetAirFlow>Airflow</TargetAirFlow>
+  <CentralizedClimateControl.PressuredAirStored>Druckluft gespeichert</CentralizedClimateControl.PressuredAirStored>
+  <CentralizedClimateControl.AirFlowOutput>Airflow: {0} cc/s</CentralizedClimateControl.AirFlowOutput>
+  <CentralizedClimateControl.Efficiency>Druckluft gespeichert</CentralizedClimateControl.Efficiency>
+  <CentralizedClimateControl.AirFlowNetDisconnected>Nicht mit einem Luftstromnetz verbunden</CentralizedClimateControl.AirFlowNetDisconnected>
+  <CentralizedClimateControl.AirFlowNetConnected>Mit einem Luftstromnetz verbunden</CentralizedClimateControl.AirFlowNetConnected>
+  <CentralizedClimateControl.AirType>Lufttransport: {0}</CentralizedClimateControl.AirType>
+  <CentralizedClimateControl.AirTemperature>Lufttemparatur: {0}</CentralizedClimateControl.AirTemperature>
+  <CentralizedClimateControl.HotAir>Luftrohr (Rot)</CentralizedClimateControl.HotAir>
+  <CentralizedClimateControl.ColdAir>Luftrohr (Blau)</CentralizedClimateControl.ColdAir>
+  <CentralizedClimateControl.FrozenAir>Luftrohr (Cyan)</CentralizedClimateControl.FrozenAir>
+  <CentralizedClimateControl.TotalNetworkAir>Netzairflow: {0} cc/s</CentralizedClimateControl.TotalNetworkAir>
+  <CentralizedClimateControl.Producer.IntakeTemperature>Ansaugtemperatur: {0}</CentralizedClimateControl.Producer.IntakeTemperature>
+  <CentralizedClimateControl.Producer.TargetTemperature>Zieltemperatur: {0}</CentralizedClimateControl.Producer.TargetTemperature>
+  <CentralizedClimateControl.Producer.ConvertedTemperature>Umgerechnete Temperatur: {0}</CentralizedClimateControl.Producer.ConvertedTemperature>
+  <CentralizedClimateControl.Producer.TemperatureArrow>Konvertiert: {0} (Ansaugung)  ==&gt;  {1} (Ziel)</CentralizedClimateControl.Producer.TemperatureArrow>
+  <CentralizedClimateControl.Producer.ExhaustBlocked>Geräteauslass blockiert</CentralizedClimateControl.Producer.ExhaustBlocked>
+  <CentralizedClimateControl.Producer.IntakeBlocked>Geräteeinlass blockiert</CentralizedClimateControl.Producer.IntakeBlocked>
+  <CentralizedClimateControl.Consumer.ConvertedTemperature>Umgewandelte Temperatur: {0}</CentralizedClimateControl.Consumer.ConvertedTemperature>
+  <CentralizedClimateControl.Consumer.Disconnected>Entlüftung ist nicht angeschlossen</CentralizedClimateControl.Consumer.Disconnected>
+  <CentralizedClimateControl.Producer.IntakeFanPlaceError>Um den Ansaugventilator müssen freie Felder vorhanden sein</CentralizedClimateControl.Producer.IntakeFanPlaceError>
+  <CentralizedClimateControl.Consumer.AirVentPlaceError>Vor dem Lüftungsgitter muss ein Feld frei sein</CentralizedClimateControl.Consumer.AirVentPlaceError>
+  <CentralizedClimateControl.Consumer.SurroundAirVentPlaceError>Um das Umgebungsluftgitter müssen freie Felder vorhanden sein</CentralizedClimateControl.Consumer.SurroundAirVentPlaceError>
+  <CentralizedClimateControl.Consumer.AirThermalPlaceError>Um die Klimaanlage müssen freie Felder vorhanden sein</CentralizedClimateControl.Consumer.AirThermalPlaceError>
+  <CentralizedClimateControl.Consumer.FlowEfficiencyKey>Airfloweffizienz: {0}</CentralizedClimateControl.Consumer.FlowEfficiencyKey>
+  <CentralizedClimateControl.Consumer.ThermalEfficiencyKey>Thermischer Wirkungsgrad: {0}</CentralizedClimateControl.Consumer.ThermalEfficiencyKey>
+  <CentralizedClimateControl.Consumer.Closed>Luftgitter ist geschlossen (geschaltet)</CentralizedClimateControl.Consumer.Closed>
+  <CentralizedClimateControl.Command.SwitchPipe.Desc>Erzwinge, dass ein Gebäude nur mit einem Rohr einer bestimmten Farbe verbunden wird</CentralizedClimateControl.Command.SwitchPipe.Desc>
+  <CentralizedClimateControl.Command.SwitchPipe.Auto>Auto</CentralizedClimateControl.Command.SwitchPipe.Auto>
+  <CentralizedClimateControl.Command.SwitchPipe.Red>Nur Luftrohr (Rot)</CentralizedClimateControl.Command.SwitchPipe.Red>
+  <CentralizedClimateControl.Command.SwitchPipe.Blue>Nur Luftrohr (Blau)</CentralizedClimateControl.Command.SwitchPipe.Blue>
+  <CentralizedClimateControl.Command.SwitchPipe.Cyan>Nur Luftrohr (Cyan)</CentralizedClimateControl.Command.SwitchPipe.Cyan>
+  <CentralizedClimateControl.Settings.ModName>Centralized Climate Control</CentralizedClimateControl.Settings.ModName>
+  <CentralizedClimateControl.Settings.HidepipesTitle>Rohre verstecken</CentralizedClimateControl.Settings.HidepipesTitle>
+  <CentralizedClimateControl.Settings.HidepipesDescription>Sollten die Rohre versteckt sein?</CentralizedClimateControl.Settings.HidepipesDescription>
+</LanguageData>

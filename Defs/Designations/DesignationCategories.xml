@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
   <DesignationCategoryDef>
     <defName>CentralClimateControl</defName>
     <label>Climate</label>
@@ -11,5 +10,4 @@
       <li>Designator_Deconstruct</li>
     </specialDesignatorClasses>
   </DesignationCategoryDef>
-  
 </Defs>

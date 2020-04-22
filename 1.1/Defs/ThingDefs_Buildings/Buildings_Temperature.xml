@@ -1,29 +1,28 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- CentralizedClimateControl -->
 <Defs>
   <ThingDef Abstract="True" Name="CentralizedClimateControlBuilding" ParentName="BuildingBase">
     <category>Building</category>
     <thingClass>Building</thingClass>
-	<minifiedDef>MinifiedThing</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
     <selectable>true</selectable>
     <drawerType>MapMeshAndRealTime</drawerType>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <repairEffect>Repair</repairEffect>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-	<thingCategories>
+    <thingCategories>
       <li>BuildingsClimate</li>
     </thingCategories>
     <statBases>
       <Beauty>-10</Beauty>
     </statBases>
   </ThingDef>
-
   <ThingDef Abstract="True" Name="AirPipe">
     <label>airpipe</label>
     <description>Air Pipes.</description>
     <thingClass>CentralizedClimateControl.Building_AirPipe</thingClass>
-	<designatorDropdown>CCC_Pipes</designatorDropdown>
+    <designatorDropdown>CCC_Pipes</designatorDropdown>
     <category>Building</category>
     <building>
       <isInert>true</isInert>
@@ -54,8 +53,7 @@
     </placeWorkers>
     <clearBuildingArea>false</clearBuildingArea>
   </ThingDef>
-  
-  <ThingDef Abstract="True" Name="HiddenAirPipe" ParentName="AirPipe">    
+  <ThingDef Abstract="True" Name="HiddenAirPipe" ParentName="AirPipe">
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>
       <WorkToBuild>55</WorkToBuild>
@@ -63,7 +61,6 @@
       <Beauty>0</Beauty>
     </statBases>
   </ThingDef>
-  
   <ThingDef ParentName="AirPipe">
     <defName>redAirPipe</defName>
     <label>Red Air Pipe</label>
@@ -97,7 +94,6 @@
       </li>
     </comps>
   </ThingDef>
-
   <ThingDef ParentName="HiddenAirPipe">
     <defName>redAirPipeHidden</defName>
     <label>Red Air Pipe Hidden</label>
@@ -131,7 +127,6 @@
       </li>
     </comps>
   </ThingDef>
-
   <ThingDef ParentName="AirPipe">
     <defName>blueAirPipe</defName>
     <label>Blue Air Pipe</label>
@@ -165,7 +160,6 @@
       </li>
     </comps>
   </ThingDef>
-
   <ThingDef ParentName="HiddenAirPipe">
     <defName>blueAirPipeHidden</defName>
     <label>Blue Air Pipe Hidden</label>
@@ -199,7 +193,6 @@
       </li>
     </comps>
   </ThingDef>
-
   <ThingDef ParentName="AirPipe">
     <defName>cyanAirPipe</defName>
     <label>Cyan Air Pipe</label>
@@ -233,7 +226,6 @@
       </li>
     </comps>
   </ThingDef>
-  
   <ThingDef ParentName="HiddenAirPipe">
     <defName>cyanAirPipeHidden</defName>
     <label>Cyan Air Pipe Hidden</label>
@@ -267,7 +259,6 @@
       </li>
     </comps>
   </ThingDef>
-  
   <ThingDef ParentName="CentralizedClimateControlBuilding">
     <defName>IntakeFan</defName>
     <label>intakeFan</label>
@@ -295,7 +286,7 @@
     <statBases>
       <WorkToBuild>1600</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>
-	  <Mass>20</Mass>
+      <Mass>20</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
@@ -319,8 +310,8 @@
         <baseAirFlow>300.0</baseAirFlow>
         <flowType>Any</flowType>
       </li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
     </comps>
     <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
@@ -331,7 +322,6 @@
       <li>CentralizedClimateControl.PlaceWorker_IntakeFan</li>
     </placeWorkers>
   </ThingDef>
-
   <ThingDef ParentName="CentralizedClimateControlBuilding">
     <defName>AirThermal</defName>
     <label>airThermal</label>
@@ -359,7 +349,7 @@
     <statBases>
       <WorkToBuild>1600</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>
-	  <Mass>20</Mass>
+      <Mass>20</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
@@ -383,9 +373,9 @@
         <flowType>Any</flowType>
         <thermalCapacity>900</thermalCapacity>
       </li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_TempControl"/>
-      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_TempControl" />
+      <li Class="CompProperties_Breakdownable" />
     </comps>
     <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
@@ -396,7 +386,6 @@
       <li>CentralizedClimateControl.PlaceWorker_AirThermal</li>
     </placeWorkers>
   </ThingDef>
-
   <ThingDef ParentName="CentralizedClimateControlBuilding">
     <defName>LargeIntakeFan</defName>
     <label>largeIntakeFan</label>
@@ -425,7 +414,7 @@
     <statBases>
       <WorkToBuild>4800</WorkToBuild>
       <MaxHitPoints>300</MaxHitPoints>
-	  <Mass>100</Mass>
+      <Mass>100</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
@@ -449,8 +438,8 @@
         <baseAirFlow>1500.0</baseAirFlow>
         <flowType>Any</flowType>
       </li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
     </comps>
     <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
@@ -461,7 +450,6 @@
       <li>CentralizedClimateControl.PlaceWorker_IntakeFan</li>
     </placeWorkers>
   </ThingDef>
-
   <ThingDef ParentName="CentralizedClimateControlBuilding">
     <defName>LargeAirThermal</defName>
     <label>largeAirThermal</label>
@@ -490,7 +478,7 @@
     <statBases>
       <WorkToBuild>4800</WorkToBuild>
       <MaxHitPoints>300</MaxHitPoints>
-	  <Mass>80</Mass>
+      <Mass>80</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
@@ -514,9 +502,9 @@
         <flowType>Any</flowType>
         <thermalCapacity>4500</thermalCapacity>
       </li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_TempControl"/>
-      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_TempControl" />
+      <li Class="CompProperties_Breakdownable" />
     </comps>
     <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>

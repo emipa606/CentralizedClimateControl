@@ -1,18 +1,15 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-	<DesignatorDropdownGroupDef>
-		<defName>CCC_Pipes</defName>
-	</DesignatorDropdownGroupDef>
-	<DesignatorDropdownGroupDef>
-		<defName>CCC_Intake</defName>
-	</DesignatorDropdownGroupDef>
-	<DesignatorDropdownGroupDef>
-		<defName>CCC_ACC</defName>
-	</DesignatorDropdownGroupDef>
-	<DesignatorDropdownGroupDef>
-		<defName>CCC_Vents</defName>
-	</DesignatorDropdownGroupDef>
-	
+  <DesignatorDropdownGroupDef>
+    <defName>CCC_Pipes</defName>
+  </DesignatorDropdownGroupDef>
+  <DesignatorDropdownGroupDef>
+    <defName>CCC_Intake</defName>
+  </DesignatorDropdownGroupDef>
+  <DesignatorDropdownGroupDef>
+    <defName>CCC_ACC</defName>
+  </DesignatorDropdownGroupDef>
+  <DesignatorDropdownGroupDef>
+    <defName>CCC_Vents</defName>
+  </DesignatorDropdownGroupDef>
 </Defs>

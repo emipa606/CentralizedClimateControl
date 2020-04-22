@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <IntakeFan.label>Ansaugventilator</IntakeFan.label>
+  <IntakeFan.description>Ein Ansaugventilator.</IntakeFan.description>
+  <IntakeFan_Blueprint.label>Ansaugventilator (Entwurf)</IntakeFan_Blueprint.label>
+  <IntakeFan_Blueprint_Install.label>Ansaugventilator (Entwurf)</IntakeFan_Blueprint_Install.label>
+  <IntakeFan_Frame.label>Ansaugventilator (im Bau)</IntakeFan_Frame.label>
+  <IntakeFan_Frame.description>Ein Ansaugventilator.</IntakeFan_Frame.description>
+  <redAirPipe.label>Luftrohr (Rot)</redAirPipe.label>
+  <redAirPipe.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine rote Markierung.</redAirPipe.description>
+  <redAirPipe_Blueprint.label>Luftrohr (Rot) (Entwurf)</redAirPipe_Blueprint.label>
+  <redAirPipe_Frame.label>Luftrohr (Rot) (im Bau)</redAirPipe_Frame.label>
+  <redAirPipe_Frame.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine rote Markierung.</redAirPipe_Frame.description>
+  <redAirPipeHidden.label>Luftrohr (Rot) (Versteckt)</redAirPipeHidden.label>
+  <redAirPipeHidden.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine rote Markierung und wird unter dem Boden oder in der Wand versteckt.</redAirPipeHidden.description>
+  <redAirPipeHidden_Blueprint.label>Luftrohr (Rot) (Versteckt) (Entwurf)</redAirPipeHidden_Blueprint.label>
+  <redAirPipeHidden_Frame.label>Luftrohr (Rot) (Versteckt) (im Bau)</redAirPipeHidden_Frame.label>
+  <redAirPipeHidden_Frame.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine rote Markierung und wird unter dem Boden oder in der Wand versteckt.</redAirPipeHidden_Frame.description>
+  <blueAirPipe.label>Luftrohr (Blau)</blueAirPipe.label>
+  <blueAirPipe.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine blaue Markierung.</blueAirPipe.description>
+  <blueAirPipe_Blueprint.label>Luftrohr (Blau) (Entwurf)</blueAirPipe_Blueprint.label>
+  <blueAirPipe_Frame.label>Luftrohr (Blau) (im Bau)</blueAirPipe_Frame.label>
+  <blueAirPipe_Frame.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine blaue Markierung.</blueAirPipe_Frame.description>
+  <blueAirPipeHidden.label>Luftrohr (Blau) (Versteckt)</blueAirPipeHidden.label>
+  <blueAirPipeHidden.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine blaue Markierung und wird unter dem Boden oder in der Wand versteckt.</blueAirPipeHidden.description>
+  <blueAirPipeHidden_Blueprint.label>Luftrohr (Blau) (Versteckt) (Entwurf)</blueAirPipeHidden_Blueprint.label>
+  <blueAirPipeHidden_Frame.label>Luftrohr (Blau) (Versteckt) (im Bau)</blueAirPipeHidden_Frame.label>
+  <blueAirPipeHidden_Frame.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine blaue Markierung und wird unter dem Boden oder in der Wand versteckt.</blueAirPipeHidden_Frame.description>
+  <cyanAirPipe.label>Luftrohr (Cyan)</cyanAirPipe.label>
+  <cyanAirPipe.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine cyanfarbende Markierung.</cyanAirPipe.description>
+  <cyanAirPipe_Blueprint.label>Luftrohr (Cyan) (Entwurf)</cyanAirPipe_Blueprint.label>
+  <cyanAirPipe_Frame.label>Luftrohr (Cyan) (im Bau)</cyanAirPipe_Frame.label>
+  <cyanAirPipe_Frame.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine cyanfarbende Markierung.</cyanAirPipe_Frame.description>
+  <cyanAirPipeHidden.label>Luftrohr (Cyan) (Versteckt)</cyanAirPipeHidden.label>
+  <cyanAirPipeHidden.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine cyanfarbende Markierung und wird unter dem Boden oder in der Wand versteckt.</cyanAirPipeHidden.description>
+  <cyanAirPipeHidden_Blueprint.label>Luftrohr (Cyan) (Versteckt) (Entwurf)</cyanAirPipeHidden_Blueprint.label>
+  <cyanAirPipeHidden_Frame.label>Luftrohr (Cyan) (Versteckt) (im Bau)</cyanAirPipeHidden_Frame.label>
+  <cyanAirPipeHidden_Frame.description>Ein Rohr welches Luft transportieren kann. Es besitzt eine cyanfarbende Markierung und wird unter dem Boden oder in der Wand versteckt.</cyanAirPipeHidden_Frame.description>
+  <AirThermal.label>Klimaanlage</AirThermal.label>
+  <AirThermal.description>Eine Klimaanlage, die die Luft kühlen und erwärmen kann.</AirThermal.description>
+  <AirThermal_Blueprint.label>Klimaanlage (Entwurf)</AirThermal_Blueprint.label>
+  <AirThermal_Blueprint_Install.label>Klimaanlage (Entwurf)</AirThermal_Blueprint_Install.label>
+  <AirThermal_Frame.label>Klimaanlage (im Bau)</AirThermal_Frame.label>
+  <AirThermal_Frame.description>Eine Klimaanlage, die die Luft kühlen und erwärmen kann.</AirThermal_Frame.description>
+  <LargeIntakeFan.label>Ansaugventilator (Groß)</LargeIntakeFan.label>
+  <LargeIntakeFan.description>Ein großer Ansaugventilator.</LargeIntakeFan.description>
+  <LargeIntakeFan_Blueprint.label>Ansaugventilator (Groß) (Entwurf)</LargeIntakeFan_Blueprint.label>
+  <LargeIntakeFan_Blueprint_Install.label>Ansaugventilator (Groß) (Entwurf)</LargeIntakeFan_Blueprint_Install.label>
+  <LargeIntakeFan_Frame.label>Ansaugventilator (Groß) (im Bau)</LargeIntakeFan_Frame.label>
+  <LargeIntakeFan_Frame.description>Ein großer Ansaugventilator.</LargeIntakeFan_Frame.description>
+  <LargeAirThermal.label>Klimaanlage (Groß)</LargeAirThermal.label>
+  <LargeAirThermal.description>Eine große Klimaanlage, die die Luft kühlen und erwärmen kann.</LargeAirThermal.description>
+  <LargeAirThermal_Blueprint.label>Klimaanlage (Groß) (Entwurf)</LargeAirThermal_Blueprint.label>
+  <LargeAirThermal_Blueprint_Install.label>Klimaanlage (Groß) (Entwurf)</LargeAirThermal_Blueprint_Install.label>
+  <LargeAirThermal_Frame.label>Klimaanlage (Groß) (im Bau)</LargeAirThermal_Frame.label>
+  <LargeAirThermal_Frame.description>Eine große Klimaanlage, die die Luft kühlen und erwärmen kann..</LargeAirThermal_Frame.description>
+</LanguageData>

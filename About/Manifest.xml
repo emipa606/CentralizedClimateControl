@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest>
   <identifier>CentralizedClimateControl</identifier>
-  <version>1.0.8.0</version>
+  <version>1.0.9.0</version>
   <dependencies>
     <li>brrainz.harmony</li>
     <li>UnlimitedHugs.HugsLib</li>
   </dependencies>
   <incompatibleWith />
   <loadBefore />
-  <loadAfter>	
+  <loadAfter>
     <li>brrainz.harmony</li>
     <li>UnlimitedHugs.HugsLib</li>
   </loadAfter>
   <manifestUri>https://raw.githubusercontent.com/emipa606/CentralizedClimateControl/master/About/Manifest.xml</manifestUri>
   <downloadUri>https://github.com/emipa606/CentralizedClimateControl/releases</downloadUri>
 </Manifest>
-
-
-
-
-

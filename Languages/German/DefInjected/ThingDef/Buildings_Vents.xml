@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Regular Wall Vent -->
+  <WallAirVent.label>Lüftungsgitter (Wand)</WallAirVent.label>
+  <WallAirVent.description>Ein Lüftungsgitter das an der Wand platziert wurde.</WallAirVent.description>
+  <WallAirVent_Blueprint.label>Lüftungsgitter (Wand) (Entwurf)</WallAirVent_Blueprint.label>
+  <WallAirVent_Blueprint_Install.label>Lüftungsgitter (Wand) (Entwurf)</WallAirVent_Blueprint_Install.label>
+  <WallAirVent_Frame.label>Lüftungsgitter (Wand) (im Bau)</WallAirVent_Frame.label>
+  <WallAirVent_Frame.description>Ein Lüftungsgitter das an der Wand platziert wurde.</WallAirVent_Frame.description>
+  <!-- Small Wall Vent -->
+  <WallAirVentSmall.label>Lüftungsgitter (Wand) (Klein)</WallAirVentSmall.label>
+  <WallAirVentSmall.description>Ein kleines Lüftungsgitter das an der Wand platziert wurde.</WallAirVentSmall.description>
+  <WallAirVentSmall_Blueprint.label>Lüftungsgitter (Wand) (Klein) (Entwurf)</WallAirVentSmall_Blueprint.label>
+  <WallAirVentSmall_Blueprint_Install.label>Lüftungsgitter (Wand) (Klein) (Entwurf)</WallAirVentSmall_Blueprint_Install.label>
+  <WallAirVentSmall_Frame.label>Lüftungsgitter (Wand) (Klein) (im Bau)</WallAirVentSmall_Frame.label>
+  <WallAirVentSmall_Frame.description>Ein kleines Lüftungsgitter das an der Wand platziert wurde.</WallAirVentSmall_Frame.description>
+  <!-- Regular Surround Vents -->
+  <SurroundAirVent.label>Umgebungsluftgitter</SurroundAirVent.label>
+  <SurroundAirVent.description>Ein Umgebungsluftgitter.</SurroundAirVent.description>
+  <SurroundAirVent_Blueprint.label>Umgebungsluftgitter (Entwurf)</SurroundAirVent_Blueprint.label>
+  <SurroundAirVent_Blueprint_Install.label>Umgebungsluftgitter (Entwurf)</SurroundAirVent_Blueprint_Install.label>
+  <SurroundAirVent_Frame.label>Umgebungsluftgitter (im Bau)</SurroundAirVent_Frame.label>
+  <SurroundAirVent_Frame.description>Ein Umgebungsluftgitter.</SurroundAirVent_Frame.description>
+  <!-- Wide Surround Vents -->
+  <SurroundAirVentWide.label>Umgebungsluftgitter (Groß)</SurroundAirVentWide.label>
+  <SurroundAirVentWide.description>Ein großes Umgebungsluftgitter.</SurroundAirVentWide.description>
+  <SurroundAirVentWide_Blueprint.label>Umgebungsluftgitter (Groß) (Entwurf)</SurroundAirVentWide_Blueprint.label>
+  <SurroundAirVentWide_Blueprint_Install.label>Umgebungsluftgitter (Groß) (Entwurf)</SurroundAirVentWide_Blueprint_Install.label>
+  <SurroundAirVentWide_Frame.label>Umgebungsluftgitter (Groß) (im Bau)</SurroundAirVentWide_Frame.label>
+  <SurroundAirVentWide_Frame.description>Ein großes Umgebungsluftgitter</SurroundAirVentWide_Frame.description>
+  <!-- Legacy Support: Full Size Vents -->
+  <AirVent.label>Lüftungsgitter</AirVent.label>
+  <AirVent.description>Ein Lüftungsgitter.</AirVent.description>
+</LanguageData>
