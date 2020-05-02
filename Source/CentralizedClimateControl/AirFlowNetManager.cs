@@ -64,7 +64,9 @@ namespace CentralizedClimateControl
                 CachedPipes.Shuffle();
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -79,7 +81,9 @@ namespace CentralizedClimateControl
                 CachedPipes.Shuffle();
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -94,7 +98,9 @@ namespace CentralizedClimateControl
                 CachedTempControls.Shuffle();
             }
 
-            DirtyPipeGrid();
+            // Useless function call --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -109,7 +115,9 @@ namespace CentralizedClimateControl
                 CachedTempControls.Shuffle();
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -124,7 +132,9 @@ namespace CentralizedClimateControl
                 CachedProducers.Shuffle();
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -139,7 +149,9 @@ namespace CentralizedClimateControl
                 CachedProducers.Shuffle();
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -154,7 +166,9 @@ namespace CentralizedClimateControl
                 CachedConsumers.Shuffle();
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -169,24 +183,30 @@ namespace CentralizedClimateControl
                 CachedConsumers.Shuffle();
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
+        
+        /*
+         * Why are those two methods even here? IsDirty is public, so why raise further calls? --Brain
+         */
 
         /// <summary>
         /// Dirty the flag for reconstruction
         /// </summary>
-        public void DirtyPipeGrid()
+        /* public void DirtyPipeGrid()
         {
             IsDirty = true;
-        }
+        } */
 
         /// <summary>
         /// Dirty the flag for reconstruction
         /// </summary>
-        public void DirtyPipeWholeGrid()
+        /* public void DirtyPipeWholeGrid()
         {
             IsDirty = true;
-        }
+        } */
 
         /// <summary>
         /// Check if that Zone in the Pipe Matrix has a Pipe of some sort or not.

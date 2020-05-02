@@ -154,7 +154,7 @@ namespace CentralizedClimateControl
             if (_alertChange)
             {
                 var manager = CentralizedClimateControlUtility.GetNetManager(parent.Map);
-                manager.DirtyPipeWholeGrid();
+                manager.IsDirty = true;  // Direct access is given, so we should use it  --Brain
                 _alertChange = false;
             }
 
