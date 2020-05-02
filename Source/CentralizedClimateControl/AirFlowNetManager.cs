@@ -187,7 +187,7 @@ namespace CentralizedClimateControl
             // DirtyPipeGrid();
             IsDirty = true;
         }
-        
+
         /*
          * Why are those two methods even here? IsDirty is public, so why raise further calls? --Brain
          */
@@ -352,12 +352,11 @@ namespace CentralizedClimateControl
                         continue;
                     }
 
-                    var iterator = compAirFlow.parent.OccupiedRect().GetIterator();
-                    while (!iterator.Done())
+                    //var iterator = compAirFlow.parent.OccupiedRect().GetIterator();
+                    //while (!iterator.Done())
+                    foreach (var item in compAirFlow.parent.OccupiedRect())
                     {
-                        var currentItem = iterator.Current;
-                        PipeGrid[flowIndex, map.cellIndices.CellToIndex(currentItem)] = gridId;
-                        iterator.MoveNext();
+                        PipeGrid[flowIndex, map.cellIndices.CellToIndex(item)] = gridId;
                     }
 
                     compAirFlow.GridID = gridId;
@@ -400,9 +399,9 @@ namespace CentralizedClimateControl
                 _masterId++;
 
                 /* -------------------------------------------
-                 * 
+                 *
                  * Scan the Position - Get all Buildings - And Assign to Network if Priority Allows
-                 * 
+                 *
                  * -------------------------------------------
                  */
                 var thingList = compAirFlow.parent.Position.GetThingList(map);
@@ -420,12 +419,11 @@ namespace CentralizedClimateControl
                         }
 
                         ValidateBuilding(buildingAirComp, network);
-                        var itr = buildingAirComp.parent.OccupiedRect().GetIterator();
-                        while (!itr.Done())
+                        //var itr = buildingAirComp.parent.OccupiedRect().GetIterator();
+                        //while (!itr.Done())
+                        foreach(var item in buildingAirComp.parent.OccupiedRect())
                         {
-                            var currentItem = itr.Current;
-                            PipeGrid[flowIndex, map.cellIndices.CellToIndex(currentItem)] = compAirFlow.GridID;
-                            itr.MoveNext();
+                            PipeGrid[flowIndex, map.cellIndices.CellToIndex(item)] = compAirFlow.GridID;
                         }
 
                         buildingAirComp.GridID = compAirFlow.GridID;
@@ -433,18 +431,17 @@ namespace CentralizedClimateControl
                 }
 
                 /* -------------------------------------------
-                 * 
+                 *
                  * Iterate the OccupiedRect of the Original compAirFlow (This is the Pipe)
                  * So, We add the Pipe to the Grid.
-                 * 
+                 *
                  * -------------------------------------------
                  */
-                var iterator = compAirFlow.parent.OccupiedRect().GetIterator();
-                while (!iterator.Done())
+                //var iterator = compAirFlow.parent.OccupiedRect().GetIterator();
+                //while (!iterator.Done())
+                foreach(var item in compAirFlow.parent.OccupiedRect())
                 {
-                    var current = iterator.Current;
-                    PipeGrid[flowIndex, map.cellIndices.CellToIndex(current)] = compAirFlow.GridID;
-                    iterator.MoveNext();
+                    PipeGrid[flowIndex, map.cellIndices.CellToIndex(item)] = compAirFlow.GridID;
                 }
 
                 ParseParentCell(compAirFlow, compAirFlow.GridID, flowIndex, network);
@@ -576,7 +573,7 @@ namespace CentralizedClimateControl
         /// <param name="comps">Pipe List</param>
         private void PrintPipes(IEnumerable<CompAirFlow> comps)
         {
-            string str = "\nPrinting CompAirFlows -"; 
+            string str = "\nPrinting CompAirFlows -";
 
             foreach (var compAirFlow in comps)
             {
