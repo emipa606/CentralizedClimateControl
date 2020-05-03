@@ -47,9 +47,10 @@ namespace CentralizedClimateControl
 
             for (var dx = 0; dx < size.x; dx++)
             {
-                var currentPos = iterator + IntVec3.South.RotatedBy(Rotation);
+                //var currentPos = iterator + IntVec3.South.RotatedBy(Rotation);
 
-                if (currentPos.Impassable(Map))
+                //if (currentPos.Impassable(Map))
+                if ((iterator + IntVec3.South.RotatedBy(Rotation)).Impassable(Map))
                 {
                     CompAirFlowTempControl.IsBlocked = true;
                     return;

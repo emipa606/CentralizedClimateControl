@@ -40,7 +40,7 @@ namespace CentralizedClimateControl
         /// <summary>
         /// Overriden Function for Pipe Atlas. It Checks for Neighbouring tiles if it should be Linked to the target cell.
         /// This Function specifies the condition that will be used.
-        /// 
+        ///
         /// Here we just check if the target cell that is asked for linkage has a Pipe of the same Color or not.
         /// </summary>
         /// <param name="vec">Target Cell</param>
@@ -68,8 +68,15 @@ namespace CentralizedClimateControl
         /// <param name="parent">Parent Object</param>
         public override void Print(SectionLayer layer, Thing parent)
         {
-            var material = LinkedDrawMatFrom(parent, parent.Position);
-            Printer_Plane.PrintPlane(layer, parent.TrueCenter(), Vector2.one, material, 0f);
+            //var material = LinkedDrawMatFrom(parent, parent.Position);
+            //Printer_Plane.PrintPlane(layer, parent.TrueCenter(), Vector2.one, material, 0f);
+            Printer_Plane.PrintPlane(
+                layer,
+                parent.TrueCenter(),
+                Vector2.one,
+                LinkedDrawMatFrom(parent, parent.Position),
+                0f
+            );
             for (var i = 0; i < 4; i++)
             {
                 var intVec = parent.Position + GenAdj.CardinalDirections[i];
@@ -80,16 +87,23 @@ namespace CentralizedClimateControl
                     continue;
                 }
 
-                var thingList = intVec.GetThingList(parent.Map);
-            
+                //var thingList = intVec.GetThingList(parent.Map);
+
                 Predicate<Thing> predicate = CheckPipe;
-                if (thingList.Any(predicate))
+                //if (thingList.Any(predicate))
+                if (intVec.GetThingList(parent.Map).Any(predicate))
                 {
                     continue;
                 }
 
-                var material2 = LinkedDrawMatFrom(parent, intVec);
-                Printer_Plane.PrintPlane(layer, intVec.ToVector3ShiftedWithAltitude(parent.def.Altitude), Vector2.one, material2, 0f);
+                //var material2 = LinkedDrawMatFrom(parent, intVec);
+                //Printer_Plane.PrintPlane(layer, intVec.ToVector3ShiftedWithAltitude(parent.def.Altitude), Vector2.one, material2, 0f);
+                Printer_Plane.PrintPlane(
+                    layer,
+                    intVec.ToVector3ShiftedWithAltitude(parent.def.Altitude),
+                    Vector2.one,
+                    LinkedDrawMatFrom(parent, intVec),
+                    0f);
             }
         }
     }

@@ -9,7 +9,7 @@ namespace CentralizedClimateControl
     {
         /// <summary>
         /// Draw Overlay when Selected or Placing.
-        /// 
+        ///
         /// Here we just draw a red/blue/cyan cell (based on Network flow type) towards the North. To indicate Exhaust.
         /// </summary>
         /// <param name="def">The Thing's Def</param>
@@ -22,8 +22,9 @@ namespace CentralizedClimateControl
 
             Map map = Find.CurrentMap;
 
-            var list = center.GetThingList(map);
-            foreach (var thingType in list)
+            //var list = center.GetThingList(map);
+            //foreach (var thingType in list)
+            foreach (var thingType in center.GetThingList(map))
             {
                 if (!(thingType is Building_AirVent))
                 {
@@ -63,7 +64,7 @@ namespace CentralizedClimateControl
 
         /// <summary>
         /// Place Worker for Air Vents.
-        /// 
+        ///
         /// Checks:
         /// - North Cell from Center musn't be Impassable
         /// </summary>
@@ -74,9 +75,10 @@ namespace CentralizedClimateControl
         /// <returns>Boolean/Acceptance Report if we can place the object of not.</returns>
         public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Map map, Thing thingToIgnore = null, Thing thing = null)
         {
-            var vec = center + IntVec3.North.RotatedBy(rot);
+            //var vec = center + IntVec3.North.RotatedBy(rot);
 
-            if (vec.Impassable(map))
+            //if (vec.Impassable(map))
+            if ((center + IntVec3.North.RotatedBy(rot)).Impassable(map))
             {
                 return "CentralizedClimateControl.Consumer.AirVentPlaceError".Translate();
             }

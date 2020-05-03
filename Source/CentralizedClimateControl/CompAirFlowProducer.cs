@@ -93,12 +93,13 @@ namespace CentralizedClimateControl
 
             if (IsOperating())
             {
-                var convertedTemp = IntakeTemperature.ToStringTemperature("F0");
-                str += AirFlowOutputKey.Translate(AirFlowOutput.ToString("#####0"));
-                str += "\n";
+                //var convertedTemp = IntakeTemperature.ToStringTemperature("F0");
+                str += AirFlowOutputKey.Translate(AirFlowOutput.ToString("#####0")) + "\n";
+                //str += "\n";
 
-                str += IntakeTempKey.Translate(convertedTemp);
-                str += "\n";
+                //str += IntakeTempKey.Translate(convertedTemp) + "\n";
+                str += IntakeTempKey.Translate(IntakeTemperature.ToStringTemperature("F0")) + "\n";
+                //str += "\n";
             }
 
             return str + base.CompInspectStringExtra();

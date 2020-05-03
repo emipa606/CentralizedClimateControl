@@ -38,10 +38,10 @@ namespace CentralizedClimateControl
             CompAirProducer.IsPoweredOff = false;
             CompAirProducer.IsBrokenDown = this.IsBrokenDown();
 
+            //var size = def.Size;
+            //var list = GenAdj.CellsAdjacent8Way(Position, Rotation, size).ToList();
             var sumTemp = 0f;
-
-            var size = def.Size;
-            var list = GenAdj.CellsAdjacent8Way(Position, Rotation, size).ToList();
+            var list = GenAdj.CellsAdjacent8Way(Position, Rotation, def.Size).ToList();
 
             foreach (var intVec in list)
             {
@@ -62,11 +62,13 @@ namespace CentralizedClimateControl
                 return;
             }
 
-            var intake = sumTemp / list.Count;
-            CompAirProducer.IntakeTemperature = intake;
+            //var intake = sumTemp / list.Count;
+            //CompAirProducer.IntakeTemperature = intake;
+            CompAirProducer.IntakeTemperature = sumTemp / list.Count;
 
-            var flow = CompAirProducer.Props.baseAirFlow - _windCellsBlocked * EfficiencyLossPerWindCubeBlocked;
-            CompAirProducer.CurrentAirFlow = flow;
+            //var flow = CompAirProducer.Props.baseAirFlow - _windCellsBlocked * EfficiencyLossPerWindCubeBlocked;
+            //CompAirProducer.CurrentAirFlow = flow;
+            CompAirProducer.CurrentAirFlow = CompAirProducer.Props.baseAirFlow - _windCellsBlocked * EfficiencyLossPerWindCubeBlocked;
         }
     }
 }

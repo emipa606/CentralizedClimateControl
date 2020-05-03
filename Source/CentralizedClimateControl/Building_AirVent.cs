@@ -56,8 +56,6 @@ namespace CentralizedClimateControl
                 return;
             }
 
-            var outsideTemp = CompAirFlowConsumer.ConvertedTemperature;
-
             IntVec3 intVec = Position + IntVec3.North.RotatedBy(Rotation);
 
             if (intVec.Impassable(Map))
@@ -65,8 +63,10 @@ namespace CentralizedClimateControl
                 return;
             }
 
-            var insideTemp = intVec.GetTemperature(Map);
-            var tempDiff = outsideTemp - insideTemp;
+            //var insideTemp = intVec.GetTemperature(Map);
+            //var tempDiff = outsideTemp - insideTemp;
+            var outsideTemp = CompAirFlowConsumer.ConvertedTemperature;
+            var tempDiff = outsideTemp - intVec.GetTemperature(Map);
             var magnitudeChange = Mathf.Abs(tempDiff);
 
             // Cap change at 10.0f
@@ -95,9 +95,10 @@ namespace CentralizedClimateControl
             var smoothMagnitude =  magnitudeChange * 0.25f * (CompAirFlowConsumer.Props.baseAirExhaust / 100.0f);
             var energyLimit = smoothMagnitude * efficiencyImpact * 4.16666651f * 12f * signChanger;
             var tempChange = GenTemperature.ControlTemperatureTempChange(intVec, Map, energyLimit, outsideTemp);
-            
-            var flag = !Mathf.Approximately(tempChange, 0f);
-            if (flag)
+
+            //var flag = !Mathf.Approximately(tempChange, 0f);
+            //if (flag)
+            if (!Mathf.Approximately(tempChange, 0f))
             {
                 intVec.GetRoomGroup(Map).Temperature += tempChange;
             }

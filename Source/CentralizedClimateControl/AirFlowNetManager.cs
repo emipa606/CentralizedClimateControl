@@ -38,6 +38,7 @@ namespace CentralizedClimateControl
 
             _pipeCount = length;
 
+            // TODO: What is going on here?  --Brain
             DirtyPipeFlag = new bool[length];
             for (var i = 0; i < DirtyPipeFlag.Length; i++)
             {
@@ -61,7 +62,7 @@ namespace CentralizedClimateControl
             if (!CachedPipes.Contains(pipe))
             {
                 CachedPipes.Add(pipe);
-                CachedPipes.Shuffle();
+                CachedPipes.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
             // Useless function call  --Brain
@@ -78,7 +79,7 @@ namespace CentralizedClimateControl
             if (CachedPipes.Contains(pipe))
             {
                 CachedPipes.Remove(pipe);
-                CachedPipes.Shuffle();
+                CachedPipes.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
             // Useless function call  --Brain
@@ -95,7 +96,7 @@ namespace CentralizedClimateControl
             if (!CachedTempControls.Contains(device))
             {
                 CachedTempControls.Add(device);
-                CachedTempControls.Shuffle();
+                CachedTempControls.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
             // Useless function call --Brain
@@ -112,7 +113,7 @@ namespace CentralizedClimateControl
             if (CachedTempControls.Contains(device))
             {
                 CachedTempControls.Remove(device);
-                CachedTempControls.Shuffle();
+                CachedTempControls.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
             // Useless function call  --Brain
@@ -129,7 +130,7 @@ namespace CentralizedClimateControl
             if (!CachedProducers.Contains(pipe))
             {
                 CachedProducers.Add(pipe);
-                CachedProducers.Shuffle();
+                CachedProducers.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
             // Useless function call  --Brain
@@ -146,7 +147,7 @@ namespace CentralizedClimateControl
             if (CachedProducers.Contains(pipe))
             {
                 CachedProducers.Remove(pipe);
-                CachedProducers.Shuffle();
+                CachedProducers.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
             // Useless function call  --Brain
@@ -163,7 +164,7 @@ namespace CentralizedClimateControl
             if (!CachedConsumers.Contains(device))
             {
                 CachedConsumers.Add(device);
-                CachedConsumers.Shuffle();
+                CachedConsumers.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
             // Useless function call  --Brain
@@ -180,7 +181,7 @@ namespace CentralizedClimateControl
             if (CachedConsumers.Contains(device))
             {
                 CachedConsumers.Remove(device);
-                CachedConsumers.Shuffle();
+                CachedConsumers.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
             // Useless function call  --Brain
@@ -188,9 +189,7 @@ namespace CentralizedClimateControl
             IsDirty = true;
         }
 
-        /*
-         * Why are those two methods even here? IsDirty is public, so why raise further calls? --Brain
-         */
+         // ? Why are those two methods even here? IsDirty is public, so why raise further calls? --Brain
 
         /// <summary>
         /// Dirty the flag for reconstruction
@@ -329,8 +328,9 @@ namespace CentralizedClimateControl
 
                     foreach (var buildingAirComp in buildingAirComps)
                     {
-                        var result = ValidateBuildingPriority(buildingAirComp, network);
-                        if (!result)
+                        // var result = ValidateBuildingPriority(buildingAirComp, network);
+                        // if(!result)
+                        if (!ValidateBuildingPriority(buildingAirComp, network))
                         {
                             continue;
                         }
@@ -412,8 +412,9 @@ namespace CentralizedClimateControl
 
                     foreach (var buildingAirComp in buildingAirComps)
                     {
-                        var result = ValidateBuildingPriority(buildingAirComp, network);
-                        if (!result)
+                        //var result = ValidateBuildingPriority(buildingAirComp, network);
+                        //if (!result)
+                        if(!ValidateBuildingPriority(buildingAirComp, network))
                         {
                             continue;
                         }
@@ -449,7 +450,7 @@ namespace CentralizedClimateControl
 
                 network.AirFlowNetTick();
 #if DEBUG
-                 Debug.Log(network.DebugString());
+                Debug.Log(network.DebugString());
 #endif
                 runtimeNets.Add(network);
             }
