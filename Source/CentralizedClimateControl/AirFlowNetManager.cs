@@ -33,8 +33,9 @@ namespace CentralizedClimateControl
         public AirFlowNetManager(Map map) : base(map)
         {
             var length = Enum.GetValues(typeof(AirFlowType)).Length;
-            var num = map.AllCells.Count();
-            PipeGrid = new int[length, num];
+            //var num = map.AllCells.Count();
+            //PipeGrid = new int[length, num];
+            PipeGrid = new int[length, map.AllCells.Count()];
 
             _pipeCount = length;
 
@@ -61,10 +62,12 @@ namespace CentralizedClimateControl
             if (!CachedPipes.Contains(pipe))
             {
                 CachedPipes.Add(pipe);
-                CachedPipes.Shuffle();
+                CachedPipes.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -76,10 +79,12 @@ namespace CentralizedClimateControl
             if (CachedPipes.Contains(pipe))
             {
                 CachedPipes.Remove(pipe);
-                CachedPipes.Shuffle();
+                CachedPipes.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -91,10 +96,12 @@ namespace CentralizedClimateControl
             if (!CachedTempControls.Contains(device))
             {
                 CachedTempControls.Add(device);
-                CachedTempControls.Shuffle();
+                CachedTempControls.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
-            DirtyPipeGrid();
+            // Useless function call --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -106,10 +113,12 @@ namespace CentralizedClimateControl
             if (CachedTempControls.Contains(device))
             {
                 CachedTempControls.Remove(device);
-                CachedTempControls.Shuffle();
+                CachedTempControls.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -121,10 +130,12 @@ namespace CentralizedClimateControl
             if (!CachedProducers.Contains(pipe))
             {
                 CachedProducers.Add(pipe);
-                CachedProducers.Shuffle();
+                CachedProducers.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -136,10 +147,12 @@ namespace CentralizedClimateControl
             if (CachedProducers.Contains(pipe))
             {
                 CachedProducers.Remove(pipe);
-                CachedProducers.Shuffle();
+                CachedProducers.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -151,10 +164,12 @@ namespace CentralizedClimateControl
             if (!CachedConsumers.Contains(device))
             {
                 CachedConsumers.Add(device);
-                CachedConsumers.Shuffle();
+                CachedConsumers.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
 
         /// <summary>
@@ -166,27 +181,31 @@ namespace CentralizedClimateControl
             if (CachedConsumers.Contains(device))
             {
                 CachedConsumers.Remove(device);
-                CachedConsumers.Shuffle();
+                CachedConsumers.Shuffle();  // ! Why Shuffle?  --Brain
             }
 
-            DirtyPipeGrid();
+            // Useless function call  --Brain
+            // DirtyPipeGrid();
+            IsDirty = true;
         }
+
+         // ? Why are those two methods even here? IsDirty is public, so why raise further calls? --Brain
 
         /// <summary>
         /// Dirty the flag for reconstruction
         /// </summary>
-        public void DirtyPipeGrid()
+        /* public void DirtyPipeGrid()
         {
             IsDirty = true;
-        }
+        } */
 
         /// <summary>
         /// Dirty the flag for reconstruction
         /// </summary>
-        public void DirtyPipeWholeGrid()
+        /* public void DirtyPipeWholeGrid()
         {
             IsDirty = true;
-        }
+        } */
 
         /// <summary>
         /// Check if that Zone in the Pipe Matrix has a Pipe of some sort or not.
@@ -297,20 +316,24 @@ namespace CentralizedClimateControl
         {
             for (var i = 0; i < 4; i++)
             {
-                var thingList = (pos + GenAdj.CardinalDirections[i]).GetThingList(map);
-                var buildingList = thingList.OfType<Building>();
+                //var thingList = (pos + GenAdj.CardinalDirections[i]).GetThingList(map);
+                //var buildingList = thingList.OfType<Building>();
+                //var buildingList = (pos + GenAdj.CardinalDirections[i]).GetThingList(map).OfType<Building>();
 
                 var list = new List<CompAirFlow>();
 
-                foreach (var current in buildingList)
+                //foreach (var current in buildingList)
+                foreach (var current in (pos + GenAdj.CardinalDirections[i]).GetThingList(map).OfType<Building>())
                 {
-                    var buildingAirComps = current.GetComps<CompAirFlow>()
-                        .Where(item => item.FlowType == (AirFlowType)flowIndex || (item.FlowType == AirFlowType.Any && item.GridID == RebuildValue));
+                    //var buildingAirComps = current.GetComps<CompAirFlow>().Where(item => item.FlowType == (AirFlowType)flowIndex || (item.FlowType == AirFlowType.Any && item.GridID == RebuildValue));
 
-                    foreach (var buildingAirComp in buildingAirComps)
+                    //foreach (var buildingAirComp in buildingAirComps)
+                    foreach (var buildingAirComp in current.GetComps<CompAirFlow>()
+                        .Where(item => item.FlowType == (AirFlowType)flowIndex || (item.FlowType == AirFlowType.Any && item.GridID == RebuildValue)))
                     {
-                        var result = ValidateBuildingPriority(buildingAirComp, network);
-                        if (!result)
+                        // var result = ValidateBuildingPriority(buildingAirComp, network);
+                        // if(!result)
+                        if (!ValidateBuildingPriority(buildingAirComp, network))
                         {
                             continue;
                         }
@@ -332,12 +355,11 @@ namespace CentralizedClimateControl
                         continue;
                     }
 
-                    var iterator = compAirFlow.parent.OccupiedRect().GetIterator();
-                    while (!iterator.Done())
+                    //var iterator = compAirFlow.parent.OccupiedRect().GetIterator();
+                    //while (!iterator.Done())
+                    foreach (var item in compAirFlow.parent.OccupiedRect())
                     {
-                        var currentItem = iterator.Current;
-                        PipeGrid[flowIndex, map.cellIndices.CellToIndex(currentItem)] = gridId;
-                        iterator.MoveNext();
+                        PipeGrid[flowIndex, map.cellIndices.CellToIndex(item)] = gridId;
                     }
 
                     compAirFlow.GridID = gridId;
@@ -352,6 +374,7 @@ namespace CentralizedClimateControl
         /// <param name="flowIndex">Type of Pipe (Red, Blue, Cyan)</param>
         private void RebuildPipeGrid(int flowIndex)
         {
+
             var flowType = (AirFlowType) flowIndex;
 
             var runtimeNets = new List<AirFlowNet>();
@@ -374,38 +397,45 @@ namespace CentralizedClimateControl
             {
                 compAirFlow.GridID = _masterId;
 
-                var network = new AirFlowNet();
-                network.GridID = compAirFlow.GridID;
-                network.FlowType = flowType;
+                var network = new AirFlowNet(){
+                    GridID = compAirFlow.GridID,
+                    FlowType = flowType
+                };
+                //network.GridID = compAirFlow.GridID;
+                //network.FlowType = flowType;
                 _masterId++;
 
                 /* -------------------------------------------
-                 * 
+                 *
                  * Scan the Position - Get all Buildings - And Assign to Network if Priority Allows
-                 * 
+                 *
                  * -------------------------------------------
                  */
-                var thingList = compAirFlow.parent.Position.GetThingList(map);
-                var buildingList = thingList.OfType<Building>();
-                foreach (var current in buildingList)
+                //var thingList = compAirFlow.parent.Position.GetThingList(map);
+                //var buildingList = thingList.OfType<Building>();
+                //var buildingList = compAirFlow.parent.Position.GetThingList(map).OfType<Building>();
+                //foreach (var current in buildingList)
+                foreach (var current in compAirFlow.parent.Position.GetThingList(map).OfType<Building>())
                 {
-                    var buildingAirComps = current.GetComps<CompAirFlow>().Where(item => item.FlowType == AirFlowType.Any && item.GridID == RebuildValue);
+                    //var buildingAirComps = current.GetComps<CompAirFlow>().Where(item => item.FlowType == AirFlowType.Any && item.GridID == RebuildValue);
 
-                    foreach (var buildingAirComp in buildingAirComps)
+                    //foreach (var buildingAirComp in buildingAirComps)
+                    foreach (var buildingAirComp in current.GetComps<CompAirFlow>()
+                        .Where(item => item.FlowType == AirFlowType.Any && item.GridID == RebuildValue))
                     {
-                        var result = ValidateBuildingPriority(buildingAirComp, network);
-                        if (!result)
+                        //var result = ValidateBuildingPriority(buildingAirComp, network);
+                        //if (!result)
+                        if(!ValidateBuildingPriority(buildingAirComp, network))
                         {
                             continue;
                         }
 
                         ValidateBuilding(buildingAirComp, network);
-                        var itr = buildingAirComp.parent.OccupiedRect().GetIterator();
-                        while (!itr.Done())
+                        //var itr = buildingAirComp.parent.OccupiedRect().GetIterator();
+                        //while (!itr.Done())
+                        foreach(var item in buildingAirComp.parent.OccupiedRect())
                         {
-                            var currentItem = itr.Current;
-                            PipeGrid[flowIndex, map.cellIndices.CellToIndex(currentItem)] = compAirFlow.GridID;
-                            itr.MoveNext();
+                            PipeGrid[flowIndex, map.cellIndices.CellToIndex(item)] = compAirFlow.GridID;
                         }
 
                         buildingAirComp.GridID = compAirFlow.GridID;
@@ -413,18 +443,17 @@ namespace CentralizedClimateControl
                 }
 
                 /* -------------------------------------------
-                 * 
+                 *
                  * Iterate the OccupiedRect of the Original compAirFlow (This is the Pipe)
                  * So, We add the Pipe to the Grid.
-                 * 
+                 *
                  * -------------------------------------------
                  */
-                var iterator = compAirFlow.parent.OccupiedRect().GetIterator();
-                while (!iterator.Done())
+                //var iterator = compAirFlow.parent.OccupiedRect().GetIterator();
+                //while (!iterator.Done())
+                foreach(var item in compAirFlow.parent.OccupiedRect())
                 {
-                    var current = iterator.Current;
-                    PipeGrid[flowIndex, map.cellIndices.CellToIndex(current)] = compAirFlow.GridID;
-                    iterator.MoveNext();
+                    PipeGrid[flowIndex, map.cellIndices.CellToIndex(item)] = compAirFlow.GridID;
                 }
 
                 ParseParentCell(compAirFlow, compAirFlow.GridID, flowIndex, network);
@@ -432,7 +461,7 @@ namespace CentralizedClimateControl
 
                 network.AirFlowNetTick();
 #if DEBUG
-                 Debug.Log(network.DebugString());
+                Debug.Log(network.DebugString());
 #endif
                 runtimeNets.Add(network);
             }
@@ -556,7 +585,7 @@ namespace CentralizedClimateControl
         /// <param name="comps">Pipe List</param>
         private void PrintPipes(IEnumerable<CompAirFlow> comps)
         {
-            string str = "\nPrinting CompAirFlows -"; 
+            string str = "\nPrinting CompAirFlows -";
 
             foreach (var compAirFlow in comps)
             {

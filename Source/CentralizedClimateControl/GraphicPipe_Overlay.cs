@@ -43,7 +43,7 @@ namespace CentralizedClimateControl
         /// <summary>
         /// Overriden Function for Pipe Atlas. It Checks for Neighbouring tiles if it should be Linked to the target cell.
         /// This Function specifies the condition that will be used.
-        /// 
+        ///
         /// Here we just check if the target cell that is asked for linkage has a Pipe of the same Color or not.
         /// </summary>
         /// <param name="intVec">Target Cell</param>
@@ -51,8 +51,9 @@ namespace CentralizedClimateControl
         /// <returns>Should Link with Same Color Pipe or not</returns>
         public override bool ShouldLinkWith(IntVec3 intVec, Thing parent)
         {
-            var building = parent as Building;
-            if (building == null)
+            //var building = parent as Building;
+            //if (building == null)
+            if ((parent as Building) == null)
             {
                 return false;
             }
@@ -67,11 +68,11 @@ namespace CentralizedClimateControl
         /// <param name="parent">Parent Object</param>
         public override void Print(SectionLayer layer, Thing parent)
         {
-            var iterator = parent.OccupiedRect().GetIterator();
-            while (!iterator.Done())
+            //var iterator = parent.OccupiedRect().GetIterator();
+            //while (!iterator.Done())
+            foreach (var item in parent.OccupiedRect())
             {
-                var current = iterator.Current;
-                var vector = current.ToVector3ShiftedWithAltitude(AltitudeLayer.MapDataOverlay);
+                var vector = item.ToVector3ShiftedWithAltitude(AltitudeLayer.MapDataOverlay);
 
                 var building = parent as Building;
 
@@ -88,8 +89,7 @@ namespace CentralizedClimateControl
 
                 subGraphic = compAirFlow.FlowType == AirFlowType.Any ? _anyGraphic : _flowGraphic;
 
-                Printer_Plane.PrintPlane(layer, vector, Vector2.one, LinkedDrawMatFrom(parent, current), 0f);
-                iterator.MoveNext();
+                Printer_Plane.PrintPlane(layer, vector, Vector2.one, LinkedDrawMatFrom(parent, item), 0f);
             }
         }
     }

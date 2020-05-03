@@ -141,6 +141,11 @@ namespace CentralizedClimateControl
         /// <param name="producer">The Producer's Component</param>
         public void DeregisterProducer(CompAirFlowProducer producer)
         {
+            if (!Producers.Contains(producer))
+            {
+                Log.Error("AirFlowNet de-registered producer it already removed: " + producer);
+                return;
+            }
             Producers.Remove(producer);
         }
 
