@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Centralized Climate Control (Continued)</name>
   <packageId>Mlie.CentralizedClimateControl</packageId>
@@ -45,7 +45,7 @@ YangHgRi
 
 Added hidden air-pipes on request and grouped the build-buttons.
 
---- Original description —-
+--- Original description â€”-
 Centralized Air Cooling/Heating System for RimWorld. Build Large Piped Air Climate Systems away from your buildings.
 
 Rimworld Version: 1.0.0 (Check Github releases for older versions)
