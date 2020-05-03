@@ -33,12 +33,12 @@ namespace CentralizedClimateControl
         public AirFlowNetManager(Map map) : base(map)
         {
             var length = Enum.GetValues(typeof(AirFlowType)).Length;
-            var num = map.AllCells.Count();
-            PipeGrid = new int[length, num];
+            //var num = map.AllCells.Count();
+            //PipeGrid = new int[length, num];
+            PipeGrid = new int[length, map.AllCells.Count()];
 
             _pipeCount = length;
 
-            // TODO: What is going on here?  --Brain
             DirtyPipeFlag = new bool[length];
             for (var i = 0; i < DirtyPipeFlag.Length; i++)
             {
@@ -316,17 +316,20 @@ namespace CentralizedClimateControl
         {
             for (var i = 0; i < 4; i++)
             {
-                var thingList = (pos + GenAdj.CardinalDirections[i]).GetThingList(map);
-                var buildingList = thingList.OfType<Building>();
+                //var thingList = (pos + GenAdj.CardinalDirections[i]).GetThingList(map);
+                //var buildingList = thingList.OfType<Building>();
+                //var buildingList = (pos + GenAdj.CardinalDirections[i]).GetThingList(map).OfType<Building>();
 
                 var list = new List<CompAirFlow>();
 
-                foreach (var current in buildingList)
+                //foreach (var current in buildingList)
+                foreach (var current in (pos + GenAdj.CardinalDirections[i]).GetThingList(map).OfType<Building>())
                 {
-                    var buildingAirComps = current.GetComps<CompAirFlow>()
-                        .Where(item => item.FlowType == (AirFlowType)flowIndex || (item.FlowType == AirFlowType.Any && item.GridID == RebuildValue));
+                    //var buildingAirComps = current.GetComps<CompAirFlow>().Where(item => item.FlowType == (AirFlowType)flowIndex || (item.FlowType == AirFlowType.Any && item.GridID == RebuildValue));
 
-                    foreach (var buildingAirComp in buildingAirComps)
+                    //foreach (var buildingAirComp in buildingAirComps)
+                    foreach (var buildingAirComp in current.GetComps<CompAirFlow>()
+                        .Where(item => item.FlowType == (AirFlowType)flowIndex || (item.FlowType == AirFlowType.Any && item.GridID == RebuildValue)))
                     {
                         // var result = ValidateBuildingPriority(buildingAirComp, network);
                         // if(!result)
@@ -371,6 +374,7 @@ namespace CentralizedClimateControl
         /// <param name="flowIndex">Type of Pipe (Red, Blue, Cyan)</param>
         private void RebuildPipeGrid(int flowIndex)
         {
+
             var flowType = (AirFlowType) flowIndex;
 
             var runtimeNets = new List<AirFlowNet>();
@@ -393,9 +397,12 @@ namespace CentralizedClimateControl
             {
                 compAirFlow.GridID = _masterId;
 
-                var network = new AirFlowNet();
-                network.GridID = compAirFlow.GridID;
-                network.FlowType = flowType;
+                var network = new AirFlowNet(){
+                    GridID = compAirFlow.GridID,
+                    FlowType = flowType
+                };
+                //network.GridID = compAirFlow.GridID;
+                //network.FlowType = flowType;
                 _masterId++;
 
                 /* -------------------------------------------
@@ -404,13 +411,17 @@ namespace CentralizedClimateControl
                  *
                  * -------------------------------------------
                  */
-                var thingList = compAirFlow.parent.Position.GetThingList(map);
-                var buildingList = thingList.OfType<Building>();
-                foreach (var current in buildingList)
+                //var thingList = compAirFlow.parent.Position.GetThingList(map);
+                //var buildingList = thingList.OfType<Building>();
+                //var buildingList = compAirFlow.parent.Position.GetThingList(map).OfType<Building>();
+                //foreach (var current in buildingList)
+                foreach (var current in compAirFlow.parent.Position.GetThingList(map).OfType<Building>())
                 {
-                    var buildingAirComps = current.GetComps<CompAirFlow>().Where(item => item.FlowType == AirFlowType.Any && item.GridID == RebuildValue);
+                    //var buildingAirComps = current.GetComps<CompAirFlow>().Where(item => item.FlowType == AirFlowType.Any && item.GridID == RebuildValue);
 
-                    foreach (var buildingAirComp in buildingAirComps)
+                    //foreach (var buildingAirComp in buildingAirComps)
+                    foreach (var buildingAirComp in current.GetComps<CompAirFlow>()
+                        .Where(item => item.FlowType == AirFlowType.Any && item.GridID == RebuildValue))
                     {
                         //var result = ValidateBuildingPriority(buildingAirComp, network);
                         //if (!result)
