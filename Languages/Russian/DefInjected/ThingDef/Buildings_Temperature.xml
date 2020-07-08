@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <IntakeFan.label>приточный вентилятор</IntakeFan.label>
+  <IntakeFan.description>Устройство, забирающее воздух из окружающей среды и перенаправляющее его в воздухопровод.</IntakeFan.description>
+  <IntakeFan_Blueprint.label>приточный вентилятор (проект)</IntakeFan_Blueprint.label>
+  <IntakeFan_Blueprint_Install.label>приточный вентилятор (проект)</IntakeFan_Blueprint_Install.label>
+  <IntakeFan_Frame.label>приточный вентилятор (постройка)</IntakeFan_Frame.label>
+  <IntakeFan_Frame.description>Устройство, забирающее воздух и перенаправляющее его в воздухопровод.</IntakeFan_Frame.description>
+  <redAirPipe.label>красный воздухопровод</redAirPipe.label>
+  <redAirPipe.description>Красный трубопровод, предназначенный для транспортирования по нему воздуха.</redAirPipe.description>
+  <redAirPipe_Blueprint.label>красный воздухопровод (проект)</redAirPipe_Blueprint.label>
+  <redAirPipe_Frame.label>красный воздухопровод (постройка)</redAirPipe_Frame.label>
+  <redAirPipe_Frame.description>Красный трубопровод, предназначенный для транспортирования по нему воздуха.</redAirPipe_Frame.description>
+  <redAirPipeHidden.label>подземный красный воздухопровод</redAirPipeHidden.label>
+  <redAirPipeHidden.description>Красный трубопровод, предназначенный для транспортирования по нему воздуха.</redAirPipeHidden.description>
+  <redAirPipeHidden_Blueprint.label>подземный красный воздухопровод (проект)</redAirPipeHidden_Blueprint.label>
+  <redAirPipeHidden_Frame.label>подземный красный воздухопровод (постройка)</redAirPipeHidden_Frame.label>
+  <redAirPipeHidden_Frame.description>Подземный красный трубопровод, предназначенный для транспортирования по нему воздуха.</redAirPipeHidden_Frame.description>
+  <blueAirPipe.label>синий воздухопровод</blueAirPipe.label>
+  <blueAirPipe.description>Синий трубопровод, предназначенный для транспортирования по нему воздуха.</blueAirPipe.description>
+  <blueAirPipe_Blueprint.label>синий воздухопровод (проект)</blueAirPipe_Blueprint.label>
+  <blueAirPipe_Frame.label>синий воздухопровод (постройка)</blueAirPipe_Frame.label>
+  <blueAirPipe_Frame.description>Синий трубопровод, предназначенный для транспортирования по нему воздуха.</blueAirPipe_Frame.description>
+  <blueAirPipeHidden.label>подземный синий воздухопровод</blueAirPipeHidden.label>
+  <blueAirPipeHidden.description>Подземный синий трубопровод, предназначенный для транспортирования по нему воздуха.</blueAirPipeHidden.description>
+  <blueAirPipeHidden_Blueprint.label>подземный синий воздухопровод (проект)</blueAirPipeHidden_Blueprint.label>
+  <blueAirPipeHidden_Frame.label>подземный синий воздухопровод (постройка)</blueAirPipeHidden_Frame.label>
+  <blueAirPipeHidden_Frame.description>Подземный синий трубопровод, предназначенный для транспортирования по нему воздуха.</blueAirPipeHidden_Frame.description>
+  <cyanAirPipe.label>голубой воздухопровод</cyanAirPipe.label>
+  <cyanAirPipe.description>Голубой трубопровод, предназначенный для транспортирования по нему воздуха.</cyanAirPipe.description>
+  <cyanAirPipe_Blueprint.label>голубой воздухопровод (проект)</cyanAirPipe_Blueprint.label>
+  <cyanAirPipe_Frame.label>голубой воздухопровод (постройка)</cyanAirPipe_Frame.label>
+  <cyanAirPipe_Frame.description>Голубой трубопровод, предназначенный для транспортирования по нему воздуха.</cyanAirPipe_Frame.description>
+  <cyanAirPipeHidden.label>подземный голубой воздухопровод</cyanAirPipeHidden.label>
+  <cyanAirPipeHidden.description>Подземный голубой трубопровод, предназначенный для транспортирования по нему воздуха.</cyanAirPipeHidden.description>
+  <cyanAirPipeHidden_Blueprint.label>подземный голубой воздухопровод (проект)</cyanAirPipeHidden_Blueprint.label>
+  <cyanAirPipeHidden_Frame.label>подземный голубой воздухопровод (постройка)</cyanAirPipeHidden_Frame.label>
+  <cyanAirPipeHidden_Frame.description>Подземный голубой трубопровод, предназначенный для транспортирования по нему воздуха.</cyanAirPipeHidden_Frame.description>
+  <AirThermal.label>климат-контроль</AirThermal.label>
+  <AirThermal.description>Устройство, забирающее воздух из воздухопроводной сети и охлаждающее/согревающее его в зависимости от выставленной температуры.</AirThermal.description>
+  <AirThermal_Blueprint.label>климат-контроль (проект)</AirThermal_Blueprint.label>
+  <AirThermal_Blueprint_Install.label>климат-контроль (проект)</AirThermal_Blueprint_Install.label>
+  <AirThermal_Frame.label>климат-контроль (постройка)</AirThermal_Frame.label>
+  <AirThermal_Frame.description>Устройство, забирающее воздух из воздухопроводной сети и охлаждающее/согревающее его в зависимости от выставленной температуры.</AirThermal_Frame.description>
+  <LargeIntakeFan.label>огромный приточный вентилятор</LargeIntakeFan.label>
+  <LargeIntakeFan.description>Устройство, забирающее воздух из окружающей среды и перенаправляющее его в воздухопровод. В пять раз эффективнее меньшей версии.</LargeIntakeFan.description>
+  <LargeIntakeFan_Blueprint.label>огромный приточный вентилятор (проект)</LargeIntakeFan_Blueprint.label>
+  <LargeIntakeFan_Blueprint_Install.label>огромный приточный вентилятор (проект)</LargeIntakeFan_Blueprint_Install.label>
+  <LargeIntakeFan_Frame.label>огромный приточный вентилятор (постройка)</LargeIntakeFan_Frame.label>
+  <LargeIntakeFan_Frame.description>Устройство, забирающее воздух и перенаправляющее его в воздухопровод. В пять раз эффективнее меньшей версии.</LargeIntakeFan_Frame.description>
+  <LargeAirThermal.label>огромный климат-контроль</LargeAirThermal.label>
+  <LargeAirThermal.description>Устройство, забирающее воздух из воздухопроводной сети и охлаждающее/согревающее его в зависимости от выставленной температуры. В пять раз эффективнее меньшей версии.</LargeAirThermal.description>
+  <LargeAirThermal_Blueprint.label>огромный климат-контроль (проект)</LargeAirThermal_Blueprint.label>
+  <LargeAirThermal_Blueprint_Install.label>огромный климат-контроль (проект)</LargeAirThermal_Blueprint_Install.label>
+  <LargeAirThermal_Frame.label>огромный климат-контроль (постройка)</LargeAirThermal_Frame.label>
+  <LargeAirThermal_Frame.description>Устройство, забирающее воздух из воздухопроводной сети и охлаждающее/согревающее его в зависимости от выставленной температуры. В пять раз эффективнее меньшей версии.</LargeAirThermal_Frame.description>
+</LanguageData>

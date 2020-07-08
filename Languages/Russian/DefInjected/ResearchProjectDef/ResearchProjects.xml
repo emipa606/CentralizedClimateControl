@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BasicClimateControl.label>Базовая система климат-контроля</BasicClimateControl.label>
+  <BasicClimateControl.description>Позволяет более эффективно контролировать температуру в вашей колонии.</BasicClimateControl.description>
+  <IndustrialClimateControl.label>Продвинутая система климат-контроля</IndustrialClimateControl.label>
+  <IndustrialClimateControl.description>Научитесь строить огромные приточные вентиляторы и огромные устройства климат-контроля.</IndustrialClimateControl.description>
+</LanguageData>

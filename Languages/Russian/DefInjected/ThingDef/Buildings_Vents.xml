@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Regular Wall Vent -->
+  <WallAirVent.label>настенное вентиляционное отверстие</WallAirVent.label>
+  <WallAirVent.description>Устройство, забирающее воздух из воздухопроводной сети и высвобождающее его в окружающую среду.</WallAirVent.description>
+  <WallAirVent_Blueprint.label>настенное вентиляционное отверстие (проект)</WallAirVent_Blueprint.label>
+  <WallAirVent_Blueprint_Install.label>настенное вентиляционное отверстие (проект)</WallAirVent_Blueprint_Install.label>
+  <WallAirVent_Frame.label>настенное вентиляционное отверстие (постройка)</WallAirVent_Frame.label>
+  <WallAirVent_Frame.description>Устройство, забирающее воздух из воздухопроводной сети и высвобождающее его в окружающую среду.</WallAirVent_Frame.description>
+  <!-- Small Wall Vent -->
+  <WallAirVentSmall.label>маленькое настенное вентиляционное отверстие</WallAirVentSmall.label>
+  <WallAirVentSmall.description>Устройство, забирающее воздух из воздухопроводной сети и высвобождающее его в окружающую среду. Менее эффективно из-за меньшего размера.</WallAirVentSmall.description>
+  <WallAirVentSmall_Blueprint.label>маленькое настенное вентиляционное отверстие (проект)</WallAirVentSmall_Blueprint.label>
+  <WallAirVentSmall_Blueprint_Install.label>маленькое настенное вентиляционное отверстие (проект)</WallAirVentSmall_Blueprint_Install.label>
+  <WallAirVentSmall_Frame.label>маленькое настенное вентиляционное отверстие (постройка)</WallAirVentSmall_Frame.label>
+  <WallAirVentSmall_Frame.description>Устройство, забирающее воздух из воздухопроводной сети и высвобождающее его в окружающую среду. Менее эффективно из-за меньшего размера.</WallAirVentSmall_Frame.description>
+  <!-- Regular Surround Vents -->
+  <SurroundAirVent.label>напольная вентиляция</SurroundAirVent.label>
+  <SurroundAirVent.description>Устройство, забирающее воздух из воздухопроводной сети и высвобождающее его во все стороны вокруг себя.</SurroundAirVent.description>
+  <SurroundAirVent_Blueprint.label>напольная вентиляция (проект)</SurroundAirVent_Blueprint.label>
+  <SurroundAirVent_Blueprint_Install.label>surroundAirVent (проект)</SurroundAirVent_Blueprint_Install.label>
+  <SurroundAirVent_Frame.label>напольная вентиляция (постройка)</SurroundAirVent_Frame.label>
+  <SurroundAirVent_Frame.description>Устройство, забирающее воздух из воздухопроводной сети и высвобождающее его во все стороны вокруг себя.</SurroundAirVent_Frame.description>
+  <!-- Wide Surround Vents -->
+  <SurroundAirVentWide.label>длинная напольная вентиляция</SurroundAirVentWide.label>
+  <SurroundAirVentWide.description>Устройство, забирающее воздух из воздухопроводной сети и высвобождающее его во все стороны вокруг себя. Более эффективно большего размера.</SurroundAirVentWide.description>
+  <SurroundAirVentWide_Blueprint.label>длинная напольная вентиляция (проект)</SurroundAirVentWide_Blueprint.label>
+  <SurroundAirVentWide_Blueprint_Install.label>surroundAirVentWide (проект)</SurroundAirVentWide_Blueprint_Install.label>
+  <SurroundAirVentWide_Frame.label>длинная напольная вентиляция (постройка)</SurroundAirVentWide_Frame.label>
+  <SurroundAirVentWide_Frame.description>Устройство, забирающее воздух из воздухопроводной сети и высвобождающее его во все стороны вокруг себя. Более эффективно большего размера.</SurroundAirVentWide_Frame.description>
+</LanguageData>
