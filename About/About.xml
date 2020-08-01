@@ -7,6 +7,7 @@
   <supportedVersions>
     <li>1.0</li>
     <li>1.1</li>
+    <li>1.2</li>
   </supportedVersions>
   <modDependencies>
     <li>
@@ -45,7 +46,7 @@ YangHgRi
 
 Added hidden air-pipes on request and grouped the build-buttons.
 
---- Original description â€”-
+--- Original description —-
 Centralized Air Cooling/Heating System for RimWorld. Build Large Piped Air Climate Systems away from your buildings.
 
 Rimworld Version: 1.0.0 (Check Github releases for older versions)
