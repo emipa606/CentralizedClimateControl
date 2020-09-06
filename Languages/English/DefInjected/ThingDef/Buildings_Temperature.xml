@@ -1,53 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <IntakeFan.label>Intake Air Fan</IntakeFan.label>
-  <IntakeFan.description>This device takes air from its environment like a room or outside. It channels this air to a Pipe network.</IntakeFan.description>
-  <IntakeFan_Blueprint.label>Intake Air Fan (Blueprint)</IntakeFan_Blueprint.label>
-  <IntakeFan_Blueprint_Install.label>intakeFan (blueprint)</IntakeFan_Blueprint_Install.label>
-  <IntakeFan_Frame.label>Intake Air Fan (Building)</IntakeFan_Frame.label>
-  <IntakeFan_Frame.description>Channels air from its surrondings to a Pipe Network.</IntakeFan_Frame.description>
-
-  <redAirPipe.label>Red Air Pipe</redAirPipe.label>
-  <redAirPipe.description>Red Pipes for carrying air.</redAirPipe.description>
-  <redAirPipe_Blueprint.label>Red Air Pipe (blueprint)</redAirPipe_Blueprint.label>
-  <redAirPipe_Frame.label>Red Air Pipe (building)</redAirPipe_Frame.label>
-  <redAirPipe_Frame.description>Red Pipes for carrying air.</redAirPipe_Frame.description>
-
-  <blueAirPipe.label>Blue Air Pipe</blueAirPipe.label>
-  <blueAirPipe.description>Blue Pipes for carrying air.</blueAirPipe.description>
-  <blueAirPipe_Blueprint.label>Blue Air Pipe (blueprint)</blueAirPipe_Blueprint.label>
-  <blueAirPipe_Frame.label>Blue Air Pipe (building)</blueAirPipe_Frame.label>
-  <blueAirPipe_Frame.description>Blue Pipes for carrying air.</blueAirPipe_Frame.description>
-
-  <cyanAirPipe.label>Cyan Air Pipe</cyanAirPipe.label>
-  <cyanAirPipe.description>Cyan Air Pipes for carrying air.</cyanAirPipe.description>
-  <cyanAirPipe_Blueprint.label>Cyan Air Pipe (blueprint)</cyanAirPipe_Blueprint.label>
-  <cyanAirPipe_Frame.label>Cyan Air Pipe (building)</cyanAirPipe_Frame.label>
-  <cyanAirPipe_Frame.description>Cyan Air Pipes for carrying air.</cyanAirPipe_Frame.description>
-
-  <AirThermal.label>Air Climate Control</AirThermal.label>
-  <AirThermal.description>This device takes air from a Pipe Network and cools or heats it depending on the Target temperature.</AirThermal.description>
-  <AirThermal_Blueprint.label>Air Climate Control (Blueprint)</AirThermal_Blueprint.label>
-  <AirThermal_Blueprint_Install.label>airThermal (blueprint)</AirThermal_Blueprint_Install.label>
-  <AirThermal_Frame.label>Air Climate Control (Building)</AirThermal_Frame.label>
-  <AirThermal_Frame.description>Converts air in a Pipe Network to its target temperature.</AirThermal_Frame.description>
-
-  <LargeIntakeFan.label>Large Intake Fan</LargeIntakeFan.label>
-  <LargeIntakeFan.description>This device takes air from its environment like a room or outside. It channels this air to a Pipe network.</LargeIntakeFan.description>
-  <LargeIntakeFan_Blueprint.label>Large Intake Fan (Blueprint)</LargeIntakeFan_Blueprint.label>
-  <LargeIntakeFan_Blueprint_Install.label>largeIntakeFan (blueprint)</LargeIntakeFan_Blueprint_Install.label>
-  <LargeIntakeFan_Frame.label>Large Intake Fan (Building)</LargeIntakeFan_Frame.label>
-  <LargeIntakeFan_Frame.description>Channels air from its surrondings to a Pipe Network.</LargeIntakeFan_Frame.description>
-
-  <LargeAirThermal.label>Large Air Climate Control</LargeAirThermal.label>
-  <LargeAirThermal.description>This device takes air from a Pipe Network and cools or heats it depending on the Target temperature.</LargeAirThermal.description>
-  <LargeAirThermal_Blueprint.label>Large Air Climate Control (Blueprint)</LargeAirThermal_Blueprint.label>
-  <LargeAirThermal_Blueprint_Install.label>largeAirThermal (blueprint)</LargeAirThermal_Blueprint_Install.label>
-  <LargeAirThermal_Frame.label>Large Air Climate Control (Building)</LargeAirThermal_Frame.label>
-  <LargeAirThermal_Frame.description>Converts air in a Pipe Network to its target temperature.</LargeAirThermal_Frame.description>
-
-
+  <!--<IntakeFan.label>Intake Air Fan</IntakeFan.label>-->
+  <!--<IntakeFan.description>This device takes air from its environment like a room or outside. It channels this air to a Pipe network.</IntakeFan.description>-->
+  <!--<IntakeFan_Blueprint.label>Intake Air Fan (Blueprint)</IntakeFan_Blueprint.label>-->
+  <!--<IntakeFan_Blueprint_Install.label>intakeFan (blueprint)</IntakeFan_Blueprint_Install.label>-->
+  <!--<IntakeFan_Frame.label>Intake Air Fan (Building)</IntakeFan_Frame.label>-->
+  <!--<IntakeFan_Frame.description>Channels air from its surrondings to a Pipe Network.</IntakeFan_Frame.description>-->
+  <!--<redAirPipe.label>Red Air Pipe</redAirPipe.label>-->
+  <!--<redAirPipe.description>Red Pipes for carrying air.</redAirPipe.description>-->
+  <!--<redAirPipe_Blueprint.label>Red Air Pipe (blueprint)</redAirPipe_Blueprint.label>-->
+  <!--<redAirPipe_Frame.label>Red Air Pipe (building)</redAirPipe_Frame.label>-->
+  <!--<redAirPipe_Frame.description>Red Pipes for carrying air.</redAirPipe_Frame.description>-->
+  <!--<blueAirPipe.label>Blue Air Pipe</blueAirPipe.label>-->
+  <!--<blueAirPipe.description>Blue Pipes for carrying air.</blueAirPipe.description>-->
+  <!--<blueAirPipe_Blueprint.label>Blue Air Pipe (blueprint)</blueAirPipe_Blueprint.label>-->
+  <!--<blueAirPipe_Frame.label>Blue Air Pipe (building)</blueAirPipe_Frame.label>-->
+  <!--<blueAirPipe_Frame.description>Blue Pipes for carrying air.</blueAirPipe_Frame.description>-->
+  <!--<cyanAirPipe.label>Cyan Air Pipe</cyanAirPipe.label>-->
+  <!--<cyanAirPipe.description>Cyan Air Pipes for carrying air.</cyanAirPipe.description>-->
+  <!--<cyanAirPipe_Blueprint.label>Cyan Air Pipe (blueprint)</cyanAirPipe_Blueprint.label>-->
+  <!--<cyanAirPipe_Frame.label>Cyan Air Pipe (building)</cyanAirPipe_Frame.label>-->
+  <!--<cyanAirPipe_Frame.description>Cyan Air Pipes for carrying air.</cyanAirPipe_Frame.description>-->
+  <!--<AirThermal.label>Air Climate Control</AirThermal.label>-->
+  <!--<AirThermal.description>This device takes air from a Pipe Network and cools or heats it depending on the Target temperature.</AirThermal.description>-->
+  <!--<AirThermal_Blueprint.label>Air Climate Control (Blueprint)</AirThermal_Blueprint.label>-->
+  <!--<AirThermal_Blueprint_Install.label>airThermal (blueprint)</AirThermal_Blueprint_Install.label>-->
+  <!--<AirThermal_Frame.label>Air Climate Control (Building)</AirThermal_Frame.label>-->
+  <!--<AirThermal_Frame.description>Converts air in a Pipe Network to its target temperature.</AirThermal_Frame.description>-->
+  <!--<LargeIntakeFan.label>Large Intake Fan</LargeIntakeFan.label>-->
+  <!--<LargeIntakeFan.description>This device takes air from its environment like a room or outside. It channels this air to a Pipe network.</LargeIntakeFan.description>-->
+  <!--<LargeIntakeFan_Blueprint.label>Large Intake Fan (Blueprint)</LargeIntakeFan_Blueprint.label>-->
+  <!--<LargeIntakeFan_Blueprint_Install.label>largeIntakeFan (blueprint)</LargeIntakeFan_Blueprint_Install.label>-->
+  <!--<LargeIntakeFan_Frame.label>Large Intake Fan (Building)</LargeIntakeFan_Frame.label>-->
+  <!--<LargeIntakeFan_Frame.description>Channels air from its surrondings to a Pipe Network.</LargeIntakeFan_Frame.description>-->
+  <!--<LargeAirThermal.label>Large Air Climate Control</LargeAirThermal.label>-->
+  <!--<LargeAirThermal.description>This device takes air from a Pipe Network and cools or heats it depending on the Target temperature.</LargeAirThermal.description>-->
+  <!--<LargeAirThermal_Blueprint.label>Large Air Climate Control (Blueprint)</LargeAirThermal_Blueprint.label>-->
+  <!--<LargeAirThermal_Blueprint_Install.label>largeAirThermal (blueprint)</LargeAirThermal_Blueprint_Install.label>-->
+  <!--<LargeAirThermal_Frame.label>Large Air Climate Control (Building)</LargeAirThermal_Frame.label>-->
+  <!--<LargeAirThermal_Frame.description>Converts air in a Pipe Network to its target temperature.</LargeAirThermal_Frame.description>-->
   <!--<AirVent.label>Air Exhaust Vent</AirVent.label>-->
   <!--<AirVent.description>This device takes air from a Pipe Network and dumps it in the connected room or outside environment.</AirVent.description>-->
   <!--<AirVent_Blueprint.label>Air Exhaust Vent (Blueprint)</AirVent_Blueprint.label>-->
