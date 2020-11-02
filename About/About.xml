@@ -27,38 +27,42 @@
     <li>brrainz.harmony</li>
     <li>UnlimitedHugs.HugsLib</li>
   </loadAfter>
-  <description>
-  This is a continuation of ColdToads excellent mod that is no longer updated:
+  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+Update of ColdToads mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
 
-[img]https://raw.githubusercontent.com/emipa606/RimWorld-Wrapper/master/Notice.png[/img]
+- Chinese translation by YangHgRi
+- Added hidden air-pipes on request and grouped the build-buttons
+- Improved graphics by spoden
 
-[img]https://i.imgur.com/GYswkZ7.png[/img]
+[img]https://i.imgur.com/7Gzt3Rg.png[/img]
 
-Support-chat:
-https://discord.gg/SuhwVpM
+[table]
+    [tr]
+        [td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
+        [td][url=https://github.com/emipa606CentralizedClimateControl/][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+    [/tr]
+[/table]
+	
+[img]https://i.imgur.com/NOW7jU1.png[/img]
 
-Non-Steam version:
-https://github.com/emipa606/CentralizedClimateControl
-
-Chinese translation:
-YangHgRi
-
-Added hidden air-pipes on request and grouped the build-buttons.
-
---- Original description —-
 Centralized Air Cooling/Heating System for RimWorld. Build Large Piped Air Climate Systems away from your buildings.
+
+-----
+
+NOTICE:
+This mod is no longer maintained. Due to recent life changes, It is hard to find time for this mod. The license has been modified to MIT License so people have been given freedom to modify the mod itself. Overall, the mod still works fine, there may be incompatibilities with other mods that I would not have discovered. I highly recommend looking at the Getting Started guide on steam if you are trying it out.
+
+-----
 
 Rimworld Version: 1.0.0 (Check Github releases for older versions)
 Version: 1.5.0
 
-Forum Link[ludeon.com]
-Recommended: Steam Guide for Creating a Basic Setup
-
-http://steamcommunity.com/sharedfiles/filedetails/?id=1078768280
+[url=https://ludeon.com/forums/index.php?topic=34346.0]Forum Link[/url]
+[url=http://steamcommunity.com/sharedfiles/filedetails/?id=1078768280]Recommended: Steam Guide for Creating a Basic Setup[/url]
 
 Watch this video if you are having issues with the guides. It's a little old, but covers the basic usage of the mod!
-Youtube Video Link (BaRKy) https://www.youtube.com/watch?v=1tnF4kdAnxk
+[url=https://www.youtube.com/watch?v=1tnF4kdAnxk]Youtube Video Link (BaRKy)[/url]
 
 While there are many alternate mods for Central Heating. This mod adds a new network-like resource (like electricity) Air. The heating/cooling system you will build depends on the number of rooms and the heating/cooling capacity of your air networks.
 
@@ -71,15 +75,15 @@ Following buildings are added:
 - Wall Mounted Air Vents
 - Large Intakes and Air Climate Units
 
-Features and Differences (from other mods):
+[h1] Features and Differences (from other mods): [/h1]
 
-Unified Heating/Cooling System
+[b] Unified Heating/Cooling System [/b]
 Heating and Cooling is done by 1 unit, so reduces the need to build coolers and heaters.
 
-Outside (and Far away) Heat Exhaust:
+[b] Outside (and Far away) Heat Exhaust: [/b]
 The Heat Exhaust of the Climate Control units isn't located adjacent to rooms. They are located far away from your rooms, thus allowing you to make adjacent rooms to fridge rooms.
 
-Air Network
+[b] Air Network [/b]
 There is a network-like resource (like electricity) which is generated and consumed which is further dictated by Efficiency of the Network.
 1) Flow Efficiency
 The rate at which your rooms will cool/heat or maintain heat due to changes in the room temps.
@@ -91,61 +95,42 @@ Value: 1 Climate Control Unit for 3 Intake Fan
 
 You can always check efficiency of each network at the Vents.
 
-Air Temperature inside Pipes
+[b] Air Temperature inside Pipes [/b]
 This mod also deals with the temperature of the air in the Pipe Network.
 
-Can share air without Climate Control units
+[b] Can share air without Climate Control units [/b]
 Intakes take note of the Air Temperature the take in. We can practically make Climate Control-less networks that share the same temperature.
 For example:
 Multiple Frigdes can be connected together, but only 1 is getting the cooling. The rest just share the air.
 
-Bigger buildings for late game
+[b] Bigger buildings for late game [/b]
 Build larger Intakes and Climate Units which have about 5x more power than a regular machine.
 
-Pipe Switches
+[b] Pipe Switches [/b]
 If you have multiple pipes near your vent, You can force it to connect to a specific pipe.
 
-Requires:
-[ludeon.com]
-
-Installation:
+[h1] Installation: [/h1]
 1) Make sure you enable HugsLib first and before this Mod
 2) Enable the Mod in the Mod List
 
-Known Issues:
+[h1] Known Issues: [/h1]
 - Compatibility Issues with Redist.Heat Mod
 - Reinstall doesn't work properly (Install and Uninstall works fine.)
 
-Note:
+[h1] Note: [/h1]
 This is my first mod for any game ever. There might be some issues. I wanted to see how the community responds to my mod, and want to work more on it! :)
 
 Thanks if you are trying my mod out!
 
-Authors:
-- vasumahesh
-- [B19 changes] Jdalt40 [github.com]
+[h1] Authors: [/h1]
+- [url=http://steamcommunity.com/id/vasumahesh/] vasumahesh	[/url]
+- [url=https://github.com/Jdalt40] [B19 changes] Jdalt40  [/url]
 
-Credits:
-- carlgraves for "Central Heating" [ludeon.com]
-- Redist Heat [ludeon.com]
-- Dubs Hygiene Mod [ludeon.com]
+[h1] Credits: [/h1]
+- [url=https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for "Central Heating" [/url]
+- [url=https://ludeon.com/forums/index.php?topic=21770.0] Redist Heat [/url]
+- [url=https://ludeon.com/forums/index.php?topic=29043.msg341113#msg341113] Dubs Hygiene Mod [/url]
 
-License:
-MIT License
-
-Alternate Links:
-- Google Drive Link [drive.google.com]
-POPULAR DISCUSSIONS View All (10)
-52 30 Sep, 2019 @ 5:56pm
-
-PINNED: Bugs and Issues
-ColdToad
-18 29 Nov, 2019 @ 4:59pm
-
-Feature Suggestions
-ColdToad
-16 24 Dec, 2018 @ 4:21pm
-
-Thoughts, Quirks, Bugs, and Oddities
-Mavoc</description>
+[h1] License: [/h1]
+MIT License</description>
 </ModMetaData>
