@@ -325,7 +325,7 @@
   </ThingDef>
   <ThingDef ParentName="CentralizedClimateControlBuilding">
     <defName>AirThermal</defName>
-    <label>Climate unit</label>
+    <label>Climate control unit</label>
     <thingClass>CentralizedClimateControl.Building_AirThermal</thingClass>
     <graphicData>
       <texPath>Things/Building/AirThermal</texPath>
@@ -354,7 +354,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
-    <description>A climate unit for heating and cooling air.</description>
+    <description>A climate control unit for heating and cooling air.</description>
     <costList>
       <Steel>200</Steel>
       <ComponentIndustrial>3</ComponentIndustrial>
@@ -455,7 +455,7 @@
   </ThingDef>
   <ThingDef ParentName="CentralizedClimateControlBuilding">
     <defName>LargeAirThermal</defName>
-    <label>Large climate unit</label>
+    <label>Large climate control unit</label>
     <thingClass>CentralizedClimateControl.Building_AirThermal</thingClass>
     <graphicData>
       <texPath>Things/Building/LargeAirThermal</texPath>
@@ -485,7 +485,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
-    <description>A large climate unit for heating and cooling air.</description>
+    <description>A large climate control unit for heating and cooling air.</description>
     <costList>
       <Steel>600</Steel>
       <ComponentIndustrial>9</ComponentIndustrial>

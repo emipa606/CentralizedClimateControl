@@ -15,7 +15,7 @@
   <ResearchProjectDef>
     <defName>IndustrialClimateControl</defName>
     <label>Industrial climate control</label>
-    <description>Build industrial-sized intakes and climate units.</description>
+    <description>Build industrial-sized intakes and climate control units.</description>
     <baseCost>1200</baseCost>
     <techLevel>Industrial</techLevel>
     <prerequisites>
