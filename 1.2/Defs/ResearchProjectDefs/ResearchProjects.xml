@@ -2,8 +2,8 @@
 <Defs>
   <ResearchProjectDef>
     <defName>BasicClimateControl</defName>
-    <label>Basic climate control</label>
-    <description>Use basic central heating and cooling systems to maintain air temperature.</description>
+    <label>Basic Climate Control</label>
+    <description>Use basic central heating and cooling system to maintain air flow in your colony.</description>
     <baseCost>800</baseCost>
     <techLevel>Industrial</techLevel>
     <prerequisites>
@@ -14,8 +14,8 @@
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>IndustrialClimateControl</defName>
-    <label>Industrial climate control</label>
-    <description>Build industrial-sized intakes and climate control units.</description>
+    <label>Industrial Climate Control</label>
+    <description>Build Large Intakes and Climate Control.</description>
     <baseCost>1200</baseCost>
     <techLevel>Industrial</techLevel>
     <prerequisites>

@@ -96,8 +96,8 @@
   </ThingDef>
   <ThingDef ParentName="HiddenAirPipe">
     <defName>redAirPipeHidden</defName>
-    <label>Red underground air pipe</label>
-    <description>Red pipes for carrying air underground.</description>
+    <label>Red covered air pipe</label>
+    <description>Red pipes for carrying air under floors.</description>
     <thingClass>CentralizedClimateControl.Building_HotAirPipe</thingClass>
     <uiIconPath>UI/RedAirPipeHidden</uiIconPath>
     <costList>
@@ -162,8 +162,8 @@
   </ThingDef>
   <ThingDef ParentName="HiddenAirPipe">
     <defName>blueAirPipeHidden</defName>
-    <label>Blue underground air pipe</label>
-    <description>Blue pipes for carrying air underground.</description>
+    <label>Blue covered air pipe</label>
+    <description>Blue pipes for carrying air under floors.</description>
     <thingClass>CentralizedClimateControl.Building_ColdAirPipe</thingClass>
     <uiIconPath>UI/BlueAirPipeHidden</uiIconPath>
     <costList>
@@ -228,8 +228,8 @@
   </ThingDef>
   <ThingDef ParentName="HiddenAirPipe">
     <defName>cyanAirPipeHidden</defName>
-    <label>Cyan underground air pipe</label>
-    <description>Cyan pipes for carrying air underground.</description>
+    <label>Cyan covered air pipe</label>
+    <description>Cyan pipes for carrying air under floors.</description>
     <thingClass>CentralizedClimateControl.Building_FrozenAirPipe</thingClass>
     <uiIconPath>UI/CyanAirPipeHidden</uiIconPath>
     <costList>
@@ -314,7 +314,7 @@
       <li Class="CompProperties_Breakdownable" />
     </comps>
     <designationCategory>Temperature</designationCategory>
-	<designatorDropdown>CCC_Intake</designatorDropdown>
+    <designatorDropdown>CCC_Intake</designatorDropdown>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>BasicClimateControl</li>
@@ -379,7 +379,7 @@
       <li Class="CompProperties_Breakdownable" />
     </comps>
     <designationCategory>Temperature</designationCategory>
-	<designatorDropdown>CCC_ACC</designatorDropdown>
+    <designatorDropdown>CCC_ACC</designatorDropdown>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>BasicClimateControl</li>
@@ -444,7 +444,7 @@
       <li Class="CompProperties_Breakdownable" />
     </comps>
     <designationCategory>Temperature</designationCategory>
-	<designatorDropdown>CCC_Intake</designatorDropdown>
+    <designatorDropdown>CCC_Intake</designatorDropdown>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>IndustrialClimateControl</li>
@@ -510,7 +510,7 @@
       <li Class="CompProperties_Breakdownable" />
     </comps>
     <designationCategory>Temperature</designationCategory>
-	<designatorDropdown>CCC_ACC</designatorDropdown>
+    <designatorDropdown>CCC_ACC</designatorDropdown>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>IndustrialClimateControl</li>

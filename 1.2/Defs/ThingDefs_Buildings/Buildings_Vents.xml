@@ -22,7 +22,7 @@
       <li>BasicClimateControl</li>
     </researchPrerequisites>
     <designationCategory>Temperature</designationCategory>
-	<designatorDropdown>CCC_Vents</designatorDropdown>
+    <designatorDropdown>CCC_Vents</designatorDropdown>
     <designationHotKey>Misc4</designationHotKey>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
@@ -212,5 +212,4 @@
       </li>
     </comps>
   </ThingDef>
-  
 </Defs>
