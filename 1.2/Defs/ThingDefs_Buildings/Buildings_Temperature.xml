@@ -63,8 +63,8 @@
   </ThingDef>
   <ThingDef ParentName="AirPipe">
     <defName>redAirPipe</defName>
-    <label>Red Air Pipe</label>
-    <description>Red Pipes for carrying air.</description>
+    <label>Red air pipe</label>
+    <description>Red pipes for carrying air.</description>
     <thingClass>CentralizedClimateControl.Building_HotAirPipe</thingClass>
     <uiIconPath>UI/RedAirPipe</uiIconPath>
     <costList>
@@ -86,7 +86,7 @@
         <texPath>Things/Building/Hot_AirPipe_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
     </building>
-    <designationCategory>CentralClimateControl</designationCategory>
+    <designationCategory>Temperature</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
@@ -96,8 +96,8 @@
   </ThingDef>
   <ThingDef ParentName="HiddenAirPipe">
     <defName>redAirPipeHidden</defName>
-    <label>Red Air Pipe Hidden</label>
-    <description>Red Pipes for carrying air underground.</description>
+    <label>Red underground air pipe</label>
+    <description>Red pipes for carrying air underground.</description>
     <thingClass>CentralizedClimateControl.Building_HotAirPipe</thingClass>
     <uiIconPath>UI/RedAirPipeHidden</uiIconPath>
     <costList>
@@ -119,7 +119,7 @@
         <texPath>Things/Building/Hot_AirPipe_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
     </building>
-    <designationCategory>CentralClimateControl</designationCategory>
+    <designationCategory>Temperature</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
@@ -129,8 +129,8 @@
   </ThingDef>
   <ThingDef ParentName="AirPipe">
     <defName>blueAirPipe</defName>
-    <label>Blue Air Pipe</label>
-    <description>Blue Pipes for carrying air.</description>
+    <label>Blue air pipe</label>
+    <description>Blue pipes for carrying air.</description>
     <thingClass>CentralizedClimateControl.Building_ColdAirPipe</thingClass>
     <uiIconPath>UI/BlueAirPipe</uiIconPath>
     <costList>
@@ -152,7 +152,7 @@
         <texPath>Things/Building/Cold_AirPipe_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
     </building>
-    <designationCategory>CentralClimateControl</designationCategory>
+    <designationCategory>Temperature</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
@@ -162,8 +162,8 @@
   </ThingDef>
   <ThingDef ParentName="HiddenAirPipe">
     <defName>blueAirPipeHidden</defName>
-    <label>Blue Air Pipe Hidden</label>
-    <description>Blue Pipes for carrying air underground.</description>
+    <label>Blue underground air pipe</label>
+    <description>Blue pipes for carrying air underground.</description>
     <thingClass>CentralizedClimateControl.Building_ColdAirPipe</thingClass>
     <uiIconPath>UI/BlueAirPipeHidden</uiIconPath>
     <costList>
@@ -185,7 +185,7 @@
         <texPath>Things/Building/Cold_AirPipe_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
     </building>
-    <designationCategory>CentralClimateControl</designationCategory>
+    <designationCategory>Temperature</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
@@ -195,8 +195,8 @@
   </ThingDef>
   <ThingDef ParentName="AirPipe">
     <defName>cyanAirPipe</defName>
-    <label>Cyan Air Pipe</label>
-    <description>Cyan Air Pipes for carrying air.</description>
+    <label>Cyan air pipe</label>
+    <description>Cyan pipes for carrying air.</description>
     <thingClass>CentralizedClimateControl.Building_FrozenAirPipe</thingClass>
     <uiIconPath>UI/CyanAirPipe</uiIconPath>
     <costList>
@@ -218,7 +218,7 @@
         <texPath>Things/Building/Frozen_AirPipe_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
     </building>
-    <designationCategory>CentralClimateControl</designationCategory>
+    <designationCategory>Temperature</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
@@ -228,8 +228,8 @@
   </ThingDef>
   <ThingDef ParentName="HiddenAirPipe">
     <defName>cyanAirPipeHidden</defName>
-    <label>Cyan Air Pipe Hidden</label>
-    <description>Cyan Air Pipes for carrying air underground.</description>
+    <label>Cyan underground air pipe</label>
+    <description>Cyan pipes for carrying air underground.</description>
     <thingClass>CentralizedClimateControl.Building_FrozenAirPipe</thingClass>
     <uiIconPath>UI/CyanAirPipeHidden</uiIconPath>
     <costList>
@@ -251,7 +251,7 @@
         <texPath>Things/Building/Frozen_AirPipe_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
     </building>
-    <designationCategory>CentralClimateControl</designationCategory>
+    <designationCategory>Temperature</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
@@ -261,7 +261,7 @@
   </ThingDef>
   <ThingDef ParentName="CentralizedClimateControlBuilding">
     <defName>IntakeFan</defName>
-    <label>intakeFan</label>
+    <label>Intake fan</label>
     <thingClass>CentralizedClimateControl.Building_IntakeFan</thingClass>
     <graphicData>
       <texPath>Things/Building/IntakeFan</texPath>
@@ -290,7 +290,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
-    <description>A IntakeFan.</description>
+    <description>An intake fan.</description>
     <costList>
       <Steel>100</Steel>
       <ComponentIndustrial>1</ComponentIndustrial>
@@ -313,7 +313,8 @@
       <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Breakdownable" />
     </comps>
-    <designationCategory>CentralClimateControl</designationCategory>
+    <designationCategory>Temperature</designationCategory>
+	<designatorDropdown>CCC_Intake</designatorDropdown>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>BasicClimateControl</li>
@@ -324,7 +325,7 @@
   </ThingDef>
   <ThingDef ParentName="CentralizedClimateControlBuilding">
     <defName>AirThermal</defName>
-    <label>airThermal</label>
+    <label>Climate control unit</label>
     <thingClass>CentralizedClimateControl.Building_AirThermal</thingClass>
     <graphicData>
       <texPath>Things/Building/AirThermal</texPath>
@@ -353,7 +354,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
-    <description>A Air Heater for heating Air.</description>
+    <description>A climate control unit for heating and cooling air.</description>
     <costList>
       <Steel>200</Steel>
       <ComponentIndustrial>3</ComponentIndustrial>
@@ -377,7 +378,8 @@
       <li Class="CompProperties_TempControl" />
       <li Class="CompProperties_Breakdownable" />
     </comps>
-    <designationCategory>CentralClimateControl</designationCategory>
+    <designationCategory>Temperature</designationCategory>
+	<designatorDropdown>CCC_ACC</designatorDropdown>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>BasicClimateControl</li>
@@ -388,7 +390,7 @@
   </ThingDef>
   <ThingDef ParentName="CentralizedClimateControlBuilding">
     <defName>LargeIntakeFan</defName>
-    <label>largeIntakeFan</label>
+    <label>Large intake fan</label>
     <thingClass>CentralizedClimateControl.Building_IntakeFan</thingClass>
     <graphicData>
       <drawSize>(2,2)</drawSize>
@@ -418,7 +420,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
-    <description>A Large IntakeFan.</description>
+    <description>A large intake fan.</description>
     <costList>
       <Steel>300</Steel>
       <ComponentIndustrial>3</ComponentIndustrial>
@@ -441,7 +443,8 @@
       <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Breakdownable" />
     </comps>
-    <designationCategory>CentralClimateControl</designationCategory>
+    <designationCategory>Temperature</designationCategory>
+	<designatorDropdown>CCC_Intake</designatorDropdown>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>IndustrialClimateControl</li>
@@ -452,7 +455,7 @@
   </ThingDef>
   <ThingDef ParentName="CentralizedClimateControlBuilding">
     <defName>LargeAirThermal</defName>
-    <label>largeAirThermal</label>
+    <label>Large climate control unit</label>
     <thingClass>CentralizedClimateControl.Building_AirThermal</thingClass>
     <graphicData>
       <texPath>Things/Building/LargeAirThermal</texPath>
@@ -482,7 +485,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
-    <description>A Air Heater for heating Air.</description>
+    <description>A large climate control unit for heating and cooling air.</description>
     <costList>
       <Steel>600</Steel>
       <ComponentIndustrial>9</ComponentIndustrial>
@@ -506,7 +509,8 @@
       <li Class="CompProperties_TempControl" />
       <li Class="CompProperties_Breakdownable" />
     </comps>
-    <designationCategory>CentralClimateControl</designationCategory>
+    <designationCategory>Temperature</designationCategory>
+	<designatorDropdown>CCC_ACC</designatorDropdown>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>IndustrialClimateControl</li>

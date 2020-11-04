@@ -21,7 +21,8 @@
     <researchPrerequisites>
       <li>BasicClimateControl</li>
     </researchPrerequisites>
-    <designationCategory>CentralClimateControl</designationCategory>
+    <designationCategory>Temperature</designationCategory>
+	<designatorDropdown>CCC_Vents</designatorDropdown>
     <designationHotKey>Misc4</designationHotKey>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
@@ -60,7 +61,7 @@
   <!-- Small Wall Vent -->
   <ThingDef ParentName="CentralizedClimateControl_BaseWallVent">
     <defName>WallAirVentSmall</defName>
-    <label>wallAirVentSmall</label>
+    <label>Small wall air vent</label>
     <thingClass>CentralizedClimateControl.Building_AirVent</thingClass>
     <graphicData>
       <texPath>Things/Building/Vents/WallAirVentSmall</texPath>
@@ -78,7 +79,7 @@
       <Mass>1</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A Wall Mounted Air Vent.</description>
+    <description>A small wall-mounted air vent.</description>
     <costList>
       <Steel>35</Steel>
     </costList>
@@ -98,7 +99,7 @@
   <!-- Regular Wall Vent -->
   <ThingDef ParentName="CentralizedClimateControl_BaseWallVent">
     <defName>WallAirVent</defName>
-    <label>wallAirVent</label>
+    <label>Wall air vent</label>
     <thingClass>CentralizedClimateControl.Building_AirVent</thingClass>
     <graphicData>
       <texPath>Things/Building/Vents/WallAirVent</texPath>
@@ -116,7 +117,7 @@
       <Mass>2</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A Wall Mounted Air Vent.</description>
+    <description>A wall-mounted air vent.</description>
     <costList>
       <Steel>70</Steel>
     </costList>
@@ -136,7 +137,7 @@
   <!-- Regular Surround Vents -->
   <ThingDef ParentName="CentralizedClimateControl_BaseSurroundVent">
     <defName>SurroundAirVent</defName>
-    <label>surroundAirVent</label>
+    <label>Surround air vent</label>
     <thingClass>CentralizedClimateControl.Building_AirVent</thingClass>
     <graphicData>
       <texPath>Things/Building/Vents/SurroundAirVent</texPath>
@@ -154,7 +155,7 @@
       <Mass>50</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A Surround Exhaust.</description>
+    <description>A surround exhaust vent.</description>
     <costList>
       <Steel>210</Steel>
     </costList>
@@ -174,7 +175,7 @@
   <!-- Wide Surround Vents -->
   <ThingDef ParentName="CentralizedClimateControl_BaseSurroundVent">
     <defName>SurroundAirVentWide</defName>
-    <label>surroundAirVentWide</label>
+    <label>Large surround air vent</label>
     <thingClass>CentralizedClimateControl.Building_AirVent</thingClass>
     <size>(2,1)</size>
     <graphicData>
@@ -194,7 +195,7 @@
       <Mass>100</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A Surround Exhaust.</description>
+    <description>A large surround exhaust vent.</description>
     <costList>
       <Steel>420</Steel>
     </costList>
@@ -211,44 +212,5 @@
       </li>
     </comps>
   </ThingDef>
-  <!-- Legacy Support: Full Size Vents -->
-  <ThingDef ParentName="CentralizedClimateControl_BaseVent">
-    <defName>AirVent</defName>
-    <label>airVent</label>
-    <thingClass>CentralizedClimateControl.Building_AirVent</thingClass>
-    <graphicData>
-      <texPath>Things/Building/AirVent</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
-    </graphicData>
-    <statBases>
-      <WorkToBuild>1600</WorkToBuild>
-      <MaxHitPoints>100</MaxHitPoints>
-      <Mass>50</Mass>
-      <Flammability>1.0</Flammability>
-    </statBases>
-    <description>An Air Vent.</description>
-    <costList>
-      <Steel>70</Steel>
-    </costList>
-    <comps>
-      <li Class="CentralizedClimateControl.CompProperties_AirFlow">
-        <compClass>CentralizedClimateControl.CompAirFlowConsumer</compClass>
-        <flowType>Any</flowType>
-        <baseAirExhaust>100</baseAirExhaust>
-      </li>
-      <li Class="CompProperties_Flickable">
-        <commandTexture>UI/Commands/Vent</commandTexture>
-        <commandLabelKey>CommandDesignateOpenCloseVentLabel</commandLabelKey>
-        <commandDescKey>CommandDesignateOpenCloseVentDesc</commandDescKey>
-      </li>
-    </comps>
-    <designationCategory>
-    </designationCategory>
-  </ThingDef>
+  
 </Defs>
