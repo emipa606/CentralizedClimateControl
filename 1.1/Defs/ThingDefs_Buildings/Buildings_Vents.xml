@@ -79,7 +79,7 @@
       <Mass>1</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A small wall-mounted air vent.</description>
+    <description>A small wall-mounted air vent, pushes 50cc of air.</description>
     <costList>
       <Steel>35</Steel>
     </costList>
@@ -117,7 +117,7 @@
       <Mass>2</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A wall-mounted air vent.</description>
+    <description>A wall-mounted air vent, pushes 100cc of air.</description>
     <costList>
       <Steel>70</Steel>
     </costList>
@@ -155,7 +155,7 @@
       <Mass>50</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A surround exhaust vent.</description>
+    <description>A surround exhaust vent, pushes 300cc of air.</description>
     <costList>
       <Steel>210</Steel>
     </costList>
@@ -195,7 +195,7 @@
       <Mass>100</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A large surround exhaust vent.</description>
+    <description>A large surround exhaust vent, pushes 600cc of air.</description>
     <costList>
       <Steel>420</Steel>
     </costList>
