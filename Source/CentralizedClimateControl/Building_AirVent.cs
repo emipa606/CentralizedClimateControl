@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -10,7 +9,7 @@ namespace CentralizedClimateControl
         public CompAirFlowConsumer CompAirFlowConsumer;
 
         /// <summary>
-        /// Building spawned on the map
+        ///     Building spawned on the map
         /// </summary>
         /// <param name="map">RimWorld Map</param>
         /// <param name="respawningAfterLoad">Unused flag</param>
@@ -21,13 +20,13 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Get the Gizmos for AirVent
-        /// Here, we generate the Gizmo for Chaning Pipe Priority
+        ///     Get the Gizmos for AirVent
+        ///     Here, we generate the Gizmo for Chaning Pipe Priority
         /// </summary>
         /// <returns>List of Gizmos</returns>
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            foreach (Gizmo g in base.GetGizmos())
+            foreach (var g in base.GetGizmos())
             {
                 yield return g;
             }
@@ -39,8 +38,8 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Tick function for Air Vents
-        /// Main code for chaning temperature at the Rooms. We take the Converted Temperature from the Air Network.
+        ///     Tick function for Air Vents
+        ///     Main code for chaning temperature at the Rooms. We take the Converted Temperature from the Air Network.
         /// </summary>
         public override void TickRare()
         {
@@ -56,7 +55,7 @@ namespace CentralizedClimateControl
                 return;
             }
 
-            IntVec3 intVec = Position + IntVec3.North.RotatedBy(Rotation);
+            var intVec = Position + IntVec3.North.RotatedBy(Rotation);
 
             if (intVec.Impassable(Map))
             {
@@ -82,17 +81,18 @@ namespace CentralizedClimateControl
                 signChanger = -1;
             }
 
-            var thermalFlag = 1;
+            var i = 1;
 
             if (CompAirFlowConsumer.ThermalEfficiency <= 0)
             {
-                thermalFlag = 0;
+                i = 0;
             }
 
             // Flow Efficiency is capped at 1.0f. Squaring will only keep it less than or equal to 1.0f. Smaller the number more drastic the square.
-            var efficiencyImpact = CompAirFlowConsumer.FlowEfficiency * CompAirFlowConsumer.FlowEfficiency * thermalFlag;
+            var efficiencyImpact =
+                CompAirFlowConsumer.FlowEfficiency * CompAirFlowConsumer.FlowEfficiency * i;
 
-            var smoothMagnitude =  magnitudeChange * 0.25f * (CompAirFlowConsumer.Props.baseAirExhaust / 100.0f);
+            var smoothMagnitude = magnitudeChange * 0.25f * (CompAirFlowConsumer.Props.baseAirExhaust / 100.0f);
             var energyLimit = smoothMagnitude * efficiencyImpact * 4.16666651f * 12f * signChanger;
             var tempChange = GenTemperature.ControlTemperatureTempChange(intVec, Map, energyLimit, outsideTemp);
 

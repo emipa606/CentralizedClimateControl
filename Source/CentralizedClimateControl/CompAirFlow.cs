@@ -4,9 +4,6 @@ namespace CentralizedClimateControl
 {
     public class CompAirFlow : ThingComp
     {
-        private int _intGridId = -2;
-        private AirFlowNet _airFlowNet;
-
         public const string NotConnectedKey = "CentralizedClimateControl.AirFlowNetDisconnected";
         public const string ConnectedKey = "CentralizedClimateControl.AirFlowNetConnected";
         public const string AirTypeKey = "CentralizedClimateControl.AirType";
@@ -15,36 +12,16 @@ namespace CentralizedClimateControl
         public const string FrozenAirKey = "CentralizedClimateControl.FrozenAir";
         public const string TotalNetworkAirKey = "CentralizedClimateControl.TotalNetworkAir";
 
-        public AirFlowType FlowType
-        {
-            get
-            {
-                return Props.flowType;
-            }
-        }
+        public AirFlowType FlowType => Props.flowType;
 
-        public int GridID
-        {
-            get { return _intGridId; }
-            set { _intGridId = value; }
-        }
+        public int GridID { get; set; } = -2;
 
-        public AirFlowNet AirFlowNet
-        {
-            get { return _airFlowNet; }
-            set { _airFlowNet = value; }
-        }
+        public AirFlowNet AirFlowNet { get; set; }
 
-        public CompProperties_AirFlow Props
-        {
-            get
-            {
-                return (CompProperties_AirFlow)props;
-            }
-        }
+        public CompProperties_AirFlow Props => (CompProperties_AirFlow) props;
 
         /// <summary>
-        /// Reset the AirFlow Variables
+        ///     Reset the AirFlow Variables
         /// </summary>
         public virtual void ResetFlowVariables()
         {
@@ -53,7 +30,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Component spawned on the map
+        ///     Component spawned on the map
         /// </summary>
         /// <param name="respawningAfterLoad">Unused flag</param>
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -63,7 +40,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Building de-spawned from the map
+        ///     Building de-spawned from the map
         /// </summary>
         /// <param name="map">RimWorld Map</param>
         public override void PostDeSpawn(Map map)
@@ -75,8 +52,8 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Check if Air Flow Component is Working.
-        /// Must be connected to an AirFlow Network.
+        ///     Check if Air Flow Component is Working.
+        ///     Must be connected to an AirFlow Network.
         /// </summary>
         /// <returns></returns>
         public virtual bool IsOperating()
@@ -85,11 +62,11 @@ namespace CentralizedClimateControl
             //bool isConnected = AirFlowNet != null;
             //return isConnected;
 
-            return (bool)(AirFlowNet != null);
+            return AirFlowNet != null;
         }
 
         /// <summary>
-        /// Inspect Component String
+        ///     Inspect Component String
         /// </summary>
         /// <returns>String to be Displayed on the Component window</returns>
         public override string CompInspectStringExtra()
@@ -108,13 +85,13 @@ namespace CentralizedClimateControl
             }
 
             res += "\n";
-            res += TotalNetworkAirKey.Translate(new object[] { AirFlowNet.CurrentIntakeAir });
+            res += TotalNetworkAirKey.Translate(AirFlowNet.CurrentIntakeAir);
 
             return res;
         }
 
         /// <summary>
-        /// Print the Component for Overlay Grid
+        ///     Print the Component for Overlay Grid
         /// </summary>
         /// <param name="layer">Section Layer that is being Printed</param>
         /// <param name="type">AirFlow Type</param>
@@ -140,13 +117,13 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Get the Type of Air as String. Hot Cold Frozen etc.
+        ///     Get the Type of Air as String. Hot Cold Frozen etc.
         /// </summary>
         /// <param name="type">Enum for AirFlow Type</param>
         /// <returns>Translated String</returns>
         protected string GetAirTypeString(AirFlowType type)
         {
-            string res = "";
+            var res = "";
             switch (type)
             {
                 case AirFlowType.Cold:

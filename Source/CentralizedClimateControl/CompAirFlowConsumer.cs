@@ -14,44 +14,26 @@ namespace CentralizedClimateControl
         public const string DisconnectedKey = "CentralizedClimateControl.Consumer.Disconnected";
         public const string ClosedKey = "CentralizedClimateControl.Consumer.Closed";
 
-        public float ConvertedTemperature;
-        protected CompFlickable FlickableComp;
-
         private bool _alertChange;
         public AirTypePriority AirTypePriority = AirTypePriority.Auto;
 
-        public float ExhaustAirFlow
-        {
-            get
-            {
-                return Props.baseAirExhaust;
-            }
-        }
+        public float ConvertedTemperature;
+        protected CompFlickable FlickableComp;
 
-        public float FlowEfficiency
-        {
-            get
-            {
-                return AirFlowNet.FlowEfficiency;
-            }
-        }
+        public float ExhaustAirFlow => Props.baseAirExhaust;
 
-        public float ThermalEfficiency
-        {
-            get
-            {
-                return AirFlowNet.ThermalEfficiency;
-            }
-        }
+        public float FlowEfficiency => AirFlowNet.FlowEfficiency;
+
+        public float ThermalEfficiency => AirFlowNet.ThermalEfficiency;
 
         /// <summary>
-        /// Debug String for AirFlow Consumer
+        ///     Debug String for AirFlow Consumer
         /// </summary>
         public string DebugString
         {
             get
             {
-                StringBuilder stringBuilder = new StringBuilder();
+                var stringBuilder = new StringBuilder();
                 stringBuilder.AppendLine(parent.LabelCap + " CompAirFlowConsumer:");
                 stringBuilder.AppendLine("   ConvertedTemperature: " + ConvertedTemperature);
                 return stringBuilder.ToString();
@@ -59,7 +41,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Post Spawn for Component
+        ///     Post Spawn for Component
         /// </summary>
         /// <param name="respawningAfterLoad">Unused Flag</param>
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -71,7 +53,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Method called during Game Save/Load
+        ///     Method called during Game Save/Load
         /// </summary>
         public override void PostExposeData()
         {
@@ -85,7 +67,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Component De-spawned from Map
+        ///     Component De-spawned from Map
         /// </summary>
         /// <param name="map">RimWorld Map</param>
         public override void PostDeSpawn(Map map)
@@ -96,7 +78,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Extra Component Inspection string
+        ///     Extra Component Inspection string
         /// </summary>
         /// <returns>String Containing information for Consumers</returns>
         public override string CompInspectStringExtra()
@@ -134,7 +116,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Set the Pipe Priority for Consumers
+        ///     Set the Pipe Priority for Consumers
         /// </summary>
         /// <param name="priority">Priority to Switch to.</param>
         public void SetPriority(AirTypePriority priority)
@@ -148,9 +130,9 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Tick for Consumers. Here:
-        /// - We Rebuild if Priority is Changed
-        /// - We take the Converted Temperature from Climate Units
+        ///     Tick for Consumers. Here:
+        ///     - We Rebuild if Priority is Changed
+        ///     - We take the Converted Temperature from Climate Units
         /// </summary>
         public void TickRare()
         {
@@ -183,7 +165,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Reset the Flow Variables and Forward the Control to Base class for more reset.
+        ///     Reset the Flow Variables and Forward the Control to Base class for more reset.
         /// </summary>
         public override void ResetFlowVariables()
         {
@@ -192,8 +174,8 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Check if Consumer Can work.
-        /// This check is used after checking for Power.
+        ///     Check if Consumer Can work.
+        ///     This check is used after checking for Power.
         /// </summary>
         /// <returns>Boolean flag to show if Active</returns>
         public bool IsActive()

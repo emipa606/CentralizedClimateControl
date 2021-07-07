@@ -6,11 +6,11 @@ namespace CentralizedClimateControl
 {
     public class Building_AirThermal : Building_AirFlowControl
     {
-        public CompTempControl CompTempControl;
         public CompAirFlowTempControl CompAirFlowTempControl;
+        public CompTempControl CompTempControl;
 
         /// <summary>
-        /// Building spawned on the map
+        ///     Building spawned on the map
         /// </summary>
         /// <param name="map">RimWorld Map</param>
         /// <param name="respawningAfterLoad">Unused flag</param>
@@ -22,8 +22,8 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Tick Function for Climate Buildings - Here we calculate the Temperature growth from Intake to Target Temperature
-        /// Plus, we exhaust a certain amount of Heat to the South of the Building.
+        ///     Tick Function for Climate Buildings - Here we calculate the Temperature growth from Intake to Target Temperature
+        ///     Plus, we exhaust a certain amount of Heat to the South of the Building.
         /// </summary>
         public override void TickRare()
         {
@@ -90,6 +90,5 @@ namespace CentralizedClimateControl
 
             GenTemperature.PushHeat(intVec, Map, baseHeat * 1.25f);
         }
-
     }
 }

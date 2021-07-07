@@ -4,19 +4,18 @@ using Verse;
 
 namespace CentralizedClimateControl
 {
-    public class GraphicPipe_Overlay: Graphic_Linked
+    public class GraphicPipe_Overlay : Graphic_Linked
     {
-        public AirFlowType FlowType;
-
         private readonly Graphic _anyGraphic;
         private readonly Graphic _flowGraphic;
+        public AirFlowType FlowType;
 
         public GraphicPipe_Overlay()
         {
         }
 
         /// <summary>
-        /// Graphic for Overlay Pipes Constructor. Defaults to Red Pipe as FlowType.
+        ///     Graphic for Overlay Pipes Constructor. Defaults to Red Pipe as FlowType.
         /// </summary>
         /// <param name="subGraphic">Color Specific Overlay</param>
         /// <param name="anyGraphic">Any Pipe Overlay Graphic</param>
@@ -28,7 +27,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Graphic for Overlay Pipes Constructor
+        ///     Graphic for Overlay Pipes Constructor
         /// </summary>
         /// <param name="subGraphic">Color Specific Overlay</param>
         /// <param name="anyGraphic">Any Pipe Overlay Graphic</param>
@@ -41,10 +40,9 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Overriden Function for Pipe Atlas. It Checks for Neighbouring tiles if it should be Linked to the target cell.
-        /// This Function specifies the condition that will be used.
-        ///
-        /// Here we just check if the target cell that is asked for linkage has a Pipe of the same Color or not.
+        ///     Overriden Function for Pipe Atlas. It Checks for Neighbouring tiles if it should be Linked to the target cell.
+        ///     This Function specifies the condition that will be used.
+        ///     Here we just check if the target cell that is asked for linkage has a Pipe of the same Color or not.
         /// </summary>
         /// <param name="intVec">Target Cell</param>
         /// <param name="parent">Parent Object</param>
@@ -53,16 +51,17 @@ namespace CentralizedClimateControl
         {
             //var building = parent as Building;
             //if (building == null)
-            if ((parent as Building) == null)
+            if (parent as Building == null)
             {
                 return false;
             }
 
-            return intVec.InBounds(parent.Map) && CentralizedClimateControlUtility.GetNetManager(parent.Map).ZoneAt(intVec, FlowType);
+            return intVec.InBounds(parent.Map) &&
+                   CentralizedClimateControlUtility.GetNetManager(parent.Map).ZoneAt(intVec, FlowType);
         }
 
         /// <summary>
-        /// Main method to Print a Atlas Pipe Graphic
+        ///     Main method to Print a Atlas Pipe Graphic
         /// </summary>
         /// <param name="layer">Section Layer calling this Print command</param>
         /// <param name="parent">Parent Object</param>
@@ -89,7 +88,7 @@ namespace CentralizedClimateControl
 
                 subGraphic = compAirFlow.FlowType == AirFlowType.Any ? _anyGraphic : _flowGraphic;
 
-                Printer_Plane.PrintPlane(layer, vector, Vector2.one, LinkedDrawMatFrom(parent, item), 0f);
+                Printer_Plane.PrintPlane(layer, vector, Vector2.one, LinkedDrawMatFrom(parent, item));
             }
         }
     }

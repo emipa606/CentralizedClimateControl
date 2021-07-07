@@ -8,7 +8,7 @@ namespace CentralizedClimateControl
         public CompPowerTrader CompPowerTrader;
 
         /// <summary>
-        /// Building spawned on the map
+        ///     Building spawned on the map
         /// </summary>
         /// <param name="map">RimWorld Map</param>
         /// <param name="respawningAfterLoad">Unused flag</param>

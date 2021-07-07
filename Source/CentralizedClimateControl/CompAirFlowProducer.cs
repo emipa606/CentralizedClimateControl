@@ -10,15 +10,15 @@ namespace CentralizedClimateControl
         public const string IntakeTempKey = "CentralizedClimateControl.Producer.IntakeTemperature";
         public const string IntakeBlockedKey = "CentralizedClimateControl.Producer.IntakeBlocked";
 
-        [Unsaved]
-        public bool IsOperatingAtHighPower;
+        public float CurrentAirFlow;
+        protected CompFlickable FlickableComp;
+        public float IntakeTemperature;
         public bool IsBlocked = false;
         public bool IsBrokenDown = false;
-        public bool IsPoweredOff = false;
 
-        public float CurrentAirFlow;
-        public float IntakeTemperature;
-        protected CompFlickable FlickableComp;
+        [Unsaved] public bool IsOperatingAtHighPower;
+
+        public bool IsPoweredOff = false;
 
         public float AirFlowOutput
         {
@@ -34,14 +34,14 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Debug String for a Air Flow Producer
-        /// Shows info about Air Flow etc.
+        ///     Debug String for a Air Flow Producer
+        ///     Shows info about Air Flow etc.
         /// </summary>
         public string DebugString
         {
             get
             {
-                StringBuilder stringBuilder = new StringBuilder();
+                var stringBuilder = new StringBuilder();
                 stringBuilder.AppendLine(parent.LabelCap + " CompAirFlow:");
                 stringBuilder.AppendLine("   AirFlow IsOperating: " + IsOperating());
                 stringBuilder.AppendLine("   AirFlow Output: " + AirFlowOutput);
@@ -50,7 +50,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Post Spawn for Component
+        ///     Post Spawn for Component
         /// </summary>
         /// <param name="respawningAfterLoad">Unused Flag</param>
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -62,7 +62,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Despawn Event for a Producer Component
+        ///     Despawn Event for a Producer Component
         /// </summary>
         /// <param name="map">RimWorld Map</param>
         public override void PostDeSpawn(Map map)
@@ -73,12 +73,12 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Extra Component Inspection string
+        ///     Extra Component Inspection string
         /// </summary>
         /// <returns>String Containing information for Producers</returns>
         public override string CompInspectStringExtra()
         {
-            string str = "";
+            var str = "";
 
             if (IsPoweredOff || IsBrokenDown)
             {
@@ -91,22 +91,24 @@ namespace CentralizedClimateControl
                 return str;
             }
 
-            if (IsOperating())
+            if (!IsOperating())
             {
-                //var convertedTemp = IntakeTemperature.ToStringTemperature("F0");
-                str += AirFlowOutputKey.Translate(AirFlowOutput.ToString("#####0")) + "\n";
-                //str += "\n";
-
-                //str += IntakeTempKey.Translate(convertedTemp) + "\n";
-                str += IntakeTempKey.Translate(IntakeTemperature.ToStringTemperature("F0")) + "\n";
-                //str += "\n";
+                return str + base.CompInspectStringExtra();
             }
+
+            //var convertedTemp = IntakeTemperature.ToStringTemperature("F0");
+            str += AirFlowOutputKey.Translate(AirFlowOutput.ToString("#####0")) + "\n";
+            //str += "\n";
+
+            //str += IntakeTempKey.Translate(convertedTemp) + "\n";
+            str += IntakeTempKey.Translate(IntakeTemperature.ToStringTemperature("F0")) + "\n";
+            //str += "\n";
 
             return str + base.CompInspectStringExtra();
         }
 
         /// <summary>
-        /// Check if Temperature Control is active or not. Needs Consumers and shouldn't be Blocked
+        ///     Check if Temperature Control is active or not. Needs Consumers and shouldn't be Blocked
         /// </summary>
         /// <returns>Boolean Active State</returns>
         public bool IsActive()
@@ -120,7 +122,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Reset the Flow Variables for Producers and Forward the Control to Base class for more reset.
+        ///     Reset the Flow Variables for Producers and Forward the Control to Base class for more reset.
         /// </summary>
         public override void ResetFlowVariables()
         {

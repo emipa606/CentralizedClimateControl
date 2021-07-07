@@ -4,17 +4,17 @@ using Verse;
 
 namespace CentralizedClimateControl
 {
-    class PlaceWorker_IntakeFan : PlaceWorker
+    internal class PlaceWorker_IntakeFan : PlaceWorker
     {
         /// <summary>
-        /// Draw Overlay when Selected or Placing.
-        ///
-        /// We draw Air Cells surrounding the Parent Object.
+        ///     Draw Overlay when Selected or Placing.
+        ///     We draw Air Cells surrounding the Parent Object.
         /// </summary>
         /// <param name="def">The Thing's Def</param>
         /// <param name="center">Location</param>
         /// <param name="rot">Rotation</param>
         /// <param name="ghostCol">Ghost Color</param>
+        /// <param name="thing"></param>
         public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot, Color ghostCol, Thing thing = null)
         {
             if (def == null)
@@ -34,18 +34,20 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Place Worker for Air Intakes.
-        ///
-        /// Checks:
-        /// - Current Cell shouldn't have an Air Flow Pipe (Since they already have a Pipe)
-        /// - Surrounding Cells from Center musn't be Impassable
+        ///     Place Worker for Air Intakes.
+        ///     Checks:
+        ///     - Current Cell shouldn't have an Air Flow Pipe (Since they already have a Pipe)
+        ///     - Surrounding Cells from Center musn't be Impassable
         /// </summary>
         /// <param name="def">The Def Being Built</param>
         /// <param name="center">Target Location</param>
         /// <param name="rot">Rotation of the Object to be Placed</param>
+        /// <param name="map"></param>
         /// <param name="thingToIgnore">Unused field</param>
+        /// <param name="thing"></param>
         /// <returns>Boolean/Acceptance Report if we can place the object of not.</returns>
-        public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Map map, Thing thingToIgnore = null, Thing thing = null)
+        public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Map map,
+            Thing thingToIgnore = null, Thing thing = null)
         {
             //var thingList = center.GetThingList(map);
 
@@ -72,6 +74,5 @@ namespace CentralizedClimateControl
 
             return true;
         }
-
     }
 }

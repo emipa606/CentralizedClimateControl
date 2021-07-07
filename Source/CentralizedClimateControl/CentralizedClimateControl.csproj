@@ -1,99 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F770FEDC-6137-4456-9A90-98B19870D06A}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CentralizedClimateControl</RootNamespace>
-    <AssemblyName>CentralizedClimateControl</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>none</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>..\..\1.2\Assemblies\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\1.2\Assemblies\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <OutputPath>..\..\1.3\Assemblies</OutputPath>
+    <TargetFramework>net472</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <DebugType>None</DebugType>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.0.0.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Lib.Harmony.2.0.0.8\lib\net472\0Harmony.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="HugsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\UnlimitedHugs.Rimworld.HugsLib.7.1.0\lib\net472\HugsLib.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
-    <Reference Include="System.Runtime.Remoting" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+    <PackageReference Include="Krafs.Rimworld.Ref">
+       <Version>*</Version> 
+      <!--<Version>1.3.3052-beta</Version>-->
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony">
+      <Version>*</Version>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="UnlimitedHugs.Rimworld.HugsLib">
+      <Version>*</Version>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AirFlowNet.cs" />
-    <Compile Include="AirFlowNetManager.cs" />
-    <Compile Include="Building_AirFlowControl.cs" />
-    <Compile Include="Building_AirThermal.cs" />
-    <Compile Include="Building_AirPipe.cs" />
-    <Compile Include="Building_AirVent.cs" />
-    <Compile Include="Building_IntakeFan.cs" />
-    <Compile Include="Building_ColdAirPipe.cs" />
-    <Compile Include="Building_FrozenAirPipe.cs" />
-    <Compile Include="Building_HotAirPipe.cs" />
-    <Compile Include="CentralizedClimateControl.cs" />
-    <Compile Include="CompAirFlow.cs" />
-    <Compile Include="CompAirFlowConsumer.cs" />
-    <Compile Include="CompAirFlowPipe.cs" />
-    <Compile Include="CompAirFlowTank.cs" />
-    <Compile Include="CompAirFlowProducer.cs" />
-    <Compile Include="CompAirFlowTempControl.cs" />
-    <Compile Include="CompProperties_AirFlow.cs" />
-    <Compile Include="CentralizedClimateControlUtility.cs" />
-    <Compile Include="GraphicPipe.cs" />
-    <Compile Include="GraphicPipe_Overlay.cs" />
-    <Compile Include="GraphicsLoader.cs" />
-    <Compile Include="PlaceWorker_AirPipe.cs" />
-    <Compile Include="PlaceWorker_AirThermal.cs" />
-    <Compile Include="PlaceWorker_AirVent.cs" />
-    <Compile Include="PlaceWorker_IntakeFan.cs" />
-    <Compile Include="PlaceWorker_NeedsWall.cs" />
-    <Compile Include="PlaceWorker_SurroundAirVent.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SectionLayer_ColdAirPipe.cs" />
-    <Compile Include="SectionLayer_FrozenAirPipe.cs" />
-    <Compile Include="SectionLayer_HotAirPipe.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,13 +6,13 @@ namespace CentralizedClimateControl
 {
     public class Building_IntakeFan : Building_AirFlowControl
     {
-        private int _windCellsBlocked = 0;
         private const float EfficiencyLossPerWindCubeBlocked = 0.0076923077f;
+        private readonly int _windCellsBlocked = 0;
 
         public CompAirFlowProducer CompAirProducer;
 
         /// <summary>
-        /// Building spawned on the map
+        ///     Building spawned on the map
         /// </summary>
         /// <param name="map">RimWorld Map</param>
         /// <param name="respawningAfterLoad">Unused flag</param>
@@ -24,7 +24,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Tick Intake Fan. Check the surrondings and generate Air Flow if all clear.
+        ///     Tick Intake Fan. Check the surrondings and generate Air Flow if all clear.
         /// </summary>
         public override void TickRare()
         {
@@ -68,7 +68,8 @@ namespace CentralizedClimateControl
 
             //var flow = CompAirProducer.Props.baseAirFlow - _windCellsBlocked * EfficiencyLossPerWindCubeBlocked;
             //CompAirProducer.CurrentAirFlow = flow;
-            CompAirProducer.CurrentAirFlow = CompAirProducer.Props.baseAirFlow - _windCellsBlocked * EfficiencyLossPerWindCubeBlocked;
+            CompAirProducer.CurrentAirFlow = CompAirProducer.Props.baseAirFlow -
+                                             (_windCellsBlocked * EfficiencyLossPerWindCubeBlocked);
         }
     }
 }

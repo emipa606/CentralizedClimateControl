@@ -5,46 +5,40 @@ using Verse;
 
 namespace CentralizedClimateControl
 {
-    public class CompAirFlowTempControl: CompAirFlow
+    public class CompAirFlowTempControl : CompAirFlow
     {
         public const string TemperatureArrowKey = "CentralizedClimateControl.Producer.TemperatureArrow";
         public const string TargetTemperatureKey = "CentralizedClimateControl.Producer.TargetTemperature";
         public const string ExhaustBlockedKey = "CentralizedClimateControl.Producer.ExhaustBlocked";
 
-        public bool IsOperatingAtHighPower;
-        public bool IsHeating;
-        public bool IsBlocked;
-        public bool IsStable;
-
-        public bool IsBrokenDown = false;
-        public bool IsPoweredOff = false;
-
-        public float IntakeTemperature;
-        public float TargetTemperature = 21.0f;
+        private const float DeltaSmooth = 96.0f;
         public float ConvertedTemperature;
         public float DeltaTemperature;
 
-        private const float DeltaSmooth = 96.0f;
-
         protected CompFlickable FlickableComp;
 
-        public float ThermalCapacity
-        {
-            get
-            {
-                return Props.thermalCapacity;
-            }
-        }
+        public float IntakeTemperature;
+        public bool IsBlocked;
+
+        public bool IsBrokenDown;
+        public bool IsHeating;
+
+        public bool IsOperatingAtHighPower;
+        public bool IsPoweredOff;
+        public bool IsStable;
+        public float TargetTemperature = 21.0f;
+
+        public float ThermalCapacity => Props.thermalCapacity;
 
         /// <summary>
-        /// Debug String for a Air Flow Climate Control
-        /// Shows info about Air Flow etc.
+        ///     Debug String for a Air Flow Climate Control
+        ///     Shows info about Air Flow etc.
         /// </summary>
         public string DebugString
         {
             get
             {
-                StringBuilder stringBuilder = new StringBuilder();
+                var stringBuilder = new StringBuilder();
                 stringBuilder.AppendLine(parent.LabelCap + " CompAirFlow:");
                 stringBuilder.AppendLine("   AirFlow IsOperating: " + IsOperating());
                 return stringBuilder.ToString();
@@ -52,7 +46,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Post Spawn for Component
+        ///     Post Spawn for Component
         /// </summary>
         /// <param name="respawningAfterLoad">Unused Flag</param>
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -64,7 +58,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Despawn Event for a Air Climate Control Component
+        ///     Despawn Event for a Air Climate Control Component
         /// </summary>
         /// <param name="map">RimWorld Map</param>
         public override void PostDeSpawn(Map map)
@@ -75,23 +69,23 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Game Save/Load Event. Here we save or restore the temperature changes in the network.
+        ///     Game Save/Load Event. Here we save or restore the temperature changes in the network.
         /// </summary>
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref DeltaTemperature, "deltaTemperature", 0);
-            Scribe_Values.Look(ref IntakeTemperature, "intakeTemperature", 0);
-            Scribe_Values.Look(ref ConvertedTemperature, "convertedTemperature", 0);
+            Scribe_Values.Look(ref DeltaTemperature, "deltaTemperature");
+            Scribe_Values.Look(ref IntakeTemperature, "intakeTemperature");
+            Scribe_Values.Look(ref ConvertedTemperature, "convertedTemperature");
         }
 
         /// <summary>
-        /// Extra Component Inspection string
+        ///     Extra Component Inspection string
         /// </summary>
         /// <returns>String Containing information for Climate Control</returns>
         public override string CompInspectStringExtra()
         {
-            string str = "";
+            var str = "";
 
             if (IsPoweredOff || IsBrokenDown)
             {
@@ -119,7 +113,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Reset the Flow Variables for Producers and Forward the Control to Base class for more reset.
+        ///     Reset the Flow Variables for Producers and Forward the Control to Base class for more reset.
         /// </summary>
         public override void ResetFlowVariables()
         {
@@ -136,8 +130,9 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Tick for Climate Control
-        /// Here we calculate the growth of Delta Temperature which is increased or decrased based on Intake and Target Temperature.
+        ///     Tick for Climate Control
+        ///     Here we calculate the growth of Delta Temperature which is increased or decrased based on Intake and Target
+        ///     Temperature.
         /// </summary>
         /// <param name="compTempControl">Current Temperature Control Component of the Building</param>
         public void TickRare(CompTempControl compTempControl)
@@ -150,7 +145,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Check if Temperature Control is active or not. Needs Consumers and shouldn't be Blocked
+        ///     Check if Temperature Control is active or not. Needs Consumers and shouldn't be Blocked
         /// </summary>
         /// <returns>Boolean Active State</returns>
         public bool IsActive()
@@ -164,7 +159,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Calculate the Temperature Delta for the Tick.
+        ///     Calculate the Temperature Delta for the Tick.
         /// </summary>
         /// <param name="compTempControl">Temperature Control Component</param>
         private void GenerateDelta(CompTempControl compTempControl)
@@ -176,7 +171,7 @@ namespace CentralizedClimateControl
 
             if (Mathf.Abs(targetDelta - currentDelta) < 1.0f)
             {
-                DeltaTemperature += (targetDelta - currentDelta);
+                DeltaTemperature += targetDelta - currentDelta;
                 IsStable = true;
                 return;
             }
@@ -187,11 +182,9 @@ namespace CentralizedClimateControl
             //var deltaSmoothened = deltaDelta / DeltaSmooth;
             //var deltaSmoothened = (targetDelta - currentDelta) / DeltaSmooth;
             //DeltaTemperature += (compTempControl.Props.energyPerSecond * AirFlowNet.ThermalEfficiency) * deltaSmoothened;
-            DeltaTemperature += (
-                (compTempControl.Props.energyPerSecond
-                * AirFlowNet.ThermalEfficiency)
-                * ((targetDelta - currentDelta) / DeltaSmooth)
-            );
+            DeltaTemperature += compTempControl.Props.energyPerSecond
+                                * AirFlowNet.ThermalEfficiency
+                                * ((targetDelta - currentDelta) / DeltaSmooth);
         }
     }
 }

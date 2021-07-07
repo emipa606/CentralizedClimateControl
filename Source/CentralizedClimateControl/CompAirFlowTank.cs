@@ -9,6 +9,5 @@ namespace CentralizedClimateControl
 {
     public class CompAirFlowTank : CompAirFlow
     {
-
     }
 }

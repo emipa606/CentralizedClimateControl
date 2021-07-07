@@ -12,7 +12,7 @@ namespace CentralizedClimateControl
         private const string SwitchPipeCyanKey = "CentralizedClimateControl.Command.SwitchPipe.Cyan";
 
         /// <summary>
-        /// Get the Network Manager of the Map
+        ///     Get the Network Manager of the Map
         /// </summary>
         /// <param name="map">RimWorld Map</param>
         /// <returns>AirFlow Net Manager</returns>
@@ -22,7 +22,7 @@ namespace CentralizedClimateControl
         }
 
         /// <summary>
-        /// Gizmo for Changing Pipes
+        ///     Gizmo for Changing Pipes
         /// </summary>
         /// <param name="compAirFlowConsumer">Component Asking for Gizmo</param>
         /// <returns>Action Button Gizmo</returns>
@@ -58,7 +58,7 @@ namespace CentralizedClimateControl
                     break;
             }
 
-            return new Command_Action()
+            return new Command_Action
             {
                 defaultLabel = label,
                 defaultDesc = "CentralizedClimateControl.Command.SwitchPipe.Desc".Translate(),

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Centralized Climate Control (Continued)</name>
   <packageId>Mlie.CentralizedClimateControl</packageId>
@@ -8,6 +8,7 @@
     <li>1.0</li>
     <li>1.1</li>
     <li>1.2</li>
+    <li>1.3</li>
   </supportedVersions>
   <modDependencies>
     <li>
@@ -34,13 +35,14 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
 - Chinese translation by YangHgRi
 - Added hidden air-pipes on request and grouped the build-buttons
 - Improved graphics by spoden
+- Removed climate-category and put the items in temperature instead
 
 [img]https://i.imgur.com/7Gzt3Rg.png[/img]
 
 [table]
     [tr]
         [td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
-        [td][url=https://github.com/emipa606CentralizedClimateControl/][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+        [td][url=https://github.com/emipa606/CentralizedClimateControl/][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
     [/tr]
 [/table]
 	
@@ -61,7 +63,7 @@ Version: 1.5.0
 [url=https://ludeon.com/forums/index.php?topic=34346.0]Forum Link[/url]
 [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1078768280]Recommended: Steam Guide for Creating a Basic Setup[/url]
 
-Watch this video if you are having issues with the guides. It's a little old, but covers the basic usage of the mod!
+Watch this video if you are having issues with the guides. It&apos;s a little old, but covers the basic usage of the mod!
 [url=https://www.youtube.com/watch?v=1tnF4kdAnxk]Youtube Video Link (BaRKy)[/url]
 
 While there are many alternate mods for Central Heating. This mod adds a new network-like resource (like electricity) Air. The heating/cooling system you will build depends on the number of rooms and the heating/cooling capacity of your air networks.
@@ -81,7 +83,7 @@ Following buildings are added:
 Heating and Cooling is done by 1 unit, so reduces the need to build coolers and heaters.
 
 [b] Outside (and Far away) Heat Exhaust: [/b]
-The Heat Exhaust of the Climate Control units isn't located adjacent to rooms. They are located far away from your rooms, thus allowing you to make adjacent rooms to fridge rooms.
+The Heat Exhaust of the Climate Control units isn&apos;t located adjacent to rooms. They are located far away from your rooms, thus allowing you to make adjacent rooms to fridge rooms.
 
 [b] Air Network [/b]
 There is a network-like resource (like electricity) which is generated and consumed which is further dictated by Efficiency of the Network.
@@ -115,7 +117,7 @@ If you have multiple pipes near your vent, You can force it to connect to a spec
 
 [h1] Known Issues: [/h1]
 - Compatibility Issues with Redist.Heat Mod
-- Reinstall doesn't work properly (Install and Uninstall works fine.)
+- Reinstall doesn&apos;t work properly (Install and Uninstall works fine.)
 
 [h1] Note: [/h1]
 This is my first mod for any game ever. There might be some issues. I wanted to see how the community responds to my mod, and want to work more on it! :)
@@ -127,10 +129,22 @@ Thanks if you are trying my mod out!
 - [url=https://github.com/Jdalt40] [B19 changes] Jdalt40  [/url]
 
 [h1] Credits: [/h1]
-- [url=https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for "Central Heating" [/url]
+- [url=https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for &quot;Central Heating&quot; [/url]
 - [url=https://ludeon.com/forums/index.php?topic=21770.0] Redist Heat [/url]
 - [url=https://ludeon.com/forums/index.php?topic=29043.msg341113#msg341113] Dubs Hygiene Mod [/url]
 
 [h1] License: [/h1]
-MIT License</description>
+MIT License
+
+[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[/list]
+</description>
 </ModMetaData>
+
