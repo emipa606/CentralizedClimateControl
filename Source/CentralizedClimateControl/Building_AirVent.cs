@@ -100,7 +100,7 @@ namespace CentralizedClimateControl
             //if (flag)
             if (!Mathf.Approximately(tempChange, 0f))
             {
-                intVec.GetRoomGroup(Map).Temperature += tempChange;
+                intVec.GetRoomOrAdjacent(Map).Temperature += tempChange;
             }
         }
     }

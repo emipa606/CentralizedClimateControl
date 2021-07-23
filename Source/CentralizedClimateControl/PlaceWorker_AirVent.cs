@@ -50,7 +50,7 @@ namespace CentralizedClimateControl
                 intVec
             }, typeColor);
 
-            var roomGroup = intVec.GetRoomGroup(map);
+            var roomGroup = intVec.GetRoomOrAdjacent(map);
             if (roomGroup == null)
             {
                 return;

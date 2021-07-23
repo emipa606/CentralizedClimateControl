@@ -63,7 +63,8 @@ namespace CentralizedClimateControl
         /// </summary>
         /// <param name="layer">Section Layer calling this Print command</param>
         /// <param name="parent">Parent Object</param>
-        public override void Print(SectionLayer layer, Thing parent)
+        /// <param name="extraRotation"></param>
+        public override void Print(SectionLayer layer, Thing parent, float extraRotation)
         {
             //var material = LinkedDrawMatFrom(parent, parent.Position);
             //Printer_Plane.PrintPlane(layer, parent.TrueCenter(), Vector2.one, material, 0f);

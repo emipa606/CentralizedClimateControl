@@ -11,7 +11,6 @@
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">
        <Version>*</Version> 
-      <!--<Version>1.3.3052-beta</Version>-->
       <ExcludeAssets>runtime</ExcludeAssets>
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

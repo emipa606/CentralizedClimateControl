@@ -40,7 +40,7 @@ Version: 1.5.0
 https://ludeon.com/forums/index.php?topic=34346.0]Forum Link
 http://steamcommunity.com/sharedfiles/filedetails/?id=1078768280]Recommended: Steam Guide for Creating a Basic Setup
 
-Watch this video if you are having issues with the guides. It&apos;s a little old, but covers the basic usage of the mod!
+Watch this video if you are having issues with the guides. It&amp;apos;s a little old, but covers the basic usage of the mod!
 https://www.youtube.com/watch?v=1tnF4kdAnxk]Youtube Video Link (BaRKy)
 
 While there are many alternate mods for Central Heating. This mod adds a new network-like resource (like electricity) Air. The heating/cooling system you will build depends on the number of rooms and the heating/cooling capacity of your air networks.
@@ -61,7 +61,7 @@ Following buildings are added:
 Heating and Cooling is done by 1 unit, so reduces the need to build coolers and heaters.
 
 ** Outside (and Far away) Heat Exhaust: **
-The Heat Exhaust of the Climate Control units isn&apos;t located adjacent to rooms. They are located far away from your rooms, thus allowing you to make adjacent rooms to fridge rooms.
+The Heat Exhaust of the Climate Control units isn&amp;apos;t located adjacent to rooms. They are located far away from your rooms, thus allowing you to make adjacent rooms to fridge rooms.
 
 ** Air Network **
 There is a network-like resource (like electricity) which is generated and consumed which is further dictated by Efficiency of the Network.
@@ -97,7 +97,7 @@ If you have multiple pipes near your vent, You can force it to connect to a spec
 #  Known Issues: 
 
 - Compatibility Issues with Redist.Heat Mod
-- Reinstall doesn&apos;t work properly (Install and Uninstall works fine.)
+- Reinstall doesn&amp;apos;t work properly (Install and Uninstall works fine.)
 
 #  Note: 
 
@@ -112,7 +112,7 @@ Thanks if you are trying my mod out!
 
 #  Credits: 
 
-- https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for &quot;Central Heating&quot; 
+- https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for &amp;quot;Central Heating&amp;quot; 
 - https://ludeon.com/forums/index.php?topic=21770.0] Redist Heat 
 - https://ludeon.com/forums/index.php?topic=29043.msg341113#msg341113] Dubs Hygiene Mod 
 
@@ -130,6 +130,7 @@ MIT License
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
+
 
 
 

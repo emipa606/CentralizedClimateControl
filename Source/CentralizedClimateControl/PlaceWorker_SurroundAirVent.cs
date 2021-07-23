@@ -54,7 +54,7 @@ namespace CentralizedClimateControl
 
             GenDraw.DrawFieldEdges(surroundCells, typeColor);
 
-            var roomGroup = surroundCells[0].GetRoomGroup(map);
+            var roomGroup = surroundCells[0].GetRoomOrAdjacent(map);
             if (roomGroup == null)
             {
                 return;

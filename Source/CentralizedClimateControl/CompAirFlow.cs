@@ -100,15 +100,15 @@ namespace CentralizedClimateControl
             switch (type)
             {
                 case AirFlowType.Hot:
-                    GraphicsLoader.GraphicHotPipeOverlay.Print(layer, parent);
+                    GraphicsLoader.GraphicHotPipeOverlay.Print(layer, parent, 0);
                     break;
 
                 case AirFlowType.Cold:
-                    GraphicsLoader.GraphicColdPipeOverlay.Print(layer, parent);
+                    GraphicsLoader.GraphicColdPipeOverlay.Print(layer, parent, 0);
                     break;
 
                 case AirFlowType.Frozen:
-                    GraphicsLoader.GraphicFrozenPipeOverlay.Print(layer, parent);
+                    GraphicsLoader.GraphicFrozenPipeOverlay.Print(layer, parent, 0);
                     break;
 
                 case AirFlowType.Any:
