@@ -65,7 +65,8 @@ namespace CentralizedClimateControl
         /// </summary>
         /// <param name="layer">Section Layer calling this Print command</param>
         /// <param name="parent">Parent Object</param>
-        public override void Print(SectionLayer layer, Thing parent)
+        /// <param name="extraRotation">extra Rotation</param>
+        public override void Print(SectionLayer layer, Thing parent, float extraRotation)
         {
             //var iterator = parent.OccupiedRect().GetIterator();
             //while (!iterator.Done())
