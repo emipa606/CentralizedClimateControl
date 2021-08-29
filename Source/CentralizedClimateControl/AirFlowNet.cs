@@ -35,6 +35,7 @@ namespace CentralizedClimateControl
         {
             var airFlow = 0.0f;
             var tempSum = 0.0f;
+            var activeCount = 0;
 
             foreach (var producer in Producers)
             {
@@ -45,9 +46,18 @@ namespace CentralizedClimateControl
 
                 airFlow += producer.CurrentAirFlow;
                 tempSum += producer.IntakeTemperature;
+                activeCount++;
             }
 
-            AverageIntakeTemperature = tempSum / Producers.Count;
+            if (activeCount > 0)
+            {
+                AverageIntakeTemperature = tempSum / (float)activeCount;
+                CurrentIntakeAir = airFlow;
+            } 
+            else 
+            {
+                AverageIntakeTemperature = 0.0f;
+            }
             CurrentIntakeAir = airFlow;
         }
 
@@ -92,14 +102,14 @@ namespace CentralizedClimateControl
 
                 tempSum += compAirFlowTempControl.ConvertedTemperature;
                 thermalCapacity += compAirFlowTempControl.ThermalCapacity;
-                activeCount += 1;
+                activeCount++;
             }
 
             // No Temperature Controllers -> Then Use the Intake Temperature directly.
             if (activeCount > 0)
             {
                 ThermalCapacity = thermalCapacity;
-                AverageConvertedTemperature = tempSum / TempControls.Count;
+                AverageConvertedTemperature = tempSum / (float)activeCount;
             }
             else
             {
