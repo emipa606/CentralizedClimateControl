@@ -214,7 +214,7 @@ namespace CentralizedClimateControl
         /// <returns>Boolean result if pipe exists at cell or not</returns>
         public bool ZoneAt(IntVec3 pos, AirFlowType flowType)
         {
-            return PipeGrid[(int) flowType, map.cellIndices.CellToIndex(pos)] != RebuildValue;
+            return PipeGrid[(int)flowType, map.cellIndices.CellToIndex(pos)] != RebuildValue;
         }
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace CentralizedClimateControl
         /// <returns>Boolean result if perfect pipe exists at cell or not</returns>
         public bool PerfectMatch(IntVec3 pos, AirFlowType flowType, int id)
         {
-            return PipeGrid[(int) flowType, map.cellIndices.CellToIndex(pos)] == id;
+            return PipeGrid[(int)flowType, map.cellIndices.CellToIndex(pos)] == id;
         }
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace CentralizedClimateControl
 
             for (var i = 0; i < _pipeCount; i++)
             {
-                if ((AirFlowType) i == AirFlowType.Any)
+                if ((AirFlowType)i == AirFlowType.Any)
                 {
                     continue;
                 }
@@ -330,7 +330,7 @@ namespace CentralizedClimateControl
                     //foreach (var buildingAirComp in buildingAirComps)
                     foreach (var buildingAirComp in current.GetComps<CompAirFlow>()
                         .Where(item =>
-                            item.FlowType == (AirFlowType) flowIndex ||
+                            item.FlowType == (AirFlowType)flowIndex ||
                             item.FlowType == AirFlowType.Any && item.GridID == RebuildValue))
                     {
                         // var result = ValidateBuildingPriority(buildingAirComp, network);
@@ -376,7 +376,7 @@ namespace CentralizedClimateControl
         /// <param name="flowIndex">Type of Pipe (Red, Blue, Cyan)</param>
         private void RebuildPipeGrid(int flowIndex)
         {
-            var flowType = (AirFlowType) flowIndex;
+            var flowType = (AirFlowType)flowIndex;
 
             var runtimeNets = new List<AirFlowNet>();
 
@@ -537,7 +537,7 @@ namespace CentralizedClimateControl
                 return true;
             }
 
-            return (int) priority == (int) network.FlowType;
+            return (int)priority == (int)network.FlowType;
         }
 
         /// <summary>

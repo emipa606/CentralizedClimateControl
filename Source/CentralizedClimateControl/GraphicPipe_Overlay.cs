@@ -51,7 +51,7 @@ namespace CentralizedClimateControl
         {
             //var building = parent as Building;
             //if (building == null)
-            if (parent as Building == null)
+            if (!(parent is Building))
             {
                 return false;
             }

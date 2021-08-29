@@ -51,13 +51,14 @@ namespace CentralizedClimateControl
 
             if (activeCount > 0)
             {
-                AverageIntakeTemperature = tempSum / (float)activeCount;
+                AverageIntakeTemperature = tempSum / activeCount;
                 CurrentIntakeAir = airFlow;
-            } 
-            else 
+            }
+            else
             {
                 AverageIntakeTemperature = 0.0f;
             }
+
             CurrentIntakeAir = airFlow;
         }
 
@@ -109,7 +110,7 @@ namespace CentralizedClimateControl
             if (activeCount > 0)
             {
                 ThermalCapacity = thermalCapacity;
-                AverageConvertedTemperature = tempSum / (float)activeCount;
+                AverageConvertedTemperature = tempSum / activeCount;
             }
             else
             {

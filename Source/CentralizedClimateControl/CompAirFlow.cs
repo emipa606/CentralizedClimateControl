@@ -18,7 +18,7 @@ namespace CentralizedClimateControl
 
         public AirFlowNet AirFlowNet { get; set; }
 
-        public CompProperties_AirFlow Props => (CompProperties_AirFlow) props;
+        public CompProperties_AirFlow Props => (CompProperties_AirFlow)props;
 
         /// <summary>
         ///     Reset the AirFlow Variables

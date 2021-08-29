@@ -16,7 +16,7 @@ namespace CentralizedClimateControl
         {
             FlowType = AirFlowType.Cold;
             requireAddToMapMesh = false;
-            relevantChangeTypes = (MapMeshFlag) 4;
+            relevantChangeTypes = (MapMeshFlag)4;
         }
 
         /// <summary>

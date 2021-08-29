@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -48,15 +48,6 @@ namespace CentralizedClimateControl
                    CentralizedClimateControlUtility.GetNetManager(parent.Map).ZoneAt(vec, FlowType);
         }
 
-        /// <summary>
-        ///     Predicate to check if Object is a Pipe Building
-        /// </summary>
-        /// <param name="obj">Game Object</param>
-        /// <returns>True if type is Building_Pipe</returns>
-        private static bool CheckPipe(Thing obj)
-        {
-            return obj.GetType() == typeof(Building_AirPipe);
-        }
 
         /// <summary>
         ///     Main method to Print a Atlas Pipe Graphic
@@ -66,6 +57,11 @@ namespace CentralizedClimateControl
         /// <param name="extraRotation"></param>
         public override void Print(SectionLayer layer, Thing parent, float extraRotation)
         {
+            if (parent.def.defName.Contains("Hidden"))
+            {
+                return;
+            }
+
             //var material = LinkedDrawMatFrom(parent, parent.Position);
             //Printer_Plane.PrintPlane(layer, parent.TrueCenter(), Vector2.one, material, 0f);
             Printer_Plane.PrintPlane(
@@ -74,6 +70,7 @@ namespace CentralizedClimateControl
                 Vector2.one,
                 LinkedDrawMatFrom(parent, parent.Position)
             );
+
             for (var i = 0; i < 4; i++)
             {
                 var intVec = parent.Position + GenAdj.CardinalDirections[i];
@@ -87,9 +84,8 @@ namespace CentralizedClimateControl
 
                 //var thingList = intVec.GetThingList(parent.Map);
 
-                Predicate<Thing> predicate = CheckPipe;
                 //if (thingList.Any(predicate))
-                if (intVec.GetThingList(parent.Map).Any(predicate))
+                if (intVec.GetThingList(parent.Map).OfType<Building_AirPipe>().Any())
                 {
                     continue;
                 }
