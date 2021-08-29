@@ -290,7 +290,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
-    <description>An intake fan.</description>
+    <description>An intake fan. Throughput: 300 cc/s.</description>
     <costList>
       <Steel>100</Steel>
       <ComponentIndustrial>1</ComponentIndustrial>
@@ -354,7 +354,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
-    <description>A climate control unit for heating and cooling air.</description>
+    <description>A climate control unit for heating and cooling air. Throughput: 900 cc/s.</description>
     <costList>
       <Steel>200</Steel>
       <ComponentIndustrial>3</ComponentIndustrial>
@@ -420,7 +420,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
-    <description>A large intake fan.</description>
+    <description>A large intake fan. Throughput: 1500 cc/s.</description>
     <costList>
       <Steel>300</Steel>
       <ComponentIndustrial>3</ComponentIndustrial>
@@ -485,7 +485,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
-    <description>A large climate control unit for heating and cooling air.</description>
+    <description>A large climate control unit for heating and cooling air. Throughput: 4500 cc/s.</description>
     <costList>
       <Steel>600</Steel>
       <ComponentIndustrial>9</ComponentIndustrial>
