@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
-		<modNameReadable>CentralizedClimateControl</modNameReadable>
-		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2007268173</linkUrl>
-	</HugsLib.UpdateFeatureDef>
-	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
-		<defName>CentralizedClimateControl_1_0_21_0</defName>
-		<assemblyVersion>1.0.21.0</assemblyVersion>
-		<content>There should now be throughput info in the descriptions. Also the calculations of the grid should take disabled buildings into account. Thanks Adrielle for these improvements!
+  <HugsLib.UpdateFeatureDef Abstract="true" Name="CentralizedClimateControl_UpdateFeatureBase">
+    <modNameReadable>CentralizedClimateControl</modNameReadable>
+    <linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2007268173</linkUrl>
+  </HugsLib.UpdateFeatureDef>
+  <HugsLib.UpdateFeatureDef ParentName="CentralizedClimateControl_UpdateFeatureBase">
+    <defName>CentralizedClimateControl_1_0_21_0</defName>
+    <assemblyVersion>1.0.21.0</assemblyVersion>
+    <content>There should now be throughput info in the descriptions. Also the calculations of the grid should take disabled buildings into account. Thanks Adrielle for these improvements!
 
 The hidden pipes should now no longer be able to build on the same cell as their visible counterparts. They should also not be visible next to normal pipes.
 </content>
-	</HugsLib.UpdateFeatureDef>
+  </HugsLib.UpdateFeatureDef>
 </Defs>
-

@@ -1,9 +1,8 @@
 ﻿using HugsLib;
 
-namespace CentralizedClimateControl
+namespace CentralizedClimateControl;
+
+public class CentralizedClimateControl : ModBase
 {
-    public class CentralizedClimateControl : ModBase
-    {
-        public override string ModIdentifier => "CentralizedClimateControl";
-    }
+    public override string ModIdentifier => "CentralizedClimateControl";
 }

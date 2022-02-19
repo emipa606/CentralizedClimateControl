@@ -1,16 +1,15 @@
 ﻿using Verse;
 
-namespace CentralizedClimateControl
+namespace CentralizedClimateControl;
+
+public class CompProperties_AirFlow : CompProperties
 {
-    public class CompProperties_AirFlow : CompProperties
-    {
-        public float baseAirExhaust;
+    public float baseAirExhaust;
 
-        public float baseAirFlow;
+    public float baseAirFlow;
 
-        public AirFlowType flowType;
+    public AirFlowType flowType;
 
-        public float thermalCapacity;
-        public bool transmitsAir;
-    }
+    public float thermalCapacity;
+    public bool transmitsAir;
 }

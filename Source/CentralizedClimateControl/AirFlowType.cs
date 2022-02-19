@@ -1,10 +1,9 @@
-﻿namespace CentralizedClimateControl
+﻿namespace CentralizedClimateControl;
+
+public enum AirFlowType
 {
-    public enum AirFlowType
-    {
-        Hot = 0,
-        Cold = 1,
-        Frozen = 2,
-        Any = 3
-    }
+    Hot = 0,
+    Cold = 1,
+    Frozen = 2,
+    Any = 3
 }

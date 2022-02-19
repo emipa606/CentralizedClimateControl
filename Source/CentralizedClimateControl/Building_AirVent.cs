@@ -2,106 +2,105 @@
 using UnityEngine;
 using Verse;
 
-namespace CentralizedClimateControl
+namespace CentralizedClimateControl;
+
+public class Building_AirVent : Building
 {
-    public class Building_AirVent : Building
+    public CompAirFlowConsumer CompAirFlowConsumer;
+
+    /// <summary>
+    ///     Building spawned on the map
+    /// </summary>
+    /// <param name="map">RimWorld Map</param>
+    /// <param name="respawningAfterLoad">Unused flag</param>
+    public override void SpawnSetup(Map map, bool respawningAfterLoad)
     {
-        public CompAirFlowConsumer CompAirFlowConsumer;
+        base.SpawnSetup(map, respawningAfterLoad);
+        CompAirFlowConsumer = GetComp<CompAirFlowConsumer>();
+    }
 
-        /// <summary>
-        ///     Building spawned on the map
-        /// </summary>
-        /// <param name="map">RimWorld Map</param>
-        /// <param name="respawningAfterLoad">Unused flag</param>
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+    /// <summary>
+    ///     Get the Gizmos for AirVent
+    ///     Here, we generate the Gizmo for Chaning Pipe Priority
+    /// </summary>
+    /// <returns>List of Gizmos</returns>
+    public override IEnumerable<Gizmo> GetGizmos()
+    {
+        foreach (var g in base.GetGizmos())
         {
-            base.SpawnSetup(map, respawningAfterLoad);
-            CompAirFlowConsumer = GetComp<CompAirFlowConsumer>();
+            yield return g;
         }
 
-        /// <summary>
-        ///     Get the Gizmos for AirVent
-        ///     Here, we generate the Gizmo for Chaning Pipe Priority
-        /// </summary>
-        /// <returns>List of Gizmos</returns>
-        public override IEnumerable<Gizmo> GetGizmos()
+        if (CompAirFlowConsumer != null)
         {
-            foreach (var g in base.GetGizmos())
-            {
-                yield return g;
-            }
+            yield return CentralizedClimateControlUtility.GetPipeSwitchToggle(CompAirFlowConsumer);
+        }
+    }
 
-            if (CompAirFlowConsumer != null)
-            {
-                yield return CentralizedClimateControlUtility.GetPipeSwitchToggle(CompAirFlowConsumer);
-            }
+    /// <summary>
+    ///     Tick function for Air Vents
+    ///     Main code for chaning temperature at the Rooms. We take the Converted Temperature from the Air Network.
+    /// </summary>
+    public override void TickRare()
+    {
+        CompAirFlowConsumer.TickRare();
+
+        if (!CompAirFlowConsumer.IsOperating())
+        {
+            return;
         }
 
-        /// <summary>
-        ///     Tick function for Air Vents
-        ///     Main code for chaning temperature at the Rooms. We take the Converted Temperature from the Air Network.
-        /// </summary>
-        public override void TickRare()
+        if (!CompAirFlowConsumer.IsActive())
         {
-            CompAirFlowConsumer.TickRare();
+            return;
+        }
 
-            if (!CompAirFlowConsumer.IsOperating())
-            {
-                return;
-            }
+        var intVec = Position + IntVec3.North.RotatedBy(Rotation);
 
-            if (!CompAirFlowConsumer.IsActive())
-            {
-                return;
-            }
+        if (intVec.Impassable(Map))
+        {
+            return;
+        }
 
-            var intVec = Position + IntVec3.North.RotatedBy(Rotation);
+        //var insideTemp = intVec.GetTemperature(Map);
+        //var tempDiff = outsideTemp - insideTemp;
+        var outsideTemp = CompAirFlowConsumer.ConvertedTemperature;
+        var tempDiff = outsideTemp - intVec.GetTemperature(Map);
+        var magnitudeChange = Mathf.Abs(tempDiff);
 
-            if (intVec.Impassable(Map))
-            {
-                return;
-            }
+        // Cap change at 10.0f
+        if (magnitudeChange > 10.0f)
+        {
+            magnitudeChange = 10.0f;
+        }
 
-            //var insideTemp = intVec.GetTemperature(Map);
-            //var tempDiff = outsideTemp - insideTemp;
-            var outsideTemp = CompAirFlowConsumer.ConvertedTemperature;
-            var tempDiff = outsideTemp - intVec.GetTemperature(Map);
-            var magnitudeChange = Mathf.Abs(tempDiff);
+        float signChanger = 1;
 
-            // Cap change at 10.0f
-            if (magnitudeChange > 10.0f)
-            {
-                magnitudeChange = 10.0f;
-            }
+        if (tempDiff < 0)
+        {
+            signChanger = -1;
+        }
 
-            float signChanger = 1;
+        var i = 1;
 
-            if (tempDiff < 0)
-            {
-                signChanger = -1;
-            }
+        if (CompAirFlowConsumer.ThermalEfficiency <= 0)
+        {
+            i = 0;
+        }
 
-            var i = 1;
+        // Flow Efficiency is capped at 1.0f. Squaring will only keep it less than or equal to 1.0f. Smaller the number more drastic the square.
+        var efficiencyImpact =
+            CompAirFlowConsumer.FlowEfficiency * CompAirFlowConsumer.FlowEfficiency * i;
 
-            if (CompAirFlowConsumer.ThermalEfficiency <= 0)
-            {
-                i = 0;
-            }
+        var smoothMagnitude = magnitudeChange * 0.25f * (CompAirFlowConsumer.Props.baseAirExhaust / 100.0f);
+        var energyLimit = smoothMagnitude * efficiencyImpact * 4.16666651f * 12f * signChanger;
+        var tempChange = GenTemperature.ControlTemperatureTempChange(intVec, Map, energyLimit, outsideTemp);
 
-            // Flow Efficiency is capped at 1.0f. Squaring will only keep it less than or equal to 1.0f. Smaller the number more drastic the square.
-            var efficiencyImpact =
-                CompAirFlowConsumer.FlowEfficiency * CompAirFlowConsumer.FlowEfficiency * i;
-
-            var smoothMagnitude = magnitudeChange * 0.25f * (CompAirFlowConsumer.Props.baseAirExhaust / 100.0f);
-            var energyLimit = smoothMagnitude * efficiencyImpact * 4.16666651f * 12f * signChanger;
-            var tempChange = GenTemperature.ControlTemperatureTempChange(intVec, Map, energyLimit, outsideTemp);
-
-            //var flag = !Mathf.Approximately(tempChange, 0f);
-            //if (flag)
-            if (!Mathf.Approximately(tempChange, 0f))
-            {
-                intVec.GetRoomOrAdjacent(Map).Temperature += tempChange;
-            }
+        //var flag = !Mathf.Approximately(tempChange, 0f);
+        //if (flag)
+        if (!Mathf.Approximately(tempChange, 0f))
+        {
+            intVec.GetRoomOrAdjacent(Map).Temperature += tempChange;
         }
     }
 }

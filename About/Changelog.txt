@@ -1,5 +1,8 @@
 # Changelog for CentralizedClimateControl
 
+1.3.1 - More unique defname for the HugLib-news base-definition, to avoid conflicts with other mods.
+
+
 1.0.21.0 - Hidden pipes do not show next to normal pipes, cannot build hidden and normal pipes on the same cell
 
 

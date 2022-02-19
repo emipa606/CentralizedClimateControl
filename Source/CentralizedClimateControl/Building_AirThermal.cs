@@ -2,93 +2,92 @@
 using UnityEngine;
 using Verse;
 
-namespace CentralizedClimateControl
+namespace CentralizedClimateControl;
+
+public class Building_AirThermal : Building_AirFlowControl
 {
-    public class Building_AirThermal : Building_AirFlowControl
+    public CompAirFlowTempControl CompAirFlowTempControl;
+    public CompTempControl CompTempControl;
+
+    /// <summary>
+    ///     Building spawned on the map
+    /// </summary>
+    /// <param name="map">RimWorld Map</param>
+    /// <param name="respawningAfterLoad">Unused flag</param>
+    public override void SpawnSetup(Map map, bool respawningAfterLoad)
     {
-        public CompAirFlowTempControl CompAirFlowTempControl;
-        public CompTempControl CompTempControl;
+        CompTempControl = GetComp<CompTempControl>();
+        CompAirFlowTempControl = GetComp<CompAirFlowTempControl>();
+        base.SpawnSetup(map, respawningAfterLoad);
+    }
 
-        /// <summary>
-        ///     Building spawned on the map
-        /// </summary>
-        /// <param name="map">RimWorld Map</param>
-        /// <param name="respawningAfterLoad">Unused flag</param>
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+    /// <summary>
+    ///     Tick Function for Climate Buildings - Here we calculate the Temperature growth from Intake to Target Temperature
+    ///     Plus, we exhaust a certain amount of Heat to the South of the Building.
+    /// </summary>
+    public override void TickRare()
+    {
+        if (!CompPowerTrader.PowerOn)
         {
-            CompTempControl = GetComp<CompTempControl>();
-            CompAirFlowTempControl = GetComp<CompAirFlowTempControl>();
-            base.SpawnSetup(map, respawningAfterLoad);
+            CompAirFlowTempControl.IsPoweredOff = true;
+            return;
         }
 
-        /// <summary>
-        ///     Tick Function for Climate Buildings - Here we calculate the Temperature growth from Intake to Target Temperature
-        ///     Plus, we exhaust a certain amount of Heat to the South of the Building.
-        /// </summary>
-        public override void TickRare()
+        CompAirFlowTempControl.IsPoweredOff = false;
+        CompAirFlowTempControl.IsBrokenDown = this.IsBrokenDown();
+
+        if (!CompAirFlowTempControl.IsOperating())
         {
-            if (!CompPowerTrader.PowerOn)
-            {
-                CompAirFlowTempControl.IsPoweredOff = true;
-                return;
-            }
-
-            CompAirFlowTempControl.IsPoweredOff = false;
-            CompAirFlowTempControl.IsBrokenDown = this.IsBrokenDown();
-
-            if (!CompAirFlowTempControl.IsOperating())
-            {
-                return;
-            }
-
-            var size = def.Size;
-
-            var iterator = new IntVec3(Position.x, Position.y, Position.z);
-
-            for (var dx = 0; dx < size.x; dx++)
-            {
-                //var currentPos = iterator + IntVec3.South.RotatedBy(Rotation);
-
-                //if (currentPos.Impassable(Map))
-                if ((iterator + IntVec3.South.RotatedBy(Rotation)).Impassable(Map))
-                {
-                    CompAirFlowTempControl.IsBlocked = true;
-                    return;
-                }
-
-                iterator += IntVec3.East.RotatedBy(Rotation);
-            }
-
-            CompAirFlowTempControl.IsBlocked = false;
-
-            if (!CompAirFlowTempControl.IsActive())
-            {
-                return;
-            }
-
-            CompAirFlowTempControl.TickRare(CompTempControl);
-
-            if (CompAirFlowTempControl.IsHeating)
-            {
-                return;
-            }
-
-            var intVec = Position + IntVec3.South.RotatedBy(Rotation);
-            var tempDiff = CompAirFlowTempControl.ConvertedTemperature - CompAirFlowTempControl.IntakeTemperature;
-
-            // Push Heat when Cooling Only
-            var magnitudeChange = Mathf.Abs(tempDiff);
-            var baseHeat = 25.0f;
-
-            // Cap change at 20.0f
-            if (magnitudeChange > 20.0f)
-            {
-                magnitudeChange = 20.0f;
-            }
-
-            baseHeat += magnitudeChange;
-
-            GenTemperature.PushHeat(intVec, Map, baseHeat * 1.25f);
+            return;
         }
+
+        var size = def.Size;
+
+        var iterator = new IntVec3(Position.x, Position.y, Position.z);
+
+        for (var dx = 0; dx < size.x; dx++)
+        {
+            //var currentPos = iterator + IntVec3.South.RotatedBy(Rotation);
+
+            //if (currentPos.Impassable(Map))
+            if ((iterator + IntVec3.South.RotatedBy(Rotation)).Impassable(Map))
+            {
+                CompAirFlowTempControl.IsBlocked = true;
+                return;
+            }
+
+            iterator += IntVec3.East.RotatedBy(Rotation);
+        }
+
+        CompAirFlowTempControl.IsBlocked = false;
+
+        if (!CompAirFlowTempControl.IsActive())
+        {
+            return;
+        }
+
+        CompAirFlowTempControl.TickRare(CompTempControl);
+
+        if (CompAirFlowTempControl.IsHeating)
+        {
+            return;
+        }
+
+        var intVec = Position + IntVec3.South.RotatedBy(Rotation);
+        var tempDiff = CompAirFlowTempControl.ConvertedTemperature - CompAirFlowTempControl.IntakeTemperature;
+
+        // Push Heat when Cooling Only
+        var magnitudeChange = Mathf.Abs(tempDiff);
+        var baseHeat = 25.0f;
+
+        // Cap change at 20.0f
+        if (magnitudeChange > 20.0f)
+        {
+            magnitudeChange = 20.0f;
+        }
+
+        baseHeat += magnitudeChange;
+
+        GenTemperature.PushHeat(intVec, Map, baseHeat * 1.25f);
     }
 }

@@ -2,95 +2,94 @@
 using UnityEngine;
 using Verse;
 
-namespace CentralizedClimateControl
+namespace CentralizedClimateControl;
+
+public class GraphicPipe_Overlay : Graphic_Linked
 {
-    public class GraphicPipe_Overlay : Graphic_Linked
+    private readonly Graphic _anyGraphic;
+    private readonly Graphic _flowGraphic;
+    public AirFlowType FlowType;
+
+    public GraphicPipe_Overlay()
     {
-        private readonly Graphic _anyGraphic;
-        private readonly Graphic _flowGraphic;
-        public AirFlowType FlowType;
+    }
 
-        public GraphicPipe_Overlay()
+    /// <summary>
+    ///     Graphic for Overlay Pipes Constructor. Defaults to Red Pipe as FlowType.
+    /// </summary>
+    /// <param name="subGraphic">Color Specific Overlay</param>
+    /// <param name="anyGraphic">Any Pipe Overlay Graphic</param>
+    public GraphicPipe_Overlay(Graphic subGraphic, Graphic anyGraphic) : base(subGraphic)
+    {
+        FlowType = AirFlowType.Hot;
+        _anyGraphic = anyGraphic;
+        _flowGraphic = subGraphic;
+    }
+
+    /// <summary>
+    ///     Graphic for Overlay Pipes Constructor
+    /// </summary>
+    /// <param name="subGraphic">Color Specific Overlay</param>
+    /// <param name="anyGraphic">Any Pipe Overlay Graphic</param>
+    /// <param name="type">Flow Type of the Atlas</param>
+    public GraphicPipe_Overlay(Graphic subGraphic, Graphic anyGraphic, AirFlowType type) : base(subGraphic)
+    {
+        FlowType = type;
+        _anyGraphic = anyGraphic;
+        _flowGraphic = subGraphic;
+    }
+
+    /// <summary>
+    ///     Overriden Function for Pipe Atlas. It Checks for Neighbouring tiles if it should be Linked to the target cell.
+    ///     This Function specifies the condition that will be used.
+    ///     Here we just check if the target cell that is asked for linkage has a Pipe of the same Color or not.
+    /// </summary>
+    /// <param name="intVec">Target Cell</param>
+    /// <param name="parent">Parent Object</param>
+    /// <returns>Should Link with Same Color Pipe or not</returns>
+    public override bool ShouldLinkWith(IntVec3 intVec, Thing parent)
+    {
+        //var building = parent as Building;
+        //if (building == null)
+        if (!(parent is Building))
         {
+            return false;
         }
 
-        /// <summary>
-        ///     Graphic for Overlay Pipes Constructor. Defaults to Red Pipe as FlowType.
-        /// </summary>
-        /// <param name="subGraphic">Color Specific Overlay</param>
-        /// <param name="anyGraphic">Any Pipe Overlay Graphic</param>
-        public GraphicPipe_Overlay(Graphic subGraphic, Graphic anyGraphic) : base(subGraphic)
-        {
-            FlowType = AirFlowType.Hot;
-            _anyGraphic = anyGraphic;
-            _flowGraphic = subGraphic;
-        }
+        return intVec.InBounds(parent.Map) &&
+               CentralizedClimateControlUtility.GetNetManager(parent.Map).ZoneAt(intVec, FlowType);
+    }
 
-        /// <summary>
-        ///     Graphic for Overlay Pipes Constructor
-        /// </summary>
-        /// <param name="subGraphic">Color Specific Overlay</param>
-        /// <param name="anyGraphic">Any Pipe Overlay Graphic</param>
-        /// <param name="type">Flow Type of the Atlas</param>
-        public GraphicPipe_Overlay(Graphic subGraphic, Graphic anyGraphic, AirFlowType type) : base(subGraphic)
+    /// <summary>
+    ///     Main method to Print a Atlas Pipe Graphic
+    /// </summary>
+    /// <param name="layer">Section Layer calling this Print command</param>
+    /// <param name="parent">Parent Object</param>
+    /// <param name="extraRotation"></param>
+    public override void Print(SectionLayer layer, Thing parent, float extraRotation)
+    {
+        //var iterator = parent.OccupiedRect().GetIterator();
+        //while (!iterator.Done())
+        foreach (var item in parent.OccupiedRect())
         {
-            FlowType = type;
-            _anyGraphic = anyGraphic;
-            _flowGraphic = subGraphic;
-        }
+            var vector = item.ToVector3ShiftedWithAltitude(AltitudeLayer.MapDataOverlay);
 
-        /// <summary>
-        ///     Overriden Function for Pipe Atlas. It Checks for Neighbouring tiles if it should be Linked to the target cell.
-        ///     This Function specifies the condition that will be used.
-        ///     Here we just check if the target cell that is asked for linkage has a Pipe of the same Color or not.
-        /// </summary>
-        /// <param name="intVec">Target Cell</param>
-        /// <param name="parent">Parent Object</param>
-        /// <returns>Should Link with Same Color Pipe or not</returns>
-        public override bool ShouldLinkWith(IntVec3 intVec, Thing parent)
-        {
-            //var building = parent as Building;
-            //if (building == null)
-            if (!(parent is Building))
+            var building = parent as Building;
+
+            var compAirFlow = building?.GetComps<CompAirFlow>().FirstOrDefault();
+            if (compAirFlow == null)
             {
-                return false;
+                return;
             }
 
-            return intVec.InBounds(parent.Map) &&
-                   CentralizedClimateControlUtility.GetNetManager(parent.Map).ZoneAt(intVec, FlowType);
-        }
-
-        /// <summary>
-        ///     Main method to Print a Atlas Pipe Graphic
-        /// </summary>
-        /// <param name="layer">Section Layer calling this Print command</param>
-        /// <param name="parent">Parent Object</param>
-        /// <param name="extraRotation"></param>
-        public override void Print(SectionLayer layer, Thing parent, float extraRotation)
-        {
-            //var iterator = parent.OccupiedRect().GetIterator();
-            //while (!iterator.Done())
-            foreach (var item in parent.OccupiedRect())
+            if (compAirFlow.FlowType != FlowType && compAirFlow.FlowType != AirFlowType.Any)
             {
-                var vector = item.ToVector3ShiftedWithAltitude(AltitudeLayer.MapDataOverlay);
-
-                var building = parent as Building;
-
-                var compAirFlow = building?.GetComps<CompAirFlow>().FirstOrDefault();
-                if (compAirFlow == null)
-                {
-                    return;
-                }
-
-                if (compAirFlow.FlowType != FlowType && compAirFlow.FlowType != AirFlowType.Any)
-                {
-                    return;
-                }
-
-                subGraphic = compAirFlow.FlowType == AirFlowType.Any ? _anyGraphic : _flowGraphic;
-
-                Printer_Plane.PrintPlane(layer, vector, Vector2.one, LinkedDrawMatFrom(parent, item));
+                return;
             }
+
+            subGraphic = compAirFlow.FlowType == AirFlowType.Any ? _anyGraphic : _flowGraphic;
+
+            Printer_Plane.PrintPlane(layer, vector, Vector2.one, LinkedDrawMatFrom(parent, item));
         }
     }
 }

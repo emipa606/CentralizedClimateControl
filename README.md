@@ -1,6 +1,6 @@
 # CentralizedClimateControl
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of ColdToads mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
@@ -10,28 +10,19 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
 - Improved graphics by spoden
 - Removed climate-category and put the items in temperature instead
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+![Image](https://i.imgur.com/pufA0kM.png)
 
-
-[table]
-    [tr]
-        [td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-        [td]https://github.com/emipa606/CentralizedClimateControl/]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-    [/tr]
-[/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
 
 Centralized Air Cooling/Heating System for RimWorld. Build Large Piped Air Climate Systems away from your buildings.
 
 -----
-
+[strike]
 NOTICE:
 This mod is no longer maintained. Due to recent life changes, It is hard to find time for this mod. The license has been modified to MIT License so people have been given freedom to modify the mod itself. Overall, the mod still works fine, there may be incompatibilities with other mods that I would not have discovered. I highly recommend looking at the Getting Started guide on steam if you are trying it out.
-
+[/strike]
 -----
 
 Rimworld Version: 1.0.0 (Check Github releases for older versions)
@@ -120,7 +111,7 @@ Thanks if you are trying my mod out!
 
 MIT License
 
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 
@@ -130,7 +121,6 @@ MIT License
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
-
 
 
 
