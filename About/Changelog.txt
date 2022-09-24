@@ -1,5 +1,9 @@
 # Changelog for CentralizedClimateControl
 
+1.3.2 - Removed legacy dependecies.
+Used DeepL to update translations for ChineseSimplified
+
+
 1.3.1 - More unique defname for the HugLib-news base-definition, to avoid conflicts with other mods.
 
 

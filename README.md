@@ -103,7 +103,7 @@ Thanks if you are trying my mod out!
 
 #  Credits: 
 
-- https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for &quot;Central Heating&quot; 
+- https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for 'Central Heating' 
 - https://ludeon.com/forums/index.php?topic=21770.0] Redist Heat 
 - https://ludeon.com/forums/index.php?topic=29043.msg341113#msg341113] Dubs Hygiene Mod 
 
@@ -121,6 +121,7 @@ MIT License
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
+
 
 
 

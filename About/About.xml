@@ -10,24 +10,8 @@
     <li>1.2</li>
     <li>1.3</li>
   </supportedVersions>
-  <modDependencies>
-    <li>
-      <packageId>brrainz.harmony</packageId>
-      <displayName>Harmony</displayName>
-      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
-      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
-    </li>
-    <li>
-      <packageId>UnlimitedHugs.HugsLib</packageId>
-      <displayName>HugsLib</displayName>
-      <steamWorkshopUrl>steam://url/CommunityFilePage/818773962</steamWorkshopUrl>
-      <downloadUrl>https://github.com/UnlimitedHugs/RimworldHugsLib</downloadUrl>
-    </li>
-  </modDependencies>
-  <loadAfter>
-    <li>brrainz.harmony</li>
-    <li>UnlimitedHugs.HugsLib</li>
-  </loadAfter>
+  <modDependencies />
+  <loadAfter />
   <description>[img]https://i.imgur.com/buuPQel.png[/img]
 Update of ColdToads mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
@@ -133,7 +117,7 @@ Thanks if you are trying my mod out!
 - [url=https://github.com/Jdalt40] [B19 changes] Jdalt40  [/url]
 
 [h1] Credits: [/h1]
-- [url=https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for &amp;quot;Central Heating&amp;quot; [/url]
+- [url=https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for 'Central Heating' [/url]
 - [url=https://ludeon.com/forums/index.php?topic=21770.0] Redist Heat [/url]
 - [url=https://ludeon.com/forums/index.php?topic=29043.msg341113#msg341113] Dubs Hygiene Mod [/url]
 
@@ -149,5 +133,6 @@ MIT License
 [*] Do not report errors by making a discussion-thread, I get no notification of that.
 [*] If you have the solution for a problem, please post it to the GitHub repository.
 [/list]
+
 </description>
 </ModMetaData>
