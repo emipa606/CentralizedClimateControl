@@ -9,6 +9,7 @@
     <li>1.1</li>
     <li>1.2</li>
     <li>1.3</li>
+    <li>1.4</li>
   </supportedVersions>
   <modDependencies />
   <loadAfter />
@@ -20,6 +21,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
 - Added hidden air-pipes on request and grouped the build-buttons
 - Improved graphics by spoden
 - Removed climate-category and put the items in temperature instead
+- Removed legacy dependencies
 
 [img]https://i.imgur.com/pufA0kM.png[/img]
 

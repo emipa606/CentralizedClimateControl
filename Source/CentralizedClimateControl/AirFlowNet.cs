@@ -127,7 +127,7 @@ public class AirFlowNet
     {
         if (Producers.Contains(producer))
         {
-            Log.Error("AirFlowNet registered producer it already had: " + producer);
+            Log.Error($"AirFlowNet registered producer it already had: {producer}");
             return;
         }
 
@@ -142,7 +142,7 @@ public class AirFlowNet
     {
         if (!Producers.Contains(producer))
         {
-            Log.Error("AirFlowNet de-registered producer it already removed: " + producer);
+            Log.Error($"AirFlowNet de-registered producer it already removed: {producer}");
             return;
         }
 
@@ -193,26 +193,26 @@ public class AirFlowNet
         var stringBuilder = new StringBuilder();
         stringBuilder.AppendLine("------------");
         stringBuilder.AppendLine("AIRFLOW NET:");
-        stringBuilder.AppendLine("  Prodcued AirFlow: " + CurrentIntakeAir);
-        stringBuilder.AppendLine("  AverageIntakeTemperature: " + AverageIntakeTemperature);
-        stringBuilder.AppendLine("  AverageConvertedTemperature: " + AverageConvertedTemperature);
+        stringBuilder.AppendLine($"  Prodcued AirFlow: {CurrentIntakeAir}");
+        stringBuilder.AppendLine($"  AverageIntakeTemperature: {AverageIntakeTemperature}");
+        stringBuilder.AppendLine($"  AverageConvertedTemperature: {AverageConvertedTemperature}");
 
         stringBuilder.AppendLine("  Producers: ");
         foreach (var current in Producers)
         {
-            stringBuilder.AppendLine("      " + current.parent);
+            stringBuilder.AppendLine($"      {current.parent}");
         }
 
         stringBuilder.AppendLine("  TempControls: ");
         foreach (var current in TempControls)
         {
-            stringBuilder.AppendLine("      " + current.parent);
+            stringBuilder.AppendLine($"      {current.parent}");
         }
 
         stringBuilder.AppendLine("  Consumers: ");
         foreach (var current in Consumers)
         {
-            stringBuilder.AppendLine("      " + current.parent);
+            stringBuilder.AppendLine($"      {current.parent}");
         }
 
         stringBuilder.AppendLine("------------");

@@ -1,5 +1,9 @@
 # Changelog for CentralizedClimateControl
 
+1.4.1 - Mod updated for 1.4 and passed autotests.
+Used DeepL to update translations for French
+
+
 1.3.2 - Removed legacy dependecies.
 Used DeepL to update translations for ChineseSimplified
 

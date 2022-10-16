@@ -9,6 +9,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
 - Added hidden air-pipes on request and grouped the build-buttons
 - Improved graphics by spoden
 - Removed climate-category and put the items in temperature instead
+- Removed legacy dependencies
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 

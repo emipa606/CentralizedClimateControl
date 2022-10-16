@@ -20,18 +20,7 @@ public class CompAirFlowProducer : CompAirFlow
 
     public bool IsPoweredOff = false;
 
-    public float AirFlowOutput
-    {
-        get
-        {
-            if (IsOperating())
-            {
-                return CurrentAirFlow;
-            }
-
-            return 0.0f;
-        }
-    }
+    public float AirFlowOutput => IsOperating() ? CurrentAirFlow : 0.0f;
 
     /// <summary>
     ///     Debug String for a Air Flow Producer
@@ -42,9 +31,9 @@ public class CompAirFlowProducer : CompAirFlow
         get
         {
             var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(parent.LabelCap + " CompAirFlow:");
-            stringBuilder.AppendLine("   AirFlow IsOperating: " + IsOperating());
-            stringBuilder.AppendLine("   AirFlow Output: " + AirFlowOutput);
+            stringBuilder.AppendLine($"{parent.LabelCap} CompAirFlow:");
+            stringBuilder.AppendLine($"   AirFlow IsOperating: {IsOperating()}");
+            stringBuilder.AppendLine($"   AirFlow Output: {AirFlowOutput}");
             return stringBuilder.ToString();
         }
     }

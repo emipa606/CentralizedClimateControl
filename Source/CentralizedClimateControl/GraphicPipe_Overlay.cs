@@ -51,7 +51,7 @@ public class GraphicPipe_Overlay : Graphic_Linked
     {
         //var building = parent as Building;
         //if (building == null)
-        if (!(parent is Building))
+        if (parent is not Building)
         {
             return false;
         }

@@ -39,8 +39,8 @@ public class CompAirFlowTempControl : CompAirFlow
         get
         {
             var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(parent.LabelCap + " CompAirFlow:");
-            stringBuilder.AppendLine("   AirFlow IsOperating: " + IsOperating());
+            stringBuilder.AppendLine($"{parent.LabelCap} CompAirFlow:");
+            stringBuilder.AppendLine($"   AirFlow IsOperating: {IsOperating()}");
             return stringBuilder.ToString();
         }
     }

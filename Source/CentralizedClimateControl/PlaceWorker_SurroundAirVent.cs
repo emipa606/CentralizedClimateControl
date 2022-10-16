@@ -30,12 +30,10 @@ public class PlaceWorker_SurroundAirVent : PlaceWorker
         //foreach (var thingType in list)
         foreach (var thingType in center.GetThingList(map))
         {
-            if (!(thingType is Building_AirVent))
+            if (thingType is not Building_AirVent airVent)
             {
                 continue;
             }
-
-            var airVent = thingType as Building_AirVent;
 
             if (airVent.CompAirFlowConsumer.AirFlowNet != null)
             {

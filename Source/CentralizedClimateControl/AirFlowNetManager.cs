@@ -496,7 +496,7 @@ public class AirFlowNetManager : MapComponent
     /// <param name="network">Current Network</param>
     private static void ValidateAsConsumer(CompAirFlow compAirFlow, AirFlowNet network)
     {
-        if (!(compAirFlow is CompAirFlowConsumer consumer))
+        if (compAirFlow is not CompAirFlowConsumer consumer)
         {
             return;
         }
@@ -525,7 +525,7 @@ public class AirFlowNetManager : MapComponent
             return false;
         }
 
-        if (!(compAirFlow is CompAirFlowConsumer consumer))
+        if (compAirFlow is not CompAirFlowConsumer consumer)
         {
             return true;
         }
@@ -547,7 +547,7 @@ public class AirFlowNetManager : MapComponent
     /// <param name="network">Current Network</param>
     private static void ValidateAsProducer(CompAirFlow compAirFlow, AirFlowNet network)
     {
-        if (!(compAirFlow is CompAirFlowProducer producer))
+        if (compAirFlow is not CompAirFlowProducer producer)
         {
             return;
         }
@@ -567,7 +567,7 @@ public class AirFlowNetManager : MapComponent
     /// <param name="network">Current Network</param>
     private static void ValidateAsTempControl(CompAirFlow compAirFlow, AirFlowNet network)
     {
-        if (!(compAirFlow is CompAirFlowTempControl tempControl))
+        if (compAirFlow is not CompAirFlowTempControl tempControl)
         {
             return;
         }
@@ -590,7 +590,7 @@ public class AirFlowNetManager : MapComponent
 
         foreach (var compAirFlow in comps)
         {
-            str += "\n  - " + compAirFlow.parent + " (GRID ID: " + compAirFlow.GridID + ") ";
+            str += $"\n  - {compAirFlow.parent} (GRID ID: {compAirFlow.GridID}) ";
         }
 
         Debug.Log(str);

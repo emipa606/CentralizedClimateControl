@@ -41,8 +41,7 @@ internal class SectionLayer_FrozenAirPipe : SectionLayer_Things
     /// <param name="thing">Thing that triggered the Draw Call</param>
     protected override void TakePrintFrom(Thing thing)
     {
-        var building = thing as Building;
-        if (building == null)
+        if (thing is not Building building)
         {
             return;
         }
