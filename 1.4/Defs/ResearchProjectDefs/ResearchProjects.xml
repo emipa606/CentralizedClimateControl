@@ -9,8 +9,8 @@
     <prerequisites>
       <li>AirConditioning</li>
     </prerequisites>
-    <researchViewX>2</researchViewX>
-    <researchViewY>5</researchViewY>
+    <researchViewX>7.00</researchViewX>
+    <researchViewY>5.45</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>IndustrialClimateControl</defName>
@@ -21,7 +21,7 @@
     <prerequisites>
       <li>BasicClimateControl</li>
     </prerequisites>
-    <researchViewX>3</researchViewX>
-    <researchViewY>5</researchViewY>
+    <researchViewX>8.00</researchViewX>
+    <researchViewY>5.40</researchViewY>
   </ResearchProjectDef>
 </Defs>
