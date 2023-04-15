@@ -1,5 +1,8 @@
 # Changelog for CentralizedClimateControl
 
+1.4.3 - Seems that the assembly was built in debug-mode. Fixed
+
+
 1.4.2 - Fixed research-defs positions
 
 
