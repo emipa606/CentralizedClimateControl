@@ -263,7 +263,7 @@ public class AirFlowNetManager : MapComponent
 
         CachedNets = _backupNets;
 
-//             TODO: Not Optimized
+        //             TODO: Not Optimized
         map.mapDrawer.WholeMapChanged(MapMeshFlag.Buildings);
         map.mapDrawer.WholeMapChanged(MapMeshFlag.Things);
 
