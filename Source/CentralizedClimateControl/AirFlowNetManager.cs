@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -288,6 +289,70 @@ public class AirFlowNetManager : MapComponent
         base.MapComponentTick();
     }
 
+    private void BuildGridOfFlow(IntVec3 startCell, int gridId, int flowIndex, AirFlowNet network)
+    {
+        var visitedCells = new BitArray(PipeGrid.GetLength(1));
+        var visitedLargeBuildings = new HashSet<Building>(ReferenceEqualityComparer.Instance);
+        var toVisitQueue = new Queue<IntVec3>();
+
+        visitedCells[map.cellIndices.CellToIndex(startCell)] = true;
+        toVisitQueue.Enqueue(startCell);
+
+        while (toVisitQueue.Count > 0)
+        {
+            var toVisitPos = toVisitQueue.Dequeue();
+
+            foreach (var building in toVisitPos.GetThingList(map).OfType<Building>())
+            {
+                //if this is large building and alreay visited
+                if (building.OccupiedRect().Area != 1 && !visitedLargeBuildings.Add(building))
+                    continue;
+
+                var any = false;
+                foreach (var buildingAirComp in building.GetComps<CompAirFlow>()
+                             .Where(item =>
+                                 item.FlowType == (AirFlowType)flowIndex ||
+                                 item.FlowType == AirFlowType.Any && item.GridID == RebuildValue))
+                {
+                    if (!ValidateBuildingPriority(buildingAirComp, network))
+                        continue;
+
+                    ValidateBuilding(buildingAirComp, network);
+
+                    any = true;
+                    buildingAirComp.GridID = gridId;
+                }
+
+                if (any)
+                {
+                    foreach (var intVec in building.OccupiedRect())
+                    {
+                        PipeGrid[flowIndex, map.cellIndices.CellToIndex(intVec)] = gridId;
+
+                        //we assume buildings ar small so this is better than iter edge(which contains an gc allocation)
+                        EnqueueNeighborCells(toVisitPos, visitedCells, toVisitQueue);
+                    }
+                }
+            }
+        }
+    }
+
+    private void EnqueueNeighborCells(IntVec3 pos, BitArray visitedCells, Queue<IntVec3> visitQueue)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            //todo: ensure this is not map edge! see ArgumentOutOfRangeException already
+            //this is not going to happen in normal game as we can't build on map edge, but possible in dev mode
+            var nPos = pos + GenAdj.CardinalDirections[i];
+            var nIndex = map.cellIndices.CellToIndex(nPos);
+            if (visitedCells[nIndex])
+                continue;
+
+            visitedCells[nIndex] = true;
+            visitQueue.Enqueue(nPos);
+        }
+    }
+
     /// <summary>
     ///     Iterate on all the Occupied cells of a Cell. Here we can each Parent Occupied Rect cell.
     /// </summary>
@@ -398,70 +463,17 @@ public class AirFlowNetManager : MapComponent
              compAirFlow != null;
              compAirFlow = listCopy.FirstOrDefault())
         {
-            compAirFlow.GridID = _masterId;
-
             var network = new AirFlowNet
             {
-                GridID = compAirFlow.GridID,
+                GridID = _masterId,
                 FlowType = flowType
             };
             //network.GridID = compAirFlow.GridID;
             //network.FlowType = flowType;
-            _masterId++;
 
-            /* -------------------------------------------
-             *
-             * Scan the Position - Get all Buildings - And Assign to Network if Priority Allows
-             *
-             * -------------------------------------------
-             */
-            //var thingList = compAirFlow.parent.Position.GetThingList(map);
-            //var buildingList = thingList.OfType<Building>();
-            //var buildingList = compAirFlow.parent.Position.GetThingList(map).OfType<Building>();
-            //foreach (var current in buildingList)
-            foreach (var current in compAirFlow.parent.Position.GetThingList(map).OfType<Building>())
-            {
-                //var buildingAirComps = current.GetComps<CompAirFlow>().Where(item => item.FlowType == AirFlowType.Any && item.GridID == RebuildValue);
-
-                //foreach (var buildingAirComp in buildingAirComps)
-                foreach (var buildingAirComp in current.GetComps<CompAirFlow>()
-                             .Where(item => item.FlowType == AirFlowType.Any && item.GridID == RebuildValue))
-                {
-                    //var result = ValidateBuildingPriority(buildingAirComp, network);
-                    //if (!result)
-                    if (!ValidateBuildingPriority(buildingAirComp, network))
-                    {
-                        continue;
-                    }
-
-                    ValidateBuilding(buildingAirComp, network);
-                    //var itr = buildingAirComp.parent.OccupiedRect().GetIterator();
-                    //while (!itr.Done())
-                    foreach (var item in buildingAirComp.parent.OccupiedRect())
-                    {
-                        PipeGrid[flowIndex, map.cellIndices.CellToIndex(item)] = compAirFlow.GridID;
-                    }
-
-                    buildingAirComp.GridID = compAirFlow.GridID;
-                }
-            }
-
-            /* -------------------------------------------
-             *
-             * Iterate the OccupiedRect of the Original compAirFlow (This is the Pipe)
-             * So, We add the Pipe to the Grid.
-             *
-             * -------------------------------------------
-             */
-            //var iterator = compAirFlow.parent.OccupiedRect().GetIterator();
-            //while (!iterator.Done())
-            foreach (var item in compAirFlow.parent.OccupiedRect())
-            {
-                PipeGrid[flowIndex, map.cellIndices.CellToIndex(item)] = compAirFlow.GridID;
-            }
-
-            ParseParentCell(compAirFlow, compAirFlow.GridID, flowIndex, network);
+            BuildGridOfFlow(compAirFlow.parent.Position, _masterId, flowIndex, network);
             listCopy.RemoveAll(item => item.GridID != RebuildValue);
+            _masterId++;
 
             network.AirFlowNetTick();
 #if DEBUG
