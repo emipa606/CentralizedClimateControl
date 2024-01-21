@@ -5,7 +5,7 @@ namespace CentralizedClimateControl;
 
 public class Building_AirFlowControl : Building
 {
-    public CompPowerTrader CompPowerTrader;
+    protected CompPowerTrader CompPowerTrader;
 
     /// <summary>
     ///     Building spawned on the map

@@ -3,6 +3,4 @@
 
 namespace CentralizedClimateControl;
 
-public class CompAirFlowTank : CompAirFlow
-{
-}
+public class CompAirFlowTank : CompAirFlow;

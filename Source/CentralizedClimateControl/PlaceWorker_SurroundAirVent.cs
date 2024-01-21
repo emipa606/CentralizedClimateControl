@@ -67,7 +67,7 @@ public class PlaceWorker_SurroundAirVent : PlaceWorker
     /// <summary>
     ///     Place Worker for Air Vents.
     ///     Checks:
-    ///     - North Cell from Center musn't be Impassable
+    ///     - North Cell from Center must not be Impassable
     /// </summary>
     /// <param name="def">The Def Being Built</param>
     /// <param name="center">Target Location</param>
@@ -85,7 +85,8 @@ public class PlaceWorker_SurroundAirVent : PlaceWorker
         //var list = GenAdj.CellsAdjacent8Way(center, rot, def.Size);
 
         //if (list.Any(intVec => intVec.Impassable(map)))
-        if (GenAdj.CellsAdjacent8Way(center, rot, def.Size).Any(intVec => intVec.Impassable(map)))
+        if (GenAdj.CellsAdjacent8Way(center, rot, def.Size)
+            .Any(intVec => !intVec.InBounds(map) || intVec.Impassable(map)))
         {
             return "CentralizedClimateControl.Consumer.SurroundAirVentPlaceError".Translate();
         }

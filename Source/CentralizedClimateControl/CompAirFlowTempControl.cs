@@ -31,7 +31,7 @@ public class CompAirFlowTempControl : CompAirFlow
     public float ThermalCapacity => Props.thermalCapacity;
 
     /// <summary>
-    ///     Debug String for a Air Flow Climate Control
+    ///     Debug String for an Air Flow Climate Control
     ///     Shows info about Air Flow etc.
     /// </summary>
     public string DebugString
@@ -58,7 +58,7 @@ public class CompAirFlowTempControl : CompAirFlow
     }
 
     /// <summary>
-    ///     Despawn Event for a Air Climate Control Component
+    ///     Despawn Event for an Air Climate Control Component
     /// </summary>
     /// <param name="map">RimWorld Map</param>
     public override void PostDeSpawn(Map map)
@@ -115,7 +115,7 @@ public class CompAirFlowTempControl : CompAirFlow
     /// <summary>
     ///     Reset the Flow Variables for Producers and Forward the Control to Base class for more reset.
     /// </summary>
-    public override void ResetFlowVariables()
+    protected override void ResetFlowVariables()
     {
         DeltaTemperature = 0.0f;
         TargetTemperature = 21.0f;

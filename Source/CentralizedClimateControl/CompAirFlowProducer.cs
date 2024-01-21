@@ -23,7 +23,7 @@ public class CompAirFlowProducer : CompAirFlow
     public float AirFlowOutput => IsOperating() ? CurrentAirFlow : 0.0f;
 
     /// <summary>
-    ///     Debug String for a Air Flow Producer
+    ///     Debug String for an Air Flow Producer
     ///     Shows info about Air Flow etc.
     /// </summary>
     public string DebugString
@@ -113,7 +113,7 @@ public class CompAirFlowProducer : CompAirFlow
     /// <summary>
     ///     Reset the Flow Variables for Producers and Forward the Control to Base class for more reset.
     /// </summary>
-    public override void ResetFlowVariables()
+    protected override void ResetFlowVariables()
     {
         CurrentAirFlow = 0.0f;
         IntakeTemperature = 0.0f;

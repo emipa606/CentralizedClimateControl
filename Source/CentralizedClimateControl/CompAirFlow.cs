@@ -23,7 +23,7 @@ public class CompAirFlow : ThingComp
     /// <summary>
     ///     Reset the AirFlow Variables
     /// </summary>
-    public virtual void ResetFlowVariables()
+    protected virtual void ResetFlowVariables()
     {
         AirFlowNet = null;
         GridID = -1;

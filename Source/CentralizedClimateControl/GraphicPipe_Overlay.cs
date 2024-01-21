@@ -8,7 +8,7 @@ public class GraphicPipe_Overlay : Graphic_Linked
 {
     private readonly Graphic _anyGraphic;
     private readonly Graphic _flowGraphic;
-    public AirFlowType FlowType;
+    public readonly AirFlowType FlowType;
 
     public GraphicPipe_Overlay()
     {
@@ -61,7 +61,7 @@ public class GraphicPipe_Overlay : Graphic_Linked
     }
 
     /// <summary>
-    ///     Main method to Print a Atlas Pipe Graphic
+    ///     Main method to Print an Atlas Pipe Graphic
     /// </summary>
     /// <param name="layer">Section Layer calling this Print command</param>
     /// <param name="parent">Parent Object</param>

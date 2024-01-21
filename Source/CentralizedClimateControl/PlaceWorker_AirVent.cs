@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 using Verse;
 
@@ -43,10 +42,7 @@ public class PlaceWorker_AirVent : PlaceWorker
 
         var typeColor = type == AirFlowType.Hot ? Color.red : type == AirFlowType.Cold ? Color.blue : Color.cyan;
 
-        GenDraw.DrawFieldEdges(new List<IntVec3>
-        {
-            intVec
-        }, typeColor);
+        GenDraw.DrawFieldEdges([intVec], typeColor);
 
         var roomGroup = intVec.GetRoomOrAdjacent(map);
         if (roomGroup == null)
@@ -63,7 +59,7 @@ public class PlaceWorker_AirVent : PlaceWorker
     /// <summary>
     ///     Place Worker for Air Vents.
     ///     Checks:
-    ///     - North Cell from Center musn't be Impassable
+    ///     - North Cell from Center must not be Impassable
     /// </summary>
     /// <param name="def">The Def Being Built</param>
     /// <param name="center">Target Location</param>
@@ -78,7 +74,8 @@ public class PlaceWorker_AirVent : PlaceWorker
         //var vec = center + IntVec3.North.RotatedBy(rot);
 
         //if (vec.Impassable(map))
-        if ((center + IntVec3.North.RotatedBy(rot)).Impassable(map))
+        var cellToTest = center + IntVec3.North.RotatedBy(rot);
+        if (!cellToTest.InBounds(map) || cellToTest.Impassable(map))
         {
             return "CentralizedClimateControl.Consumer.AirVentPlaceError".Translate();
         }

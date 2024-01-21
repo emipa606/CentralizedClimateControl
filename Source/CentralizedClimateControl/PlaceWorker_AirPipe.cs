@@ -9,7 +9,7 @@ public class PlaceWorker_AirPipe : PlaceWorker
     ///     Place Worker for Air Pipes. Checks if Air Pipes are in a Suitable Location or not.
     ///     Checks:
     ///     - Current Cell shouldn't have an Air Flow Building (Since they already have a Pipe)
-    ///     - If a pipe of the same color is built on the tile, dont allow it
+    ///     - If a pipe of the same color is built on the tile, don't allow it
     /// </summary>
     /// <param name="def">The Def Being Built</param>
     /// <param name="loc">Target Location</param>

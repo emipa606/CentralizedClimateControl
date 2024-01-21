@@ -6,17 +6,17 @@ namespace CentralizedClimateControl;
 
 public class AirFlowNet
 {
+    public readonly List<CompAirFlowConsumer> Consumers = [];
+    public readonly List<CompAirFlowProducer> Producers = [];
+    public readonly List<CompAirFlowTempControl> TempControls = [];
     public float AverageConvertedTemperature;
 
     public float AverageIntakeTemperature;
 
-    public List<CompAirFlow> Connectors = new List<CompAirFlow>();
-    public List<CompAirFlowConsumer> Consumers = new List<CompAirFlowConsumer>();
+    public List<CompAirFlow> Connectors = [];
     public float FlowEfficiency = 1.0f;
 
     public AirFlowType FlowType;
-    public List<CompAirFlowProducer> Producers = new List<CompAirFlowProducer>();
-    public List<CompAirFlowTempControl> TempControls = new List<CompAirFlowTempControl>();
 
     public float ThermalCapacity;
     public float ThermalEfficiency = 1.0f;

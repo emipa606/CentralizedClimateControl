@@ -7,7 +7,7 @@ namespace CentralizedClimateControl;
 
 public class GraphicPipe : Graphic_Linked
 {
-    public AirFlowType FlowType;
+    public readonly AirFlowType FlowType;
 
     public GraphicPipe()
     {
@@ -50,7 +50,7 @@ public class GraphicPipe : Graphic_Linked
 
 
     /// <summary>
-    ///     Main method to Print a Atlas Pipe Graphic
+    ///     Main method to Print an Atlas Pipe Graphic
     /// </summary>
     /// <param name="layer">Section Layer calling this Print command</param>
     /// <param name="parent">Parent Object</param>

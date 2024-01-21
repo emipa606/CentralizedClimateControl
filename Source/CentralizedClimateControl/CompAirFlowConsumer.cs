@@ -156,18 +156,13 @@ public class CompAirFlowConsumer : CompAirFlow
 
     public override bool IsOperating()
     {
-        if (!FlickableComp.SwitchIsOn)
-        {
-            return false;
-        }
-
-        return base.IsOperating();
+        return FlickableComp.SwitchIsOn && base.IsOperating();
     }
 
     /// <summary>
     ///     Reset the Flow Variables and Forward the Control to Base class for more reset.
     /// </summary>
-    public override void ResetFlowVariables()
+    protected override void ResetFlowVariables()
     {
         ConvertedTemperature = 0.0f;
         base.ResetFlowVariables();

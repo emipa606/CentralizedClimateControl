@@ -37,7 +37,7 @@ internal class PlaceWorker_IntakeFan : PlaceWorker
     ///     Place Worker for Air Intakes.
     ///     Checks:
     ///     - Current Cell shouldn't have an Air Flow Pipe (Since they already have a Pipe)
-    ///     - Surrounding Cells from Center musn't be Impassable
+    ///     - Surrounding Cells from Center must not be Impassable
     /// </summary>
     /// <param name="def">The Def Being Built</param>
     /// <param name="center">Target Location</param>
@@ -67,7 +67,8 @@ internal class PlaceWorker_IntakeFan : PlaceWorker
         //var list = GenAdj.CellsAdjacent8Way(center, rot, def.Size);
 
         //if (list.Any(intVec => intVec.Impassable(map)))
-        if (GenAdj.CellsAdjacent8Way(center, rot, def.Size).Any(intVec => intVec.Impassable(map)))
+        if (GenAdj.CellsAdjacent8Way(center, rot, def.Size)
+            .Any(intVec => !intVec.InBounds(map) || intVec.Impassable(map)))
         {
             return "CentralizedClimateControl.Producer.IntakeFanPlaceError".Translate();
         }

@@ -46,7 +46,7 @@ public class PlaceWorker_AirThermal : PlaceWorker
     ///     Place Worker for Climate Units.
     ///     Checks:
     ///     - Current Cell shouldn't have an Air Flow Pipe (Since they already have a Pipe)
-    ///     - South Cell from Center musn't be Impassable
+    ///     - South Cell from Center must not be Impassable
     /// </summary>
     /// <param name="def">The Def Being Built</param>
     /// <param name="center">Target Location</param>
@@ -81,7 +81,8 @@ public class PlaceWorker_AirThermal : PlaceWorker
             //var intVec = iterator + IntVec3.South.RotatedBy(rot);
 
             //if (intVec.Impassable(map))
-            if ((iterator + IntVec3.South.RotatedBy(rot)).Impassable(map))
+            var cellToTest = iterator + IntVec3.South.RotatedBy(rot);
+            if (cellToTest.InBounds(map) && cellToTest.Impassable(map))
             {
                 return "CentralizedClimateControl.Consumer.AirThermalPlaceError".Translate();
             }

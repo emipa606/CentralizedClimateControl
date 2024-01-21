@@ -1,5 +1,9 @@
 # Changelog for CentralizedClimateControl
 
+1.4.4 - Fixes the issue with game-crash when having a too large pipe-net, fixed by luoluo39
+Fixed the placeworkers to not throw errors when being near the map-edge
+
+
 1.4.3 - Seems that the assembly was built in debug-mode. Fixed
 
 

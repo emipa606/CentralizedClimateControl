@@ -11,18 +11,18 @@ public class AirFlowNetManager : MapComponent
 {
     private const int RebuildValue = -2;
 
-    private readonly List<AirFlowNet> _backupNets = new List<AirFlowNet>();
+    private readonly List<AirFlowNet> _backupNets = [];
     private readonly int _pipeCount;
-    private int _masterId;
-    public List<CompAirFlowConsumer> CachedConsumers = new List<CompAirFlowConsumer>();
-    public List<AirFlowNet> CachedNets = new List<AirFlowNet>();
-    public List<CompAirFlow> CachedPipes = new List<CompAirFlow>();
-    public List<CompAirFlowProducer> CachedProducers = new List<CompAirFlowProducer>();
-    public List<CompAirFlowTempControl> CachedTempControls = new List<CompAirFlowTempControl>();
-    public bool[] DirtyPipeFlag;
-    public bool IsDirty;
+    public readonly List<CompAirFlowConsumer> CachedConsumers = [];
+    public readonly List<CompAirFlow> CachedPipes = [];
+    public readonly List<CompAirFlowProducer> CachedProducers = [];
+    public readonly List<CompAirFlowTempControl> CachedTempControls = [];
+    public readonly bool[] DirtyPipeFlag;
 
-    public int[,] PipeGrid;
+    public readonly int[,] PipeGrid;
+    private int _masterId;
+    public List<AirFlowNet> CachedNets = [];
+    public bool IsDirty;
 
     /// <summary>
     ///     Constructor of the Network Manager
@@ -232,8 +232,8 @@ public class AirFlowNetManager : MapComponent
 
     /// <summary>
     ///     Update Map Event
-    ///     - Check if Dirty
-    ///     - If it is Dirty then Reconstruct Pipe Grids
+    ///     - Check if Dirty.
+    ///     - If Dirty then Reconstruct Pipe Grids
     ///     - Reset Dirty Flags and Update the Cached Variables storing info on the Networks
     /// </summary>
     public override void MapComponentUpdate()
@@ -264,7 +264,7 @@ public class AirFlowNetManager : MapComponent
 
         CachedNets = _backupNets;
 
-        //             TODO: Not Optimized
+        // TODO: Not Optimized
         map.mapDrawer.WholeMapChanged(MapMeshFlag.Buildings);
         map.mapDrawer.WholeMapChanged(MapMeshFlag.Things);
 
@@ -306,7 +306,9 @@ public class AirFlowNetManager : MapComponent
             {
                 //if this is large building and alreay visited
                 if (building.OccupiedRect().Area != 1 && !visitedLargeBuildings.Add(building))
+                {
                     continue;
+                }
 
                 var any = false;
                 foreach (var buildingAirComp in building.GetComps<CompAirFlow>()
@@ -315,7 +317,9 @@ public class AirFlowNetManager : MapComponent
                                  item.FlowType == AirFlowType.Any && item.GridID == RebuildValue))
                 {
                     if (!ValidateBuildingPriority(buildingAirComp, network))
+                    {
                         continue;
+                    }
 
                     ValidateBuilding(buildingAirComp, network);
 
@@ -323,15 +327,17 @@ public class AirFlowNetManager : MapComponent
                     buildingAirComp.GridID = gridId;
                 }
 
-                if (any)
+                if (!any)
                 {
-                    foreach (var intVec in building.OccupiedRect())
-                    {
-                        PipeGrid[flowIndex, map.cellIndices.CellToIndex(intVec)] = gridId;
+                    continue;
+                }
 
-                        //we assume buildings ar small so this is better than iter edge(which contains an gc allocation)
-                        EnqueueNeighborCells(toVisitPos, visitedCells, toVisitQueue);
-                    }
+                foreach (var intVec in building.OccupiedRect())
+                {
+                    PipeGrid[flowIndex, map.cellIndices.CellToIndex(intVec)] = gridId;
+
+                    //we assume buildings are small so this is better than iter edge(which contains an gc allocation)
+                    EnqueueNeighborCells(toVisitPos, visitedCells, toVisitQueue);
                 }
             }
         }
@@ -339,14 +345,19 @@ public class AirFlowNetManager : MapComponent
 
     private void EnqueueNeighborCells(IntVec3 pos, BitArray visitedCells, Queue<IntVec3> visitQueue)
     {
-        for (int i = 0; i < 4; i++)
+        for (var i = 0; i < 4; i++)
         {
-            //todo: ensure this is not map edge! see ArgumentOutOfRangeException already
-            //this is not going to happen in normal game as we can't build on map edge, but possible in dev mode
             var nPos = pos + GenAdj.CardinalDirections[i];
+            if (!nPos.InBounds(map))
+            {
+                continue;
+            }
+
             var nIndex = map.cellIndices.CellToIndex(nPos);
             if (visitedCells[nIndex])
+            {
                 continue;
+            }
 
             visitedCells[nIndex] = true;
             visitQueue.Enqueue(nPos);
@@ -370,7 +381,7 @@ public class AirFlowNetManager : MapComponent
 
     /// <summary>
     ///     Here we check for neighbouring Buildings and Pipes at `pos` param.
-    ///     If we find the same Flow Type pipe or a Building (which hasnt been selected yet), then we add them to the list and
+    ///     If we find the same Flow Type pipe or a Building (which hasn't been selected yet), then we add them to the list and
     ///     assign the same GridID.
     /// </summary>
     /// <param name="pos">Position of Cell to scan</param>
@@ -502,7 +513,7 @@ public class AirFlowNetManager : MapComponent
     }
 
     /// <summary>
-    ///     Validate as a Air Flow Consumer
+    ///     Validate as an Air Flow Consumer
     /// </summary>
     /// <param name="compAirFlow">Building Component</param>
     /// <param name="network">Current Network</param>
