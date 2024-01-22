@@ -10,14 +10,16 @@ public class CompAirFlowPipe : CompAirFlow
     /// <returns>String to Display for Pipes</returns>
     public override string CompInspectStringExtra()
     {
-        var res = GetAirTypeString(Props.flowType);
+        var inspectStringExtra = GetAirTypeString(Props.flowType);
 
-        if (DebugSettings.godMode)
+        if (!DebugSettings.godMode)
         {
-            res += "\n";
-            res += GetDebugString();
+            return inspectStringExtra;
         }
 
-        return res;
+        inspectStringExtra += "\n";
+        inspectStringExtra += GetDebugString();
+
+        return inspectStringExtra;
     }
 }

@@ -77,24 +77,26 @@ public class CompAirFlow : ThingComp
             return NotConnectedKey.Translate();
         }
 
-        string res = ConnectedKey.Translate();
+        string inspectStringExtra = ConnectedKey.Translate();
 
         if (FlowType != AirFlowType.Any)
         {
-            res += "\n";
-            res += GetAirTypeString(FlowType);
+            inspectStringExtra += "\n";
+            inspectStringExtra += GetAirTypeString(FlowType);
         }
 
-        res += "\n";
-        res += TotalNetworkAirKey.Translate(AirFlowNet.CurrentIntakeAir);
+        inspectStringExtra += "\n";
+        inspectStringExtra += TotalNetworkAirKey.Translate(AirFlowNet.CurrentIntakeAir);
 
-        if (DebugSettings.godMode)
+        if (!DebugSettings.godMode)
         {
-            res += "\n";
-            res += GetDebugString();
+            return inspectStringExtra;
         }
 
-        return res;
+        inspectStringExtra += "\n";
+        inspectStringExtra += GetDebugString();
+
+        return inspectStringExtra;
     }
 
     /// <summary>
@@ -123,10 +125,9 @@ public class CompAirFlow : ThingComp
         }
     }
 
-    public string GetDebugString()
+    protected string GetDebugString()
     {
-        string res = GridIdKey.Translate(GridID);
-        return res;
+        return GridIdKey.Translate(GridID);
     }
 
     /// <summary>
@@ -136,26 +137,26 @@ public class CompAirFlow : ThingComp
     /// <returns>Translated String</returns>
     protected string GetAirTypeString(AirFlowType type)
     {
-        var res = "";
+        var airTypeString = "";
         switch (type)
         {
             case AirFlowType.Cold:
-                res += AirTypeKey.Translate(ColdAirKey.Translate());
+                airTypeString += AirTypeKey.Translate(ColdAirKey.Translate());
                 break;
 
             case AirFlowType.Hot:
-                res += AirTypeKey.Translate(HotAirKey.Translate());
+                airTypeString += AirTypeKey.Translate(HotAirKey.Translate());
                 break;
 
             case AirFlowType.Frozen:
-                res += AirTypeKey.Translate(FrozenAirKey.Translate());
+                airTypeString += AirTypeKey.Translate(FrozenAirKey.Translate());
                 break;
 
             default:
-                res += AirTypeKey.Translate("Unknown");
+                airTypeString += AirTypeKey.Translate("Unknown");
                 break;
         }
 
-        return res;
+        return airTypeString;
     }
 }

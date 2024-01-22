@@ -85,7 +85,7 @@ public class CompAirFlowTempControl : CompAirFlow
     /// <returns>String Containing information for Climate Control</returns>
     public override string CompInspectStringExtra()
     {
-        var str = "";
+        var inspectStringExtra = "";
 
         if (IsPoweredOff || IsBrokenDown)
         {
@@ -94,8 +94,8 @@ public class CompAirFlowTempControl : CompAirFlow
 
         if (IsBlocked)
         {
-            str += ExhaustBlockedKey.Translate();
-            return str;
+            inspectStringExtra += ExhaustBlockedKey.Translate();
+            return inspectStringExtra;
         }
 
         if (IsOperating())
@@ -103,19 +103,21 @@ public class CompAirFlowTempControl : CompAirFlow
             //var intake = IntakeTemperature.ToStringTemperature("F0");
             //var converted = ConvertedTemperature.ToStringTemperature("F0");
             //str += TemperatureArrowKey.Translate(intake, converted);
-            str += TemperatureArrowKey.Translate(
+            inspectStringExtra += TemperatureArrowKey.Translate(
                 IntakeTemperature.ToStringTemperature("F0"),
                 ConvertedTemperature.ToStringTemperature("F0")
             );
         }
 
-        if (DebugSettings.godMode)
+        if (!DebugSettings.godMode)
         {
-            str += "\n";
-            str += GetDebugString();
+            return inspectStringExtra;
         }
 
-        return str;
+        inspectStringExtra += "\n";
+        inspectStringExtra += GetDebugString();
+
+        return inspectStringExtra;
     }
 
     /// <summary>

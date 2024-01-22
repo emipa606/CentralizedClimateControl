@@ -10,6 +10,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
 - Improved graphics by spoden
 - Removed climate-category and put the items in temperature instead
 - Removed legacy dependencies
+- Fixed the issue with the game crashing when having very large pipe-networks. Fix done by luoluo38!
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 
