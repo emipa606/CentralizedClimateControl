@@ -109,6 +109,12 @@ public class CompAirFlowTempControl : CompAirFlow
             );
         }
 
+        if (DebugSettings.godMode)
+        {
+            str += "\n";
+            str += GetDebugString();
+        }
+
         return str;
     }
 

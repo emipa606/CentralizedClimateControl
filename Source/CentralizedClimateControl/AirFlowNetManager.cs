@@ -337,7 +337,7 @@ public class AirFlowNetManager : MapComponent
                     PipeGrid[flowIndex, map.cellIndices.CellToIndex(intVec)] = gridId;
 
                     //we assume buildings are small so this is better than iter edge(which contains an gc allocation)
-                    EnqueueNeighborCells(toVisitPos, visitedCells, toVisitQueue);
+                    EnqueueNeighborCells(intVec, visitedCells, toVisitQueue);
                 }
             }
         }

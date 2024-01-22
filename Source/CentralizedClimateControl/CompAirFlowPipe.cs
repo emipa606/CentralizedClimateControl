@@ -1,4 +1,6 @@
-﻿namespace CentralizedClimateControl;
+﻿using Verse;
+
+namespace CentralizedClimateControl;
 
 public class CompAirFlowPipe : CompAirFlow
 {
@@ -8,6 +10,14 @@ public class CompAirFlowPipe : CompAirFlow
     /// <returns>String to Display for Pipes</returns>
     public override string CompInspectStringExtra()
     {
-        return GetAirTypeString(Props.flowType);
+        var res = GetAirTypeString(Props.flowType);
+
+        if (DebugSettings.godMode)
+        {
+            res += "\n";
+            res += GetDebugString();
+        }
+
+        return res;
     }
 }

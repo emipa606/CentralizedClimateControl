@@ -36,4 +36,5 @@
   <CentralizedClimateControl.Settings.ModName>集中式气候控制</CentralizedClimateControl.Settings.ModName>
   <CentralizedClimateControl.Settings.HidepipesTitle>隐藏管道</CentralizedClimateControl.Settings.HidepipesTitle>
   <CentralizedClimateControl.Settings.HidepipesDescription>管道应该被隐藏起来吗？</CentralizedClimateControl.Settings.HidepipesDescription>
+  <CentralizedClimateControl.DebugInfo.GridId>网络Id: {0}</CentralizedClimateControl.DebugInfo.GridId>
 </LanguageData>
