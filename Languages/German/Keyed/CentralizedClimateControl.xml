@@ -35,4 +35,5 @@
   <CentralizedClimateControl.Settings.ModName>Centralized Climate Control</CentralizedClimateControl.Settings.ModName>
   <CentralizedClimateControl.Settings.HidepipesTitle>Rohre verstecken</CentralizedClimateControl.Settings.HidepipesTitle>
   <CentralizedClimateControl.Settings.HidepipesDescription>Sollten die Rohre versteckt sein?</CentralizedClimateControl.Settings.HidepipesDescription>
+  <CentralizedClimateControl.DebugInfo.GridId>Gitter-ID: {0}</CentralizedClimateControl.DebugInfo.GridId>
 </LanguageData>

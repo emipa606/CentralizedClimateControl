@@ -11,6 +11,7 @@ public class CompAirFlow : ThingComp
     public const string ColdAirKey = "CentralizedClimateControl.ColdAir";
     public const string FrozenAirKey = "CentralizedClimateControl.FrozenAir";
     public const string TotalNetworkAirKey = "CentralizedClimateControl.TotalNetworkAir";
+    public const string GridIdKey = "CentralizedClimateControl.DebugInfo.GridId";
 
     public AirFlowType FlowType => Props.flowType;
 
@@ -87,6 +88,12 @@ public class CompAirFlow : ThingComp
         res += "\n";
         res += TotalNetworkAirKey.Translate(AirFlowNet.CurrentIntakeAir);
 
+        if (DebugSettings.godMode)
+        {
+            res += "\n";
+            res += GetDebugString();
+        }
+
         return res;
     }
 
@@ -114,6 +121,12 @@ public class CompAirFlow : ThingComp
             case AirFlowType.Any:
                 break;
         }
+    }
+
+    public string GetDebugString()
+    {
+        string res = GridIdKey.Translate(GridID);
+        return res;
     }
 
     /// <summary>
