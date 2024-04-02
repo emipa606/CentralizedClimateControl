@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -265,8 +266,8 @@ public class AirFlowNetManager : MapComponent
         CachedNets = _backupNets;
 
         // TODO: Not Optimized
-        map.mapDrawer.WholeMapChanged(MapMeshFlag.Buildings);
-        map.mapDrawer.WholeMapChanged(MapMeshFlag.Things);
+        map.mapDrawer.WholeMapChanged(MapMeshFlagDefOf.Buildings);
+        map.mapDrawer.WholeMapChanged(MapMeshFlagDefOf.Things);
 
         IsDirty = false;
     }

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>BasicClimateControl</defName>
+    <label>Basic Climate Control</label>
+    <description>Use basic central heating and cooling system to maintain air flow in your colony.</description>
+    <baseCost>800</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>AirConditioning</li>
+    </prerequisites>
+    <researchViewX>7.00</researchViewX>
+    <researchViewY>5.45</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>IndustrialClimateControl</defName>
+    <label>Industrial Climate Control</label>
+    <description>Build Large Intakes and Climate Control.</description>
+    <baseCost>1200</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>BasicClimateControl</li>
+    </prerequisites>
+    <researchViewX>8.00</researchViewX>
+    <researchViewY>5.40</researchViewY>
+  </ResearchProjectDef>
+</Defs>

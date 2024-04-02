@@ -16,7 +16,7 @@ internal class SectionLayer_FrozenAirPipe : SectionLayer_Things
     {
         FlowType = AirFlowType.Frozen;
         requireAddToMapMesh = false;
-        relevantChangeTypes = (MapMeshFlag)4;
+        relevantChangeTypes = 4;
     }
 
     /// <summary>

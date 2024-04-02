@@ -16,7 +16,7 @@ internal class SectionLayer_HotAirPipe : SectionLayer_Things
     {
         FlowType = AirFlowType.Hot;
         requireAddToMapMesh = false;
-        relevantChangeTypes = (MapMeshFlag)4;
+        relevantChangeTypes = 4;
     }
 
     /// <summary>

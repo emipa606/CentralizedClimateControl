@@ -1,5 +1,8 @@
 # Changelog for CentralizedClimateControl
 
+1.5.0 - Mod updated for 1.5 and passed autotests
+
+
 1.4.5 - Fixed the issue with large networks, for real this time
 
 
