@@ -54,11 +54,12 @@ public class CompAirFlowProducer : CompAirFlow
     ///     Despawn Event for a Producer Component
     /// </summary>
     /// <param name="map">RimWorld Map</param>
-    public override void PostDeSpawn(Map map)
+    /// <param name="mode">Destroy Mode</param>
+    public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
     {
         CentralizedClimateControlUtility.GetNetManager(map).DeregisterProducer(this);
         ResetFlowVariables();
-        base.PostDeSpawn(map);
+        base.PostDeSpawn(map, mode);
     }
 
     /// <summary>
