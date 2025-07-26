@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <TargetAirFlow>Airflow</TargetAirFlow>
   <CentralizedClimateControl.PressuredAirStored>Druckluft gespeichert</CentralizedClimateControl.PressuredAirStored>
@@ -15,7 +15,7 @@
   <CentralizedClimateControl.Producer.IntakeTemperature>Ansaugtemperatur: {0}</CentralizedClimateControl.Producer.IntakeTemperature>
   <CentralizedClimateControl.Producer.TargetTemperature>Zieltemperatur: {0}</CentralizedClimateControl.Producer.TargetTemperature>
   <CentralizedClimateControl.Producer.ConvertedTemperature>Umgerechnete Temperatur: {0}</CentralizedClimateControl.Producer.ConvertedTemperature>
-  <CentralizedClimateControl.Producer.TemperatureArrow>Konvertiert: {0} (Ansaugung)  ==&gt;  {1} (Ziel)</CentralizedClimateControl.Producer.TemperatureArrow>
+  <CentralizedClimateControl.Producer.TemperatureArrow>Konvertiert: {0} (Ansaugung)  ==>  {1} (Ziel)</CentralizedClimateControl.Producer.TemperatureArrow>
   <CentralizedClimateControl.Producer.ExhaustBlocked>Geräteauslass blockiert</CentralizedClimateControl.Producer.ExhaustBlocked>
   <CentralizedClimateControl.Producer.IntakeBlocked>Geräteeinlass blockiert</CentralizedClimateControl.Producer.IntakeBlocked>
   <CentralizedClimateControl.Consumer.ConvertedTemperature>Umgewandelte Temperatur: {0}</CentralizedClimateControl.Consumer.ConvertedTemperature>

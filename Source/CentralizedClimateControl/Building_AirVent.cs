@@ -96,11 +96,18 @@ public class Building_AirVent : Building
         var energyLimit = smoothMagnitude * efficiencyImpact * 4.16666651f * 12f * signChanger;
         var tempChange = GenTemperature.ControlTemperatureTempChange(intVec, Map, energyLimit, outsideTemp);
 
-        //var flag = !Mathf.Approximately(tempChange, 0f);
-        //if (flag)
-        if (!Mathf.Approximately(tempChange, 0f))
+        var vaccum = intVec.GetRoomOrAdjacent(Map).Vacuum;
+
+        if (Mathf.Approximately(tempChange, 0f))
         {
-            intVec.GetRoomOrAdjacent(Map).Temperature += tempChange;
+            return;
         }
+
+        if (vaccum > 0)
+        {
+            tempChange *= 1f - vaccum;
+        }
+
+        intVec.GetRoomOrAdjacent(Map).Temperature += tempChange;
     }
 }

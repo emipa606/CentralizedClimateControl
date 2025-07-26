@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
-using UnityEngine;
 using Verse;
 
 namespace CentralizedClimateControl;
@@ -12,18 +11,18 @@ public class AirFlowNetManager : MapComponent
 {
     private const int RebuildValue = -2;
 
-    private readonly List<AirFlowNet> _backupNets = [];
-    private readonly int _pipeCount;
-    public readonly List<CompAirFlowConsumer> CachedConsumers = [];
-    public readonly List<CompAirFlow> CachedPipes = [];
-    public readonly List<CompAirFlowProducer> CachedProducers = [];
-    public readonly List<CompAirFlowTempControl> CachedTempControls = [];
-    public readonly bool[] DirtyPipeFlag;
+    private readonly List<AirFlowNet> backupNets = [];
+    private readonly List<CompAirFlowConsumer> cachedConsumers = [];
+    private readonly List<CompAirFlow> cachedPipes = [];
+    private readonly List<CompAirFlowProducer> cachedProducers = [];
+    private readonly List<CompAirFlowTempControl> cachedTempControls = [];
+    private readonly bool[] dirtyPipeFlag;
+    private readonly int pipeCount;
 
-    public readonly int[,] PipeGrid;
-    private int _masterId;
-    public List<AirFlowNet> CachedNets = [];
+    private readonly int[,] pipeGrid;
+    private List<AirFlowNet> cachedNets = [];
     public bool IsDirty;
+    private int masterId;
 
     /// <summary>
     ///     Constructor of the Network Manager
@@ -36,18 +35,18 @@ public class AirFlowNetManager : MapComponent
         var length = Enum.GetValues(typeof(AirFlowType)).Length;
         //var num = map.AllCells.Count();
         //PipeGrid = new int[length, num];
-        PipeGrid = new int[length, map.AllCells.Count()];
+        pipeGrid = new int[length, map.AllCells.Count()];
 
-        _pipeCount = length;
+        pipeCount = length;
 
-        DirtyPipeFlag = new bool[length];
-        for (var i = 0; i < DirtyPipeFlag.Length; i++)
+        dirtyPipeFlag = new bool[length];
+        for (var i = 0; i < dirtyPipeFlag.Length; i++)
         {
-            DirtyPipeFlag[i] = true;
+            dirtyPipeFlag[i] = true;
 
-            for (var j = 0; j < PipeGrid.GetLength(1); j++)
+            for (var j = 0; j < pipeGrid.GetLength(1); j++)
             {
-                PipeGrid[i, j] = RebuildValue;
+                pipeGrid[i, j] = RebuildValue;
             }
         }
 
@@ -60,10 +59,10 @@ public class AirFlowNetManager : MapComponent
     /// <param name="pipe">A Pipe's AirFlow Component</param>
     public void RegisterPipe(CompAirFlow pipe)
     {
-        if (!CachedPipes.Contains(pipe))
+        if (!cachedPipes.Contains(pipe))
         {
-            CachedPipes.Add(pipe);
-            CachedPipes.Shuffle(); // ! Why Shuffle?  --Brain
+            cachedPipes.Add(pipe);
+            cachedPipes.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
         // Useless function call  --Brain
@@ -77,10 +76,10 @@ public class AirFlowNetManager : MapComponent
     /// <param name="pipe">The Pipe's AirFlow Component</param>
     public void DeregisterPipe(CompAirFlow pipe)
     {
-        if (CachedPipes.Contains(pipe))
+        if (cachedPipes.Contains(pipe))
         {
-            CachedPipes.Remove(pipe);
-            CachedPipes.Shuffle(); // ! Why Shuffle?  --Brain
+            cachedPipes.Remove(pipe);
+            cachedPipes.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
         // Useless function call  --Brain
@@ -94,10 +93,10 @@ public class AirFlowNetManager : MapComponent
     /// <param name="device">Climate Control Component</param>
     public void RegisterTempControl(CompAirFlowTempControl device)
     {
-        if (!CachedTempControls.Contains(device))
+        if (!cachedTempControls.Contains(device))
         {
-            CachedTempControls.Add(device);
-            CachedTempControls.Shuffle(); // ! Why Shuffle?  --Brain
+            cachedTempControls.Add(device);
+            cachedTempControls.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
         // Useless function call --Brain
@@ -111,10 +110,10 @@ public class AirFlowNetManager : MapComponent
     /// <param name="device">Climate Control Component</param>
     public void DeregisterTempControl(CompAirFlowTempControl device)
     {
-        if (CachedTempControls.Contains(device))
+        if (cachedTempControls.Contains(device))
         {
-            CachedTempControls.Remove(device);
-            CachedTempControls.Shuffle(); // ! Why Shuffle?  --Brain
+            cachedTempControls.Remove(device);
+            cachedTempControls.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
         // Useless function call  --Brain
@@ -128,10 +127,10 @@ public class AirFlowNetManager : MapComponent
     /// <param name="pipe">Producer's Air Flow Component</param>
     public void RegisterProducer(CompAirFlowProducer pipe)
     {
-        if (!CachedProducers.Contains(pipe))
+        if (!cachedProducers.Contains(pipe))
         {
-            CachedProducers.Add(pipe);
-            CachedProducers.Shuffle(); // ! Why Shuffle?  --Brain
+            cachedProducers.Add(pipe);
+            cachedProducers.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
         // Useless function call  --Brain
@@ -145,10 +144,10 @@ public class AirFlowNetManager : MapComponent
     /// <param name="pipe">Producer's Component</param>
     public void DeregisterProducer(CompAirFlowProducer pipe)
     {
-        if (CachedProducers.Contains(pipe))
+        if (cachedProducers.Contains(pipe))
         {
-            CachedProducers.Remove(pipe);
-            CachedProducers.Shuffle(); // ! Why Shuffle?  --Brain
+            cachedProducers.Remove(pipe);
+            cachedProducers.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
         // Useless function call  --Brain
@@ -162,10 +161,10 @@ public class AirFlowNetManager : MapComponent
     /// <param name="device">Consumer's Air Flow Component</param>
     public void RegisterConsumer(CompAirFlowConsumer device)
     {
-        if (!CachedConsumers.Contains(device))
+        if (!cachedConsumers.Contains(device))
         {
-            CachedConsumers.Add(device);
-            CachedConsumers.Shuffle(); // ! Why Shuffle?  --Brain
+            cachedConsumers.Add(device);
+            cachedConsumers.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
         // Useless function call  --Brain
@@ -179,10 +178,10 @@ public class AirFlowNetManager : MapComponent
     /// <param name="device">Consumer's Air Flow Component</param>
     public void DeregisterConsumer(CompAirFlowConsumer device)
     {
-        if (CachedConsumers.Contains(device))
+        if (cachedConsumers.Contains(device))
         {
-            CachedConsumers.Remove(device);
-            CachedConsumers.Shuffle(); // ! Why Shuffle?  --Brain
+            cachedConsumers.Remove(device);
+            cachedConsumers.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
         // Useless function call  --Brain
@@ -216,19 +215,7 @@ public class AirFlowNetManager : MapComponent
     /// <returns>Boolean result if pipe exists at cell or not</returns>
     public bool ZoneAt(IntVec3 pos, AirFlowType flowType)
     {
-        return PipeGrid[(int)flowType, map.cellIndices.CellToIndex(pos)] != RebuildValue;
-    }
-
-    /// <summary>
-    ///     Same as ZoneAt but also checks for the GridID in the Pipe Matrix
-    /// </summary>
-    /// <param name="pos">Position of the cell</param>
-    /// <param name="flowType">Airflow type</param>
-    /// <param name="id">GridID to check for</param>
-    /// <returns>Boolean result if perfect pipe exists at cell or not</returns>
-    public bool PerfectMatch(IntVec3 pos, AirFlowType flowType, int id)
-    {
-        return PipeGrid[(int)flowType, map.cellIndices.CellToIndex(pos)] == id;
+        return pipeGrid[(int)flowType, map.cellIndices.CellToIndex(pos)] != RebuildValue;
     }
 
     /// <summary>
@@ -246,24 +233,24 @@ public class AirFlowNetManager : MapComponent
             return;
         }
 
-        foreach (var compAirFlow in CachedPipes)
+        foreach (var compAirFlow in cachedPipes)
         {
             compAirFlow.GridID = RebuildValue;
         }
 
-        _backupNets.Clear();
+        backupNets.Clear();
 
-        for (var i = 0; i < _pipeCount; i++)
+        for (var i = 0; i < pipeCount; i++)
         {
             if ((AirFlowType)i == AirFlowType.Any)
             {
                 continue;
             }
 
-            RebuildPipeGrid(i);
+            rebuildPipeGrid(i);
         }
 
-        CachedNets = _backupNets;
+        cachedNets = backupNets;
 
         // TODO: Not Optimized
         map.mapDrawer.WholeMapChanged(MapMeshFlagDefOf.Buildings);
@@ -282,7 +269,7 @@ public class AirFlowNetManager : MapComponent
             return;
         }
 
-        foreach (var airFlowNet in CachedNets)
+        foreach (var airFlowNet in cachedNets)
         {
             airFlowNet.AirFlowNetTick();
         }
@@ -290,9 +277,9 @@ public class AirFlowNetManager : MapComponent
         base.MapComponentTick();
     }
 
-    private void BuildGridOfFlow(IntVec3 startCell, int gridId, int flowIndex, AirFlowNet network)
+    private void buildGridOfFlow(IntVec3 startCell, int gridId, int flowIndex, AirFlowNet network)
     {
-        var visitedCells = new BitArray(PipeGrid.GetLength(1));
+        var visitedCells = new BitArray(pipeGrid.GetLength(1));
         var visitedLargeBuildings = new HashSet<Building>(ReferenceEqualityComparer.Instance);
         var toVisitQueue = new Queue<IntVec3>();
 
@@ -317,12 +304,12 @@ public class AirFlowNetManager : MapComponent
                                  item.FlowType == (AirFlowType)flowIndex ||
                                  item.FlowType == AirFlowType.Any && item.GridID == RebuildValue))
                 {
-                    if (!ValidateBuildingPriority(buildingAirComp, network))
+                    if (!validateBuildingPriority(buildingAirComp, network))
                     {
                         continue;
                     }
 
-                    ValidateBuilding(buildingAirComp, network);
+                    validateBuilding(buildingAirComp, network);
 
                     any = true;
                     buildingAirComp.GridID = gridId;
@@ -335,16 +322,16 @@ public class AirFlowNetManager : MapComponent
 
                 foreach (var intVec in building.OccupiedRect())
                 {
-                    PipeGrid[flowIndex, map.cellIndices.CellToIndex(intVec)] = gridId;
+                    pipeGrid[flowIndex, map.cellIndices.CellToIndex(intVec)] = gridId;
 
                     //we assume buildings are small so this is better than iter edge(which contains an gc allocation)
-                    EnqueueNeighborCells(intVec, visitedCells, toVisitQueue);
+                    enqueueNeighborCells(intVec, visitedCells, toVisitQueue);
                 }
             }
         }
     }
 
-    private void EnqueueNeighborCells(IntVec3 pos, BitArray visitedCells, Queue<IntVec3> visitQueue)
+    private void enqueueNeighborCells(IntVec3 pos, BitArray visitedCells, Queue<IntVec3> visitQueue)
     {
         for (var i = 0; i < 4; i++)
         {
@@ -372,11 +359,11 @@ public class AirFlowNetManager : MapComponent
     /// <param name="gridId">Grid ID of the current Network</param>
     /// <param name="flowIndex">Type of Air Flow</param>
     /// <param name="network">The Air Flow Network Object</param>
-    private void ParseParentCell(CompAirFlow compAirFlow, int gridId, int flowIndex, AirFlowNet network)
+    private void parseParentCell(CompAirFlow compAirFlow, int gridId, int flowIndex, AirFlowNet network)
     {
         foreach (var current in compAirFlow.parent.OccupiedRect().EdgeCells)
         {
-            ScanCell(current, gridId, flowIndex, network);
+            scanCell(current, gridId, flowIndex, network);
         }
     }
 
@@ -389,7 +376,7 @@ public class AirFlowNetManager : MapComponent
     /// <param name="gridId">Grid ID of the current Network</param>
     /// <param name="flowIndex">Type of Air Flow</param>
     /// <param name="network">The Air Flow Network Object</param>
-    public void ScanCell(IntVec3 pos, int gridId, int flowIndex, AirFlowNet network)
+    private void scanCell(IntVec3 pos, int gridId, int flowIndex, AirFlowNet network)
     {
         for (var i = 0; i < 4; i++)
         {
@@ -412,12 +399,12 @@ public class AirFlowNetManager : MapComponent
                 {
                     // var result = ValidateBuildingPriority(buildingAirComp, network);
                     // if(!result)
-                    if (!ValidateBuildingPriority(buildingAirComp, network))
+                    if (!validateBuildingPriority(buildingAirComp, network))
                     {
                         continue;
                     }
 
-                    ValidateBuilding(buildingAirComp, network);
+                    validateBuilding(buildingAirComp, network);
                     list.Add(buildingAirComp);
                 }
             }
@@ -438,11 +425,11 @@ public class AirFlowNetManager : MapComponent
                 //while (!iterator.Done())
                 foreach (var item in compAirFlow.parent.OccupiedRect())
                 {
-                    PipeGrid[flowIndex, map.cellIndices.CellToIndex(item)] = gridId;
+                    pipeGrid[flowIndex, map.cellIndices.CellToIndex(item)] = gridId;
                 }
 
                 compAirFlow.GridID = gridId;
-                ParseParentCell(compAirFlow, gridId, flowIndex, network);
+                parseParentCell(compAirFlow, gridId, flowIndex, network);
             }
         }
     }
@@ -451,25 +438,20 @@ public class AirFlowNetManager : MapComponent
     ///     Main rebuild function. We Rebuild all different pipetypes here.
     /// </summary>
     /// <param name="flowIndex">Type of Pipe (Red, Blue, Cyan)</param>
-    private void RebuildPipeGrid(int flowIndex)
+    private void rebuildPipeGrid(int flowIndex)
     {
         var flowType = (AirFlowType)flowIndex;
 
         var runtimeNets = new List<AirFlowNet>();
 
-        for (var i = 0; i < PipeGrid.GetLength(1); i++)
+        for (var i = 0; i < pipeGrid.GetLength(1); i++)
         {
-            PipeGrid[flowIndex, i] = RebuildValue;
+            pipeGrid[flowIndex, i] = RebuildValue;
         }
 
-        var cachedPipes = CachedPipes.Where(item => item.FlowType == flowType).ToList();
+        var pipes = cachedPipes.Where(item => item.FlowType == flowType).ToList();
 
-#if DEBUG
-            Debug.Log("--- Start Rebuilding --- For Index: " + flowType);
-            PrintPipes(cachedPipes);
-#endif
-
-        var listCopy = new List<CompAirFlow>(cachedPipes);
+        var listCopy = new List<CompAirFlow>(pipes);
 
         for (var compAirFlow = listCopy.FirstOrDefault();
              compAirFlow != null;
@@ -477,28 +459,22 @@ public class AirFlowNetManager : MapComponent
         {
             var network = new AirFlowNet
             {
-                GridID = _masterId,
+                GridID = masterId,
                 FlowType = flowType
             };
             //network.GridID = compAirFlow.GridID;
             //network.FlowType = flowType;
 
-            BuildGridOfFlow(compAirFlow.parent.Position, _masterId, flowIndex, network);
+            buildGridOfFlow(compAirFlow.parent.Position, masterId, flowIndex, network);
             listCopy.RemoveAll(item => item.GridID != RebuildValue);
-            _masterId++;
+            masterId++;
 
             network.AirFlowNetTick();
-#if DEBUG
-                Debug.Log(network.DebugString());
-#endif
             runtimeNets.Add(network);
         }
 
-        DirtyPipeFlag[flowIndex] = false;
-#if DEBUG
-            Debug.Log("--- Done Rebuilding ---");
-#endif
-        _backupNets.AddRange(runtimeNets);
+        dirtyPipeFlag[flowIndex] = false;
+        backupNets.AddRange(runtimeNets);
     }
 
     /// <summary>
@@ -506,11 +482,11 @@ public class AirFlowNetManager : MapComponent
     /// </summary>
     /// <param name="compAirFlow">Building Component</param>
     /// <param name="network">Current Network</param>
-    private static void ValidateBuilding(CompAirFlow compAirFlow, AirFlowNet network)
+    private static void validateBuilding(CompAirFlow compAirFlow, AirFlowNet network)
     {
-        ValidateAsProducer(compAirFlow, network);
-        ValidateAsTempControl(compAirFlow, network);
-        ValidateAsConsumer(compAirFlow, network);
+        validateAsProducer(compAirFlow, network);
+        validateAsTempControl(compAirFlow, network);
+        validateAsConsumer(compAirFlow, network);
     }
 
     /// <summary>
@@ -518,7 +494,7 @@ public class AirFlowNetManager : MapComponent
     /// </summary>
     /// <param name="compAirFlow">Building Component</param>
     /// <param name="network">Current Network</param>
-    private static void ValidateAsConsumer(CompAirFlow compAirFlow, AirFlowNet network)
+    private static void validateAsConsumer(CompAirFlow compAirFlow, AirFlowNet network)
     {
         if (compAirFlow is not CompAirFlowConsumer consumer)
         {
@@ -542,7 +518,7 @@ public class AirFlowNetManager : MapComponent
     /// <param name="compAirFlow">Building Component</param>
     /// <param name="network">Current Network</param>
     /// <returns>Result if we can add the Building to existing Network</returns>
-    private static bool ValidateBuildingPriority(CompAirFlow compAirFlow, AirFlowNet network)
+    private static bool validateBuildingPriority(CompAirFlow compAirFlow, AirFlowNet network)
     {
         if (compAirFlow == null)
         {
@@ -569,7 +545,7 @@ public class AirFlowNetManager : MapComponent
     /// </summary>
     /// <param name="compAirFlow">Building Component</param>
     /// <param name="network">Current Network</param>
-    private static void ValidateAsProducer(CompAirFlow compAirFlow, AirFlowNet network)
+    private static void validateAsProducer(CompAirFlow compAirFlow, AirFlowNet network)
     {
         if (compAirFlow is not CompAirFlowProducer producer)
         {
@@ -589,7 +565,7 @@ public class AirFlowNetManager : MapComponent
     /// </summary>
     /// <param name="compAirFlow">Building Component</param>
     /// <param name="network">Current Network</param>
-    private static void ValidateAsTempControl(CompAirFlow compAirFlow, AirFlowNet network)
+    private static void validateAsTempControl(CompAirFlow compAirFlow, AirFlowNet network)
     {
         if (compAirFlow is not CompAirFlowTempControl tempControl)
         {
@@ -602,21 +578,5 @@ public class AirFlowNetManager : MapComponent
         }
 
         tempControl.AirFlowNet = network;
-    }
-
-    /// <summary>
-    ///     Print the Pipes for Debug
-    /// </summary>
-    /// <param name="comps">Pipe List</param>
-    private void PrintPipes(IEnumerable<CompAirFlow> comps)
-    {
-        var str = "\nPrinting CompAirFlows -";
-
-        foreach (var compAirFlow in comps)
-        {
-            str += $"\n  - {compAirFlow.parent} (GRID ID: {compAirFlow.GridID}) ";
-        }
-
-        Debug.Log(str);
     }
 }

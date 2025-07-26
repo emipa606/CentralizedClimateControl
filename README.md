@@ -1,4 +1,4 @@
-# CentralizedClimateControl
+# [Centralized Climate Control (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2007268173)
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
@@ -13,28 +13,26 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
 - Fixed the issue with the game crashing when having very large pipe-networks. Fix done by luoluo38!
 
 ![Image](https://i.imgur.com/pufA0kM.png)
-
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)
-
 
 Centralized Air Cooling/Heating System for RimWorld. Build Large Piped Air Climate Systems away from your buildings.
 
 -----
-[strike]
+~~
 NOTICE:
 This mod is no longer maintained. Due to recent life changes, It is hard to find time for this mod. The license has been modified to MIT License so people have been given freedom to modify the mod itself. Overall, the mod still works fine, there may be incompatibilities with other mods that I would not have discovered. I highly recommend looking at the Getting Started guide on steam if you are trying it out.
-[/strike]
+~~
 -----
 
 Rimworld Version: 1.0.0 (Check Github releases for older versions)
 Version: 1.5.0
 
-https://ludeon.com/forums/index.php?topic=34346.0]Forum Link
-http://steamcommunity.com/sharedfiles/filedetails/?id=1078768280]Recommended: Steam Guide for Creating a Basic Setup
+[Forum Link](https://ludeon.com/forums/index.php?topic=34346.0)
+[Recommended: Steam Guide for Creating a Basic Setup](http://steamcommunity.com/sharedfiles/filedetails/?id=1078768280)
 
 Watch this video if you are having issues with the guides. It’s a little old, but covers the basic usage of the mod!
-https://www.youtube.com/watch?v=1tnF4kdAnxk]Youtube Video Link (BaRKy)
+[Youtube Video Link (BaRKy)](https://www.youtube.com/watch?v=1tnF4kdAnxk)
 
 While there are many alternate mods for Central Heating. This mod adds a new network-like resource (like electricity) Air. The heating/cooling system you will build depends on the number of rooms and the heating/cooling capacity of your air networks.
 
@@ -100,14 +98,14 @@ Thanks if you are trying my mod out!
 
 #  Authors: 
 
-- http://steamcommunity.com/id/vasumahesh/] vasumahesh	
-- https://github.com/Jdalt40] [B19 changes] Jdalt40  
+- [ vasumahesh	](http://steamcommunity.com/id/vasumahesh/)
+- [ [B19 changes] Jdalt40  ](https://github.com/Jdalt40)
 
 #  Credits: 
 
-- https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for 'Central Heating' 
-- https://ludeon.com/forums/index.php?topic=21770.0] Redist Heat 
-- https://ludeon.com/forums/index.php?topic=29043.msg341113#msg341113] Dubs Hygiene Mod 
+- [ carlgraves for 'Central Heating' ](https://ludeon.com/forums/index.php?action=profile;u=19514)
+- [ Redist Heat ](https://ludeon.com/forums/index.php?topic=21770.0)
+- [ Dubs Hygiene Mod ](https://ludeon.com/forums/index.php?topic=29043.msg341113#msg341113)
 
 #  License: 
 
@@ -119,13 +117,12 @@ MIT License
 
 -  See if the the error persists if you just have this mod and its requirements active.
 -  If not, try adding your other mods until it happens again.
--  Post your error-log using https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib or the standalone https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader and command Ctrl+F12
+-  Post your error-log using the [Log Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404) or the standalone [Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404) and command Ctrl+F12
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
--  Use https://github.com/RimSort/RimSort/releases/latest]RimSort to sort your mods
+-  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
+ 
 
-
-https://steamcommunity.com/sharedfiles/filedetails/changelog/2007268173]![Image](https://img.shields.io/github/v/release/emipa606/CentralizedClimateControl?label=latest%20version&style=plastic&color=9f1111&labelColor=black)
-
+[![Image](https://img.shields.io/github/v/release/emipa606/CentralizedClimateControl?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2007268173) | tags:  central heating,  cooling

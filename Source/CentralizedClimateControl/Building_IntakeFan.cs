@@ -9,7 +9,7 @@ public class Building_IntakeFan : Building_AirFlowControl
     private const float EfficiencyLossPerWindCubeBlocked = 0.0076923077f;
     private readonly int _windCellsBlocked = 0;
 
-    public CompAirFlowProducer CompAirProducer;
+    private CompAirFlowProducer CompAirProducer;
 
     /// <summary>
     ///     Building spawned on the map
@@ -38,10 +38,10 @@ public class Building_IntakeFan : Building_AirFlowControl
         CompAirProducer.IsPoweredOff = false;
         CompAirProducer.IsBrokenDown = this.IsBrokenDown();
 
-        //var size = def.Size;
-        //var list = GenAdj.CellsAdjacent8Way(Position, Rotation, size).ToList();
         var sumTemp = 0f;
         var list = GenAdj.CellsAdjacent8Way(Position, Rotation, def.Size).ToList();
+
+        var totalVaccum = 0f;
 
         foreach (var intVec in list)
         {
@@ -53,6 +53,7 @@ public class Building_IntakeFan : Building_AirFlowControl
             }
 
             sumTemp += intVec.GetTemperature(Map);
+            totalVaccum += intVec.GetVacuum(Map);
         }
 
         CompAirProducer.IsBlocked = false;
@@ -62,13 +63,13 @@ public class Building_IntakeFan : Building_AirFlowControl
             return;
         }
 
-        //var intake = sumTemp / list.Count;
-        //CompAirProducer.IntakeTemperature = intake;
         CompAirProducer.IntakeTemperature = sumTemp / list.Count;
-
-        //var flow = CompAirProducer.Props.baseAirFlow - _windCellsBlocked * EfficiencyLossPerWindCubeBlocked;
-        //CompAirProducer.CurrentAirFlow = flow;
         CompAirProducer.CurrentAirFlow = CompAirProducer.Props.baseAirFlow -
                                          (_windCellsBlocked * EfficiencyLossPerWindCubeBlocked);
+
+        if (totalVaccum > 0)
+        {
+            CompAirProducer.CurrentAirFlow *= 1 - (totalVaccum / list.Count);
+        }
     }
 }

@@ -81,9 +81,6 @@ public static class CentralizedClimateControlUtility
                         break;
 
                     case AirTypePriority.Frozen:
-                        compAirFlowConsumer.SetPriority(AirTypePriority.Auto);
-                        break;
-
                     default:
                         compAirFlowConsumer.SetPriority(AirTypePriority.Auto);
                         break;

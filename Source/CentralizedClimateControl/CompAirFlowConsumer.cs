@@ -1,5 +1,4 @@
-﻿using System.Text;
-using RimWorld;
+﻿using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -8,17 +7,17 @@ namespace CentralizedClimateControl;
 public class CompAirFlowConsumer : CompAirFlow
 {
     public const string AirFlowOutputKey = "CentralizedClimateControl.AirFlowOutput";
-    public const string IntakeTempKey = "CentralizedClimateControl.Consumer.ConvertedTemperature";
-    public const string FlowEfficiencyKey = "CentralizedClimateControl.Consumer.FlowEfficiencyKey";
-    public const string ThermalEfficiencyKey = "CentralizedClimateControl.Consumer.ThermalEfficiencyKey";
-    public const string DisconnectedKey = "CentralizedClimateControl.Consumer.Disconnected";
-    public const string ClosedKey = "CentralizedClimateControl.Consumer.Closed";
-
-    private bool _alertChange;
+    private const string IntakeTempKey = "CentralizedClimateControl.Consumer.ConvertedTemperature";
+    private const string FlowEfficiencyKey = "CentralizedClimateControl.Consumer.FlowEfficiencyKey";
+    private const string ThermalEfficiencyKey = "CentralizedClimateControl.Consumer.ThermalEfficiencyKey";
+    private const string DisconnectedKey = "CentralizedClimateControl.Consumer.Disconnected";
+    private const string ClosedKey = "CentralizedClimateControl.Consumer.Closed";
     public AirTypePriority AirTypePriority = AirTypePriority.Auto;
 
+    private bool alertChange;
+
     public float ConvertedTemperature;
-    protected CompFlickable FlickableComp;
+    private CompFlickable flickableComp;
 
     public float ExhaustAirFlow => Props.baseAirExhaust;
 
@@ -27,27 +26,13 @@ public class CompAirFlowConsumer : CompAirFlow
     public float ThermalEfficiency => AirFlowNet.ThermalEfficiency;
 
     /// <summary>
-    ///     Debug String for AirFlow Consumer
-    /// </summary>
-    public string DebugString
-    {
-        get
-        {
-            var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine($"{parent.LabelCap} CompAirFlowConsumer:");
-            stringBuilder.AppendLine($"   ConvertedTemperature: {ConvertedTemperature}");
-            return stringBuilder.ToString();
-        }
-    }
-
-    /// <summary>
     ///     Post Spawn for Component
     /// </summary>
     /// <param name="respawningAfterLoad">Unused Flag</param>
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         CentralizedClimateControlUtility.GetNetManager(parent.Map).RegisterConsumer(this);
-        FlickableComp = parent.GetComp<CompFlickable>();
+        flickableComp = parent.GetComp<CompFlickable>();
 
         base.PostSpawnSetup(respawningAfterLoad);
     }
@@ -60,21 +45,19 @@ public class CompAirFlowConsumer : CompAirFlow
         base.PostExposeData();
 
         Scribe_Values.Look(ref AirTypePriority, "airTypePriority", AirTypePriority.Auto);
-#if DEBUG
-            Debug.Log(parent + " - Air Priority Loaded: " + AirTypePriority);
-#endif
-        _alertChange = true;
+        alertChange = true;
     }
 
     /// <summary>
     ///     Component De-spawned from Map
     /// </summary>
     /// <param name="map">RimWorld Map</param>
-    public override void PostDeSpawn(Map map)
+    /// <param name="mode"></param>
+    public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
     {
         CentralizedClimateControlUtility.GetNetManager(map).DeregisterConsumer(this);
         ResetFlowVariables();
-        base.PostDeSpawn(map);
+        base.PostDeSpawn(map, mode);
     }
 
     /// <summary>
@@ -83,7 +66,7 @@ public class CompAirFlowConsumer : CompAirFlow
     /// <returns>String Containing information for Consumers</returns>
     public override string CompInspectStringExtra()
     {
-        if (!FlickableComp.SwitchIsOn)
+        if (!flickableComp.SwitchIsOn)
         {
             return ClosedKey.Translate() + "\n" + base.CompInspectStringExtra();
         }
@@ -95,24 +78,15 @@ public class CompAirFlowConsumer : CompAirFlow
 
         if (!IsActive())
         {
-            return DisconnectedKey.Translate() + "\n" + base.CompInspectStringExtra();
+            return (DisconnectedKey.Translate() + "\n" + base.CompInspectStringExtra()).Trim();
         }
 
-        //var convertedTemp = ConvertedTemperature.ToStringTemperature("F0");
-        //var str = IntakeTempKey.Translate(convertedTemp);
         var str = IntakeTempKey.Translate($"{ConvertedTemperature.ToStringTemperature("F0")}\n");
-
-        //var flowPercent = Mathf.FloorToInt(AirFlowNet.FlowEfficiency * 100) + "%";
-        //str += "\n";
-        //str += FlowEfficiencyKey.Translate(flowPercent);
         str += FlowEfficiencyKey.Translate($"{Mathf.FloorToInt(AirFlowNet.FlowEfficiency * 100)}%\n");
+        str += ThermalEfficiencyKey.Translate($"{Mathf.FloorToInt(AirFlowNet.ThermalEfficiency * 100)}%\n" +
+                                              base.CompInspectStringExtra());
 
-        //var thermalPercent = Mathf.FloorToInt(AirFlowNet.ThermalEfficiency * 100) + "%";
-        //str += "\n";
-        //str += ThermalEfficiencyKey.Translate(thermalPercent);
-        str += ThermalEfficiencyKey.Translate($"{Mathf.FloorToInt(AirFlowNet.ThermalEfficiency * 100)}%\n");
-
-        return str + base.CompInspectStringExtra();
+        return str.Trim();
     }
 
     /// <summary>
@@ -121,12 +95,9 @@ public class CompAirFlowConsumer : CompAirFlow
     /// <param name="priority">Priority to Switch to.</param>
     public void SetPriority(AirTypePriority priority)
     {
-        _alertChange = true;
+        alertChange = true;
         AirTypePriority = priority;
         AirFlowNet = null;
-#if DEBUG
-            Debug.Log("Setting Priority to: " + AirTypePriority);
-#endif
     }
 
     /// <summary>
@@ -136,14 +107,10 @@ public class CompAirFlowConsumer : CompAirFlow
     /// </summary>
     public void TickRare()
     {
-        if (_alertChange)
+        if (alertChange)
         {
-            //var manager = CentralizedClimateControlUtility.GetNetManager(parent.Map);
-            //manager.IsDirty = true;
-
-            // Direct access is given, so we should use it  --Brain
             CentralizedClimateControlUtility.GetNetManager(parent.Map).IsDirty = true;
-            _alertChange = false;
+            alertChange = false;
         }
 
         if (!IsOperating())
@@ -156,7 +123,7 @@ public class CompAirFlowConsumer : CompAirFlow
 
     public override bool IsOperating()
     {
-        return FlickableComp.SwitchIsOn && base.IsOperating();
+        return flickableComp.SwitchIsOn && base.IsOperating();
     }
 
     /// <summary>

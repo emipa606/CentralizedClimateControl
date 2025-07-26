@@ -1,5 +1,4 @@
-﻿using System.Text;
-using RimWorld;
+﻿using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -7,13 +6,13 @@ namespace CentralizedClimateControl;
 
 public class CompAirFlowTempControl : CompAirFlow
 {
-    public const string TemperatureArrowKey = "CentralizedClimateControl.Producer.TemperatureArrow";
+    private const string TemperatureArrowKey = "CentralizedClimateControl.Producer.TemperatureArrow";
     public const string TargetTemperatureKey = "CentralizedClimateControl.Producer.TargetTemperature";
-    public const string ExhaustBlockedKey = "CentralizedClimateControl.Producer.ExhaustBlocked";
+    private const string ExhaustBlockedKey = "CentralizedClimateControl.Producer.ExhaustBlocked";
 
     private const float DeltaSmooth = 96.0f;
     public float ConvertedTemperature;
-    public float DeltaTemperature;
+    private float DeltaTemperature;
 
     protected CompFlickable FlickableComp;
 
@@ -26,24 +25,9 @@ public class CompAirFlowTempControl : CompAirFlow
     public bool IsOperatingAtHighPower;
     public bool IsPoweredOff;
     public bool IsStable;
-    public float TargetTemperature = 21.0f;
+    private float TargetTemperature = 21.0f;
 
     public float ThermalCapacity => Props.thermalCapacity;
-
-    /// <summary>
-    ///     Debug String for an Air Flow Climate Control
-    ///     Shows info about Air Flow etc.
-    /// </summary>
-    public string DebugString
-    {
-        get
-        {
-            var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine($"{parent.LabelCap} CompAirFlow:");
-            stringBuilder.AppendLine($"   AirFlow IsOperating: {IsOperating()}");
-            return stringBuilder.ToString();
-        }
-    }
 
     /// <summary>
     ///     Post Spawn for Component
@@ -61,11 +45,12 @@ public class CompAirFlowTempControl : CompAirFlow
     ///     Despawn Event for an Air Climate Control Component
     /// </summary>
     /// <param name="map">RimWorld Map</param>
-    public override void PostDeSpawn(Map map)
+    /// <param name="mode"></param>
+    public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
     {
         CentralizedClimateControlUtility.GetNetManager(map).DeregisterTempControl(this);
         ResetFlowVariables();
-        base.PostDeSpawn(map);
+        base.PostDeSpawn(map, mode);
     }
 
     /// <summary>
@@ -95,7 +80,7 @@ public class CompAirFlowTempControl : CompAirFlow
         if (IsBlocked)
         {
             inspectStringExtra += ExhaustBlockedKey.Translate();
-            return inspectStringExtra;
+            return inspectStringExtra.Trim();
         }
 
         if (IsOperating())
@@ -111,13 +96,13 @@ public class CompAirFlowTempControl : CompAirFlow
 
         if (!DebugSettings.godMode)
         {
-            return inspectStringExtra;
+            return inspectStringExtra.Trim();
         }
 
         inspectStringExtra += "\n";
         inspectStringExtra += GetDebugString();
 
-        return inspectStringExtra;
+        return inspectStringExtra.Trim();
     }
 
     /// <summary>
@@ -149,7 +134,7 @@ public class CompAirFlowTempControl : CompAirFlow
         TargetTemperature = compTempControl.targetTemperature;
         ConvertedTemperature = IntakeTemperature + DeltaTemperature;
 
-        GenerateDelta(compTempControl);
+        generateDelta(compTempControl);
     }
 
     /// <summary>
@@ -170,7 +155,7 @@ public class CompAirFlowTempControl : CompAirFlow
     ///     Calculate the Temperature Delta for the Tick.
     /// </summary>
     /// <param name="compTempControl">Temperature Control Component</param>
-    private void GenerateDelta(CompTempControl compTempControl)
+    private void generateDelta(CompTempControl compTempControl)
     {
         var targetDelta = TargetTemperature - IntakeTemperature;
         var currentDelta = ConvertedTemperature - IntakeTemperature;
@@ -185,11 +170,6 @@ public class CompAirFlowTempControl : CompAirFlow
         }
 
         IsStable = false;
-        //var deltaDelta = targetDelta - currentDelta;
-
-        //var deltaSmoothened = deltaDelta / DeltaSmooth;
-        //var deltaSmoothened = (targetDelta - currentDelta) / DeltaSmooth;
-        //DeltaTemperature += (compTempControl.Props.energyPerSecond * AirFlowNet.ThermalEfficiency) * deltaSmoothened;
         DeltaTemperature += compTempControl.Props.energyPerSecond
                             * AirFlowNet.ThermalEfficiency
                             * ((targetDelta - currentDelta) / DeltaSmooth);

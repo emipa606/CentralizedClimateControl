@@ -20,6 +20,6 @@ public class CompAirFlowPipe : CompAirFlow
         inspectStringExtra += "\n";
         inspectStringExtra += GetDebugString();
 
-        return inspectStringExtra;
+        return inspectStringExtra.Trim();
     }
 }

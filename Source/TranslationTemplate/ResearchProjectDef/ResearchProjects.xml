@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Basic Climate Control -->
+  <BasicClimateControl.label>Basic Climate Control</BasicClimateControl.label>
+  <!-- EN: Use basic central heating and cooling system to maintain air flow in your colony. -->
+  <BasicClimateControl.description>Use basic central heating and cooling system to maintain air flow in your colony.</BasicClimateControl.description>
+  <!-- EN: Industrial Climate Control -->
+  <IndustrialClimateControl.label>Industrial Climate Control</IndustrialClimateControl.label>
+  <!-- EN: Build Large Intakes and Climate Control. -->
+  <IndustrialClimateControl.description>Build Large Intakes and Climate Control.</IndustrialClimateControl.description>
+</LanguageData>

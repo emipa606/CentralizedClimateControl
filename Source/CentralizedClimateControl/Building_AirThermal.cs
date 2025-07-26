@@ -6,8 +6,8 @@ namespace CentralizedClimateControl;
 
 public class Building_AirThermal : Building_AirFlowControl
 {
-    public CompAirFlowTempControl CompAirFlowTempControl;
-    public CompTempControl CompTempControl;
+    private CompAirFlowTempControl CompAirFlowTempControl;
+    private CompTempControl CompTempControl;
 
     /// <summary>
     ///     Building spawned on the map

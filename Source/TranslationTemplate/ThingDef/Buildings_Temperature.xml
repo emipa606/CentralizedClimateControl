@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Climate control unit -->
+  <AirThermal.label>Climate control unit</AirThermal.label>
+  <!-- EN: A climate control unit for heating and cooling air. Throughput: 900 cc/s. -->
+  <AirThermal.description>A climate control unit for heating and cooling air. Throughput: 900 cc/s.</AirThermal.description>
+  <!-- EN: Blue air pipe -->
+  <blueAirPipe.label>Blue air pipe</blueAirPipe.label>
+  <!-- EN: Blue pipes for carrying air. -->
+  <blueAirPipe.description>Blue pipes for carrying air.</blueAirPipe.description>
+  <!-- EN: Blue covered air pipe -->
+  <blueAirPipeHidden.label>Blue covered air pipe</blueAirPipeHidden.label>
+  <!-- EN: Blue pipes for carrying air under floors. -->
+  <blueAirPipeHidden.description>Blue pipes for carrying air under floors.</blueAirPipeHidden.description>
+  <!-- EN: Cyan air pipe -->
+  <cyanAirPipe.label>Cyan air pipe</cyanAirPipe.label>
+  <!-- EN: Cyan pipes for carrying air. -->
+  <cyanAirPipe.description>Cyan pipes for carrying air.</cyanAirPipe.description>
+  <!-- EN: Cyan covered air pipe -->
+  <cyanAirPipeHidden.label>Cyan covered air pipe</cyanAirPipeHidden.label>
+  <!-- EN: Cyan pipes for carrying air under floors. -->
+  <cyanAirPipeHidden.description>Cyan pipes for carrying air under floors.</cyanAirPipeHidden.description>
+  <!-- EN: Intake fan -->
+  <IntakeFan.label>Intake fan</IntakeFan.label>
+  <!-- EN: An intake fan. Throughput: 300 cc/s. -->
+  <IntakeFan.description>An intake fan. Throughput: 300 cc/s.</IntakeFan.description>
+  <!-- EN: Large climate control unit -->
+  <LargeAirThermal.label>Large climate control unit</LargeAirThermal.label>
+  <!-- EN: A large climate control unit for heating and cooling air. Throughput: 4500 cc/s. -->
+  <LargeAirThermal.description>A large climate control unit for heating and cooling air. Throughput: 4500 cc/s.</LargeAirThermal.description>
+  <!-- EN: Large intake fan -->
+  <LargeIntakeFan.label>Large intake fan</LargeIntakeFan.label>
+  <!-- EN: A large intake fan. Throughput: 1500 cc/s. -->
+  <LargeIntakeFan.description>A large intake fan. Throughput: 1500 cc/s.</LargeIntakeFan.description>
+  <!-- EN: Red air pipe -->
+  <redAirPipe.label>Red air pipe</redAirPipe.label>
+  <!-- EN: Red pipes for carrying air. -->
+  <redAirPipe.description>Red pipes for carrying air.</redAirPipe.description>
+  <!-- EN: Red covered air pipe -->
+  <redAirPipeHidden.label>Red covered air pipe</redAirPipeHidden.label>
+  <!-- EN: Red pipes for carrying air under floors. -->
+  <redAirPipeHidden.description>Red pipes for carrying air under floors.</redAirPipeHidden.description>
+</LanguageData>

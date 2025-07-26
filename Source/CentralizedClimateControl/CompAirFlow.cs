@@ -4,14 +4,14 @@ namespace CentralizedClimateControl;
 
 public class CompAirFlow : ThingComp
 {
-    public const string NotConnectedKey = "CentralizedClimateControl.AirFlowNetDisconnected";
-    public const string ConnectedKey = "CentralizedClimateControl.AirFlowNetConnected";
-    public const string AirTypeKey = "CentralizedClimateControl.AirType";
-    public const string HotAirKey = "CentralizedClimateControl.HotAir";
-    public const string ColdAirKey = "CentralizedClimateControl.ColdAir";
-    public const string FrozenAirKey = "CentralizedClimateControl.FrozenAir";
-    public const string TotalNetworkAirKey = "CentralizedClimateControl.TotalNetworkAir";
-    public const string GridIdKey = "CentralizedClimateControl.DebugInfo.GridId";
+    private const string NotConnectedKey = "CentralizedClimateControl.AirFlowNetDisconnected";
+    private const string ConnectedKey = "CentralizedClimateControl.AirFlowNetConnected";
+    private const string AirTypeKey = "CentralizedClimateControl.AirType";
+    private const string HotAirKey = "CentralizedClimateControl.HotAir";
+    private const string ColdAirKey = "CentralizedClimateControl.ColdAir";
+    private const string FrozenAirKey = "CentralizedClimateControl.FrozenAir";
+    private const string TotalNetworkAirKey = "CentralizedClimateControl.TotalNetworkAir";
+    private const string GridIdKey = "CentralizedClimateControl.DebugInfo.GridId";
 
     public AirFlowType FlowType => Props.flowType;
 
@@ -44,12 +44,13 @@ public class CompAirFlow : ThingComp
     ///     Building de-spawned from the map
     /// </summary>
     /// <param name="map">RimWorld Map</param>
-    public override void PostDeSpawn(Map map)
+    /// <param name="mode"></param>
+    public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
     {
         CentralizedClimateControlUtility.GetNetManager(map).DeregisterPipe(this);
         ResetFlowVariables();
 
-        base.PostDeSpawn(map);
+        base.PostDeSpawn(map, mode);
     }
 
     /// <summary>
@@ -90,13 +91,13 @@ public class CompAirFlow : ThingComp
 
         if (!DebugSettings.godMode)
         {
-            return inspectStringExtra;
+            return inspectStringExtra.Trim();
         }
 
         inspectStringExtra += "\n";
         inspectStringExtra += GetDebugString();
 
-        return inspectStringExtra;
+        return inspectStringExtra.Trim();
     }
 
     /// <summary>
@@ -135,7 +136,7 @@ public class CompAirFlow : ThingComp
     /// </summary>
     /// <param name="type">Enum for AirFlow Type</param>
     /// <returns>Translated String</returns>
-    protected string GetAirTypeString(AirFlowType type)
+    protected static string GetAirTypeString(AirFlowType type)
     {
         var airTypeString = "";
         switch (type)

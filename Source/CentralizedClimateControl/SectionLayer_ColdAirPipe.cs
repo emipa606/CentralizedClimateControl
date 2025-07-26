@@ -6,7 +6,7 @@ namespace CentralizedClimateControl;
 
 internal class SectionLayer_ColdAirPipe : SectionLayer_Things
 {
-    public readonly AirFlowType FlowType;
+    private readonly AirFlowType FlowType;
 
     /// <summary>
     ///     Blue Pipe Overlay Section Layer

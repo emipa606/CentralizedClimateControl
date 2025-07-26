@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <TargetAirFlow>流速</TargetAirFlow>
   <CentralizedClimateControl.PressuredAirStored>已压缩空气存量</CentralizedClimateControl.PressuredAirStored>
@@ -15,7 +15,7 @@
   <CentralizedClimateControl.Producer.IntakeTemperature>入风温度: {0}</CentralizedClimateControl.Producer.IntakeTemperature>
   <CentralizedClimateControl.Producer.TargetTemperature>目标温度: {0}</CentralizedClimateControl.Producer.TargetTemperature>
   <CentralizedClimateControl.Producer.ConvertedTemperature>目前温度: {0}</CentralizedClimateControl.Producer.ConvertedTemperature>
-  <CentralizedClimateControl.Producer.TemperatureArrow>正在加热/冷却: {0} (入风)  ==&gt;  {1} (排风)</CentralizedClimateControl.Producer.TemperatureArrow>
+  <CentralizedClimateControl.Producer.TemperatureArrow>正在加热/冷却: {0} (入风)  ==>  {1} (排风)</CentralizedClimateControl.Producer.TemperatureArrow>
   <CentralizedClimateControl.Producer.ExhaustBlocked>设备排风堵塞</CentralizedClimateControl.Producer.ExhaustBlocked>
   <CentralizedClimateControl.Producer.IntakeBlocked>设备入风堵塞</CentralizedClimateControl.Producer.IntakeBlocked>
   <CentralizedClimateControl.Consumer.ConvertedTemperature>目前温度: {0}</CentralizedClimateControl.Consumer.ConvertedTemperature>

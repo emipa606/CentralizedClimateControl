@@ -1,14 +1,13 @@
-﻿using System.Text;
-using RimWorld;
+﻿using RimWorld;
 using Verse;
 
 namespace CentralizedClimateControl;
 
 public class CompAirFlowProducer : CompAirFlow
 {
-    public const string AirFlowOutputKey = "CentralizedClimateControl.AirFlowOutput";
-    public const string IntakeTempKey = "CentralizedClimateControl.Producer.IntakeTemperature";
-    public const string IntakeBlockedKey = "CentralizedClimateControl.Producer.IntakeBlocked";
+    private const string AirFlowOutputKey = "CentralizedClimateControl.AirFlowOutput";
+    private const string IntakeTempKey = "CentralizedClimateControl.Producer.IntakeTemperature";
+    private const string IntakeBlockedKey = "CentralizedClimateControl.Producer.IntakeBlocked";
 
     public float CurrentAirFlow;
     protected CompFlickable FlickableComp;
@@ -20,23 +19,7 @@ public class CompAirFlowProducer : CompAirFlow
 
     public bool IsPoweredOff = false;
 
-    public float AirFlowOutput => IsOperating() ? CurrentAirFlow : 0.0f;
-
-    /// <summary>
-    ///     Debug String for an Air Flow Producer
-    ///     Shows info about Air Flow etc.
-    /// </summary>
-    public string DebugString
-    {
-        get
-        {
-            var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine($"{parent.LabelCap} CompAirFlow:");
-            stringBuilder.AppendLine($"   AirFlow IsOperating: {IsOperating()}");
-            stringBuilder.AppendLine($"   AirFlow Output: {AirFlowOutput}");
-            return stringBuilder.ToString();
-        }
-    }
+    private float AirFlowOutput => IsOperating() ? CurrentAirFlow : 0.0f;
 
     /// <summary>
     ///     Post Spawn for Component
@@ -54,11 +37,12 @@ public class CompAirFlowProducer : CompAirFlow
     ///     Despawn Event for a Producer Component
     /// </summary>
     /// <param name="map">RimWorld Map</param>
-    public override void PostDeSpawn(Map map)
+    /// <param name="mode"></param>
+    public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
     {
         CentralizedClimateControlUtility.GetNetManager(map).DeregisterProducer(this);
         ResetFlowVariables();
-        base.PostDeSpawn(map);
+        base.PostDeSpawn(map, mode);
     }
 
     /// <summary>
@@ -77,23 +61,18 @@ public class CompAirFlowProducer : CompAirFlow
         if (IsBlocked)
         {
             str += IntakeBlockedKey.Translate();
-            return str;
+            return str.Trim();
         }
 
         if (!IsOperating())
         {
-            return str + base.CompInspectStringExtra();
+            return (str + base.CompInspectStringExtra()).Trim();
         }
 
-        //var convertedTemp = IntakeTemperature.ToStringTemperature("F0");
         str += AirFlowOutputKey.Translate(AirFlowOutput.ToString("#####0")) + "\n";
-        //str += "\n";
-
-        //str += IntakeTempKey.Translate(convertedTemp) + "\n";
-        str += IntakeTempKey.Translate(IntakeTemperature.ToStringTemperature("F0")) + "\n";
-        //str += "\n";
-
-        return str + base.CompInspectStringExtra();
+        str += IntakeTempKey.Translate(IntakeTemperature.ToStringTemperature("F0")) + "\n" +
+               base.CompInspectStringExtra();
+        return str.Trim();
     }
 
     /// <summary>

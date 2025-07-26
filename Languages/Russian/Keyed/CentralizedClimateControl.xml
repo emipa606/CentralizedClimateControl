@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <TargetAirFlow>Airflow</TargetAirFlow>
   <CentralizedClimateControl.PressuredAirStored>Pressured Air Stored</CentralizedClimateControl.PressuredAirStored>
@@ -15,7 +15,7 @@
   <CentralizedClimateControl.Producer.IntakeTemperature>Intake Temperature: {0}</CentralizedClimateControl.Producer.IntakeTemperature>
   <CentralizedClimateControl.Producer.TargetTemperature>Target Temperature: {0}</CentralizedClimateControl.Producer.TargetTemperature>
   <CentralizedClimateControl.Producer.ConvertedTemperature>Converted Temperature: {0}</CentralizedClimateControl.Producer.ConvertedTemperature>
-  <CentralizedClimateControl.Producer.TemperatureArrow>Converting: {0} (Intake)  ==&gt;  {1} (Exhaust)</CentralizedClimateControl.Producer.TemperatureArrow>
+  <CentralizedClimateControl.Producer.TemperatureArrow>Converting: {0} (Intake)  ==>  {1} (Exhaust)</CentralizedClimateControl.Producer.TemperatureArrow>
   <CentralizedClimateControl.Producer.ExhaustBlocked>Device Exhaust Blocked</CentralizedClimateControl.Producer.ExhaustBlocked>
   <CentralizedClimateControl.Producer.IntakeBlocked>Device Intake Blocked</CentralizedClimateControl.Producer.IntakeBlocked>
   <CentralizedClimateControl.Consumer.ConvertedTemperature>Converted Temperature: {0}</CentralizedClimateControl.Consumer.ConvertedTemperature>

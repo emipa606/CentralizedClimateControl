@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Surround air vent -->
+  <SurroundAirVent.label>Surround air vent</SurroundAirVent.label>
+  <!-- EN: A surround exhaust vent. Throughput: 300 cc/s. -->
+  <SurroundAirVent.description>A surround exhaust vent. Throughput: 300 cc/s.</SurroundAirVent.description>
+  <!-- EN: Large surround air vent -->
+  <SurroundAirVentWide.label>Large surround air vent</SurroundAirVentWide.label>
+  <!-- EN: A large surround exhaust vent. Throughput: 600 cc/s. -->
+  <SurroundAirVentWide.description>A large surround exhaust vent. Throughput: 600 cc/s.</SurroundAirVentWide.description>
+  <!-- EN: Wall air vent -->
+  <WallAirVent.label>Wall air vent</WallAirVent.label>
+  <!-- EN: A wall-mounted air vent. Throughput: 100 cc/s. -->
+  <WallAirVent.description>A wall-mounted air vent. Throughput: 100 cc/s.</WallAirVent.description>
+  <!-- EN: Small wall air vent -->
+  <WallAirVentSmall.label>Small wall air vent</WallAirVentSmall.label>
+  <!-- EN: A small wall-mounted air vent. Throughput: 50 cc/s. -->
+  <WallAirVentSmall.description>A small wall-mounted air vent. Throughput: 50 cc/s.</WallAirVentSmall.description>
+</LanguageData>

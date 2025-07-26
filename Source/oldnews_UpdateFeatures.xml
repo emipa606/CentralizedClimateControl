@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <HugsLib.UpdateFeatureDef Abstract="true" Name="CCCUpdateFeatureBase">
     <modNameReadable>Centralized Climate Control</modNameReadable>
@@ -10,11 +10,11 @@
     <assemblyVersion>1.0.1</assemblyVersion>
     <content>|img:Things/Updates/101|
 Your saves wont be affected by this update.
-| &lt;b&gt;Features:&lt;/b&gt;
+| &lt;b>Features:&lt;/b>
 - Added Large Intake Fans
 - Added Large Air Climate Units
 - Improved Vent Placing (Can Place over Pipes)
-| &lt;b&gt;Bug Fixes:&lt;/b&gt;
+| &lt;b>Bug Fixes:&lt;/b>
 - Fixed an Issue with Solo Vent Network
 - Removed Debug Logs (oops)</content>
   </HugsLib.UpdateFeatureDef>
@@ -23,7 +23,7 @@ Your saves wont be affected by this update.
     <assemblyVersion>1.1.0</assemblyVersion>
     <content>|img:Things/Updates/110Update|
 Your saves wont be affected by this update.
-| &lt;b&gt;Features:&lt;/b&gt;
+| &lt;b>Features:&lt;/b>
 - Added Wallmounted Vents</content>
   </HugsLib.UpdateFeatureDef>
   <HugsLib.UpdateFeatureDef ParentName="CCCUpdateFeatureBase">
@@ -31,17 +31,17 @@ Your saves wont be affected by this update.
     <assemblyVersion>1.2.1</assemblyVersion>
     <content>|img:Things/Updates/120Update|
 Your saves wont be affected by this update. All Vent Pipe Connections are by default set to Auto.
-| &lt;b&gt;Features:&lt;/b&gt;
+| &lt;b>Features:&lt;/b>
 - Switches for Pipes at Vents for forcing Pipe connection
 |img:Things/Updates/120_AutoButton|caption:Auto - Default Connection Priority - Red, Blue then Cyan.
 |img:Things/Updates/120_RedButton|caption:Red Pipe Only - Only Connects to Red Pipe Networks.
 |img:Things/Updates/120_BlueButton|caption:Blue Pipe Only - Only Connects to Blue Pipe Networks.
 |img:Things/Updates/120_CyanButton|caption:Cyan Pipe Only - Only Connects to Cyan Pipe Networks.
-| &lt;b&gt;Balance Changes:&lt;/b&gt;
+| &lt;b>Balance Changes:&lt;/b>
 - Decreased performance of Wall mounted Vents to 75% when compared to Full Size Vents
 - Intake Power Consumption increased for both Buildings to 150W and 450W
 - Flow Efficiency and Thermal Efficiency now have a greater impact
-| &lt;b&gt;Bug Fixes:&lt;/b&gt;
+| &lt;b>Bug Fixes:&lt;/b>
 - Fix Vent Highlight color to Cyan when connected to Cyan Pipe
 - "GraphicsLoader probably needs a StaticConstructorOnStartup attribute" Warning</content>
   </HugsLib.UpdateFeatureDef>
@@ -49,9 +49,9 @@ Your saves wont be affected by this update. All Vent Pipe Connections are by def
     <defName>CentralizedClimateControl_1_2_2</defName>
     <assemblyVersion>1.2.2</assemblyVersion>
     <content>Your saves wont be affected by this update.
-| &lt;b&gt;Balance Changes:&lt;/b&gt;
+| &lt;b>Balance Changes:&lt;/b>
 - Climate Control Unit now gives a significant heat exhaust (Only when Cooling Air). So Check your Climate Units for extra Heat.
-| &lt;b&gt;Bug Fixes:&lt;/b&gt;
+| &lt;b>Bug Fixes:&lt;/b>
 - Storing Temperature information for Climate Control Unit on Game Save
 - Fix the Display string when Power Component of the machines breakdown
 - Code optimized in some files</content>
@@ -61,7 +61,7 @@ Your saves wont be affected by this update. All Vent Pipe Connections are by def
     <assemblyVersion>1.3.0</assemblyVersion>
     <content>|img:Things/Updates/130/130_Update|
 Your saves wont be affected by this update. I have updated some art assets. Some are still left, will be updated in the next version.
-| &lt;b&gt;Features:&lt;/b&gt;
+| &lt;b>Features:&lt;/b>
 - Research Tech
 |img:Things/Updates/130/130_ResearchTab|caption:New Research Tab - Use this to Unlock Climate Buildings
 |img:Things/Updates/130/130_Research1|caption:Basic Research - Unlocks the small buildings for Climate Control
@@ -70,9 +70,9 @@ Your saves wont be affected by this update. I have updated some art assets. Some
 |img:Things/Updates/130/130_BuildTab|caption:New Build Tab - Use this to Build Central Climate Control Buildings
 |- Made Pipes easier to see with the new color for the Blue Pipe
 - Removed Full Size Vents
-| &lt;b&gt;Balance Changes:&lt;/b&gt;
+| &lt;b>Balance Changes:&lt;/b>
 - Updated Costs of the Intakes and Thermals
-| &lt;b&gt;Bug Fixes:&lt;/b&gt;
+| &lt;b>Bug Fixes:&lt;/b>
 - Many Fixes!
 </content>
   </HugsLib.UpdateFeatureDef>
@@ -80,7 +80,7 @@ Your saves wont be affected by this update. I have updated some art assets. Some
     <defName>CentralizedClimateControl_1_3_1</defName>
     <assemblyVersion>1.3.1</assemblyVersion>
     <content>
-| &lt;b&gt;Fixes:&lt;/b&gt;
+| &lt;b>Fixes:&lt;/b>
 - Research Tab is now removed. The researches can be found in the Main Tab (linked to Electricity)
 </content>
   </HugsLib.UpdateFeatureDef>
@@ -88,7 +88,7 @@ Your saves wont be affected by this update. I have updated some art assets. Some
     <defName>CentralizedClimateControl_1_4_0</defName>
     <assemblyVersion>1.4.1</assemblyVersion>
     <content>
-| &lt;b&gt;Hidden pipes:&lt;/b&gt;
+| &lt;b>Hidden pipes:&lt;/b>
 - There are now possible to build hidden air-pipes. They cost a bit more but will not be visible on the ground.
 </content>
   </HugsLib.UpdateFeatureDef>

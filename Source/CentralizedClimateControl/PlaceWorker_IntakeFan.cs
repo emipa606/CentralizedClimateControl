@@ -49,24 +49,11 @@ internal class PlaceWorker_IntakeFan : PlaceWorker
     public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Map map,
         Thing thingToIgnore = null, Thing thing = null)
     {
-        //var thingList = center.GetThingList(map);
-
-        //if (thingList.OfType<Building_AirPipe>().Any())
-        if (center.GetThingList(map).OfType<Building_AirPipe>().Any())
+        if (center.GetThingList(map).OfType<Building_AirPipe>().Any() || def == null)
         {
             return AcceptanceReport.WasRejected;
         }
 
-        if (def == null)
-        {
-            return AcceptanceReport.WasRejected;
-        }
-
-        //var size = def.Size;
-        //var list = GenAdj.CellsAdjacent8Way(center, rot, size);
-        //var list = GenAdj.CellsAdjacent8Way(center, rot, def.Size);
-
-        //if (list.Any(intVec => intVec.Impassable(map)))
         if (GenAdj.CellsAdjacent8Way(center, rot, def.Size)
             .Any(intVec => !intVec.InBounds(map) || intVec.Impassable(map)))
         {

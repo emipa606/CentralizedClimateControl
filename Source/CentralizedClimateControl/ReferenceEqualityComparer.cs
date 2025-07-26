@@ -30,7 +30,7 @@ internal
     /// <summary>
     ///     Gets the singleton <see cref="ReferenceEqualityComparer" /> instance.
     /// </summary>
-    public static ReferenceEqualityComparer Instance { get; } = new ReferenceEqualityComparer();
+    public static ReferenceEqualityComparer Instance { get; } = new();
 
     /// <summary>
     ///     Determines whether two object-references refer to the same object instance.

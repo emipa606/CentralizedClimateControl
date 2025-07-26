@@ -1,0 +1,80 @@
+ManifestFileVersion: 0
+CRC: 1673856541
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 26e181ef01e805fae2c9aa1e700a2483
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2612ac43db082a73502ee80f2eceb73f
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 26e181ef01e805fae2c9aa1e700a2483
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/AirThermal_east.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Cold_AirPipe_Blueprint_Atlas.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/AirVent_south.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/AirVent_north.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/WallAirVent_south.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/120_RedButton.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/WallAirVent_north.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/UI/PipeSelect_Cyan.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/IntakeFan_south.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/130/130_ResearchTab.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/WallAirVentSmall_north.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/SurroundAirVent_south.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/UI/BlueAirPipe.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/130/130_Update.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/AirThermal_north.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/120_AutoButton.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/120_BlueButton.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/UI/PipeSelect_Auto.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/IntakeFan_north.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/LargeIntakeFan_south.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Blank_AirPipe_Atlas.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/130/130_BuildTab.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/LargeAirThermal_east.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/SurroundAirVentWide_south.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/WallAirVent_east.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/SurroundAirVentWide_north.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/UI/CyanAirPipeHidden.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/LargeAirThermal_south.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/UI/CyanAirPipe.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Hot_AirPipe_Blueprint_Atlas.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Any_AirPipe_Overlay_Atlas.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/130/130_Research2.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/120Update.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/UI/RedAirPipeHidden.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/101.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Frozen_AirPipe_Blueprint_Atlas.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/UI/BlueAirPipeHidden.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/AirVent_east.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/130/130_Research1.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Cold_AirPipe_Atlas.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/120_CyanButton.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/UI/RedAirPipe.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Hot_AirPipe_Overlay_Atlas.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/LargeIntakeFan_north.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Updates/110Update.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/SurroundAirVent_north.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Hot_AirPipe_Atlas.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/SurroundAirVent_east.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Frozen_AirPipe_Atlas.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/LargeIntakeFan_east.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/AirThermal_south.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Frozen_AirPipe_Overlay_Atlas.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/WallAirVentSmall_east.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/IntakeFan_east.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/UI/PipeSelect_Red.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/SurroundAirVentWide_east.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/LargeAirThermal_north.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Vents/WallAirVentSmall_south.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/God.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/UI/PipeSelect_Blue.png
+- Assets/Data/Mlie.CentralizedClimateControl/Textures/Things/Building/Cold_AirPipe_Overlay_Atlas.png
+Dependencies: []

@@ -7,7 +7,7 @@ namespace CentralizedClimateControl;
 
 public class GraphicPipe : Graphic_Linked
 {
-    public readonly AirFlowType FlowType;
+    private readonly AirFlowType FlowType;
 
     public GraphicPipe()
     {
