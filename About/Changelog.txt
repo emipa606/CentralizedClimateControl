@@ -1,5 +1,8 @@
 # Changelog for CentralizedClimateControl
 
+1.6.1 - Pipes should now be buildable in corners
+
+
 1.6.0 - Mod updated for 1.6 and passed autotests
 
 

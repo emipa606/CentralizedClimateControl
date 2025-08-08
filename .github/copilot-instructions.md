@@ -1,75 +1,57 @@
-# GitHub Copilot Instructions for RimWorld Mod: Centralized Climate Control
+# GitHub Copilot Instructions for "Centralized Climate Control (Continued)" Mod
 
 ## Mod Overview and Purpose
 
-The "Centralized Climate Control" mod for RimWorld is designed to enhance the in-game environment management systems by introducing an advanced climate control network. The mod allows players to manage air flow for heating, cooling, and air ventilation more efficiently. It introduces a variety of new components and mechanics to create a robust air management system in the player's colony.
+The "Centralized Climate Control (Continued)" mod for RimWorld introduces a network-like air system that enables centralized air cooling and heating, similar to electrical systems. This system allows players to efficiently manage the temperature of various rooms through a series of air pipes and climate control units, without needing individual heaters and coolers for each room.
 
 ## Key Features and Systems
 
-1. **Air Flow Networks:**
-   - Manage complex networks of air pipes and vents with different air flow types like hot, cold, and frozen. 
-   - Use producers, consumers, and controllers for maintaining optimal conditions.
+1. **Unified Heating/Cooling System**: A single unit handles both heating and cooling, reducing the need for multiple appliances like heaters and coolers.
+  
+2. **Remote Heat Exhaust**: Climate Control units have exhausts located away from rooms, making it possible to build adjacent rooms to fridge rooms without temperature disruption.
 
-2. **Temperature Management:**
-   - Control room temperatures with air flow devices and manage climate conditions in various sections of a colony.
+3. **Air Network**: A complete network system akin to electrical systems, focusing on:
+   - **Flow Efficiency**: Determines how well rooms maintain their temperature.
+   - **Thermal Efficiency**: Governs the speed at which climate units respond to temperature changes like cold snaps.
+   
+4. **Airpipes and Network Operations**: Three types of colored pipes that can carry any air type and allow for pipe switching. The mod supports complex pipe networks and climate control units.
 
-3. **Utility Buildings:**
-   - New building types like `Building_AirPipe`, `Building_AirThermal`, and `Building_IntakeFan` enhance the control and influence of air flow.
+5. **Temperature Management**: The mod accounts for air temperature inside pipes, enabling networked temperature control without individual climate control units.
 
-4. **Interactive Components:**
-   - Components such as `CompAirFlowProducer`, `CompAirFlowConsumer`, and `CompAirFlowTempControl` ensure dynamic interactions within the air flow network.
+6. **Expansion for Late-Game**: Features larger buildings that offer significantly greater power.
 
 ## Coding Patterns and Conventions
 
-- **Naming Conventions:**
-  - Classes and Methods use PascalCase.
-  - Variables and parameters use camelCase.
+- Utilize classes that extend from `ThingComp` for components that manage air flow (`CompAirFlow`), consumers (`CompAirFlowConsumer`), producers (`CompAirFlowProducer`), etc.
+  
+- Use consistent methods for registering and deregistering components that interact with the Air Network, such as within `AirFlowNetManager`.
 
-- **Structure:**
-  - Use well-defined methods to separate logical functionality (e.g., `TickProducers()`, `TickConsumers()`).
-  - Ensure private methods are used when the functionality is meant to be encapsulated.
-
-- **Comments:**
-  - Use XML documentation for methods to describe their purpose and parameters.
-  - Inline comments for complex or non-obvious logic.
+- Follow standard practices for component-based design within RimWorld, ensuring that every `Comp` has a reset method for flow variables.
 
 ## XML Integration
 
-The mod relies on XML files to define the game's content and assets:
-- **Defining New Objects:**
-  - Use XML to create new objects, buildings, and components that the mod scripts will reference and manipulate.
-  - Ensure there is a corresponding XML entry for every C# class expected to have a game object representation.
-
-- **Resource Files:**
-  - Make sure all graphic files referenced in XML are correctly loaded using the `GraphicsLoader` class and are bundled within the mod's content folder.
+- XML files define new buildings and their properties within the game, allowing for the custom integration of pipes, vents, and control units.
+  
+- XML configurations integrate with C# classes by referencing component properties and handling the visualization within the RimWorld game environment.
 
 ## Harmony Patching
 
-Harmony is used to modify or extend the game’s functionality without altering the base game DLL:
-- **Patch Annotations:**
-  - Use `[HarmonyPatch]` to annotate methods that will be patched.
-  - Ensure sufficient pre- and postfix conditions are checked to prevent unintended side effects.
-
-- **Dynamic Method Changes:**
-  - Alter methods such as `AirFlowNetTick` within their own context, avoiding changes to wider game mechanics unless necessary.
+- If compatibility concerns or game behavior adjustments are needed, employ Harmony patches. Patching should aim to gently adjust behavior without causing conflicts.
+  
+- Since this mod supports a unique air network, consider using Harmony to adjust the base game's temperature or network mechanics subtly if required.
 
 ## Suggestions for Copilot
 
-When using GitHub Copilot, consider the following suggestions to maximize its utility:
+1. **Class Stub Generation**: Use Copilot to assist in generating class stubs for additional components or system expansions.
 
-1. **Class and Method Templates:**
-   - Generate templates for new building or component classes using existing patterns (e.g., `Building_`, `CompAirFlow`).
+2. **Method Suggestions**: Employ Copilot to suggest possible method implementations based on other `Comp` classes in this project, especially for dealing with network management or efficiency calculations.
 
-2. **Helper Methods:**
-   - Suggest implementations for helper methods when handling repetitive tasks, like temperature checks or grid scanning.
+3. **Optimization Patterns**: Leverage Copilot to explore optimization strategies for climate control calculation methods, ensuring minimal impact on game performance.
 
-3. **Optimization Patterns:**
-   - Use suggestions to optimize loops, especially within methods like `TickProducers()` and `EnqueueNeighborCells()`.
+4. **Debugging Aids**: Draft debug methods and logs with Copilot guidance to efficiently track and solve issues that may arise in complex pipe networks.
 
-4. **Error Handling:**
-   - Prompt for robust error handling for null checks and unexpected states within network management and component functions.
+5. **Documentation Assistance**: Utilize Copilot to help draft comments and documentation within the codebase, making future maintenance or handover easier.
 
-5. **Consistent Documentation:**
-   - Consistently fill out method templates with XML documentation to maintain readability and usability by other developers.
+6. **Error Handling**: Incorporate error handling and exception management strategies for robust network operations, guided by Copilot for standard practices.
 
-This mod enhances the gameplay experience in RimWorld through thoughtful system integration and detailed mod development practices. By following these guidelines, you can maintain and expand the mod effectively.
+By following these structured guidelines, continuous improvement and maintenance of the mod can be more manageable, ensuring the "Centralized Climate Control (Continued)" remains a valuable addition to the RimWorld modding community.

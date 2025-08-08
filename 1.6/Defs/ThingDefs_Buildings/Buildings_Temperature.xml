@@ -27,6 +27,9 @@
     <building>
       <isInert>true</isInert>
       <isEdifice>false</isEdifice>
+      <canConstructInCorner>true</canConstructInCorner>
+      <canLandGravshipOn>true</canLandGravshipOn>
+      <ai_chillDestination>false</ai_chillDestination>
     </building>
     <altitudeLayer>FloorEmplacement</altitudeLayer>
     <passability>Standable</passability>

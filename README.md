@@ -11,6 +11,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
 - Removed climate-category and put the items in temperature instead
 - Removed legacy dependencies
 - Fixed the issue with the game crashing when having very large pipe-networks. Fix done by luoluo38!
+- The air-intakes and vents will not work well in vacuum
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 	
