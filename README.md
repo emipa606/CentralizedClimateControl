@@ -1,6 +1,6 @@
 # [Centralized Climate Control (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2007268173)
 
-![Image](https://i.imgur.com/buuPQel.png)
+![Image](https://img.litet.net/logos/Info.png)
 
 Update of ColdToads mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
@@ -13,9 +13,9 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=973091113
 - Fixed the issue with the game crashing when having very large pipe-networks. Fix done by luoluo38!
 - The air-intakes and vents will not work well in vacuum
 
-![Image](https://i.imgur.com/pufA0kM.png)
+![Image](https://img.litet.net/logos/Notice.png)
 	
-![Image](https://i.imgur.com/Z4GOv8H.png)
+![Image](https://img.litet.net/logos/OriginalDescription.png)
 
 Centralized Air Cooling/Heating System for RimWorld. Build Large Piped Air Climate Systems away from your buildings.
 
@@ -112,13 +112,13 @@ Thanks if you are trying my mod out!
 
 MIT License
 
-![Image](https://i.imgur.com/PwoNOj4.png)
+![Image](https://img.litet.net/logos/ReportingIssues.png)
 
 
 
 -  See if the the error persists if you just have this mod and its requirements active.
 -  If not, try adding your other mods until it happens again.
--  Post your error-log using the [Log Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404) or the standalone [Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404) and command Ctrl+F12
+-  Always post your log using the [Log Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404)
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.

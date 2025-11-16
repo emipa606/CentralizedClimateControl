@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -62,8 +64,6 @@ public class Building_AirVent : Building
             return;
         }
 
-        //var insideTemp = intVec.GetTemperature(Map);
-        //var tempDiff = outsideTemp - insideTemp;
         var outsideTemp = CompAirFlowConsumer.ConvertedTemperature;
         var tempDiff = outsideTemp - intVec.GetTemperature(Map);
         var magnitudeChange = Mathf.Abs(tempDiff);
@@ -95,8 +95,8 @@ public class Building_AirVent : Building
         var smoothMagnitude = magnitudeChange * 0.25f * (CompAirFlowConsumer.Props.baseAirExhaust / 100.0f);
         var energyLimit = smoothMagnitude * efficiencyImpact * 4.16666651f * 12f * signChanger;
         var tempChange = GenTemperature.ControlTemperatureTempChange(intVec, Map, energyLimit, outsideTemp);
-
-        var vaccum = intVec.GetRoomOrAdjacent(Map).Vacuum;
+        var room = intVec.GetRoomOrAdjacent(Map);
+        var vaccum = room.Vacuum;
 
         if (Mathf.Approximately(tempChange, 0f))
         {
@@ -105,9 +105,14 @@ public class Building_AirVent : Building
 
         if (vaccum > 0)
         {
-            tempChange *= 1f - vaccum;
+            var vaccumChange = 100f / (float)room.CellCount * CompAirFlowConsumer.AirPerSecondPerHundredCells * 4.1666665f * CompAirFlowConsumer.FlowEfficiency;
+            room.Vacuum = Math.Max(0, room.Vacuum - vaccumChange);
+            if(room.Vacuum > 0)
+            {
+                tempChange *= 1f - vaccum;
+            }
         }
 
-        intVec.GetRoomOrAdjacent(Map).Temperature += tempChange;
+        room.Temperature += tempChange;
     }
 }
