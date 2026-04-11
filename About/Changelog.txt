@@ -1,5 +1,9 @@
 # Changelog for CentralizedClimateControl
 
+1.6.3 - Added mod-options to set the airflow and efficency multipliers
+Used DeepL to update translations for ChineseSimplified, French, German, Russian
+
+
 1.6.2 - Air vents will now remove vaccum depending on size and flow-efficency
 
 

@@ -6,4 +6,23 @@
     <BuildType Name="Release" />
   </Configurations>
   <Project Path="CentralizedClimateControl/CentralizedClimateControl.csproj" />
+  <Folder Name="/XML/1.6/Defs/ThingCategoryDefs/">
+    <File Path="../1.6/Defs/ThingCategoryDefs/ThingCategories.xml" />
+  </Folder>
+  <Folder Name="/XML/Languages/English/Keyed/">
+    <File Path="../Languages/English/Keyed/CentralizedClimateControl.xml" />
+  </Folder>
+  <Folder Name="/XML/About/">
+    <File Path="../About/about.xml" />
+  </Folder>
+  <Folder Name="/XML/1.6/Defs/ResearchProjectDefs/">
+    <File Path="../1.6/Defs/ResearchProjectDefs/ResearchProjects.xml" />
+  </Folder>
+  <Folder Name="/XML/1.6/Defs/ThingDefs_Buildings/">
+    <File Path="../1.6/Defs/ThingDefs_Buildings/Buildings_Temperature.xml" />
+    <File Path="../1.6/Defs/ThingDefs_Buildings/Buildings_Vents.xml" />
+  </Folder>
+  <Folder Name="/XML/1.6/Defs/DesignatorDropdownGroupDef/">
+    <File Path="../1.6/Defs/DesignatorDropdownGroupDef/CCC_Group.xml" />
+  </Folder>
 </Solution>

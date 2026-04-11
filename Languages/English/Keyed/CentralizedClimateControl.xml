@@ -36,4 +36,7 @@
   <CentralizedClimateControl.Settings.HidepipesTitle>Hide pipes</CentralizedClimateControl.Settings.HidepipesTitle>
   <CentralizedClimateControl.Settings.HidepipesDescription>Should the pipes be hidden?</CentralizedClimateControl.Settings.HidepipesDescription>
   <CentralizedClimateControl.DebugInfo.GridId>Grid Id: {0}</CentralizedClimateControl.DebugInfo.GridId>
+  <CentralizedClimateControl.CurrentModVersion>Installed mod-version: {0}</CentralizedClimateControl.CurrentModVersion>
+  <CentralizedClimateControl.AirFlowMultiplier>Airflow multiplier: {0}</CentralizedClimateControl.AirFlowMultiplier>
+  <CentralizedClimateControl.AirExhaustMultiplier>Air exhaust multiplier: {0}</CentralizedClimateControl.AirExhaustMultiplier>
 </LanguageData>

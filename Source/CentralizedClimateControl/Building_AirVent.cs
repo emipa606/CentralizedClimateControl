@@ -1,5 +1,4 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -92,7 +91,7 @@ public class Building_AirVent : Building
         var efficiencyImpact =
             CompAirFlowConsumer.FlowEfficiency * CompAirFlowConsumer.FlowEfficiency * i;
 
-        var smoothMagnitude = magnitudeChange * 0.25f * (CompAirFlowConsumer.Props.baseAirExhaust / 100.0f);
+        var smoothMagnitude = magnitudeChange * 0.25f * (CompAirFlowConsumer.ExhaustAirFlow / 100.0f);
         var energyLimit = smoothMagnitude * efficiencyImpact * 4.16666651f * 12f * signChanger;
         var tempChange = GenTemperature.ControlTemperatureTempChange(intVec, Map, energyLimit, outsideTemp);
         var room = intVec.GetRoomOrAdjacent(Map);
@@ -105,9 +104,10 @@ public class Building_AirVent : Building
 
         if (vaccum > 0)
         {
-            var vaccumChange = 100f / (float)room.CellCount * CompAirFlowConsumer.AirPerSecondPerHundredCells * 4.1666665f * CompAirFlowConsumer.FlowEfficiency;
+            var vaccumChange = 100f / room.CellCount * CompAirFlowConsumer.AirPerSecondPerHundredCells * 4.1666665f *
+                               CompAirFlowConsumer.FlowEfficiency;
             room.Vacuum = Math.Max(0, room.Vacuum - vaccumChange);
-            if(room.Vacuum > 0)
+            if (room.Vacuum > 0)
             {
                 tempChange *= 1f - vaccum;
             }

@@ -11,6 +11,9 @@ public static class CentralizedClimateControlUtility
     private const string SwitchPipeBlueKey = "CentralizedClimateControl.Command.SwitchPipe.Blue";
     private const string SwitchPipeCyanKey = "CentralizedClimateControl.Command.SwitchPipe.Cyan";
 
+    public static float AirFlowMultiplier => CentralizedClimateControlMod.Settings?.AirFlowMultiplier ?? 1f;
+    public static float AirExhaustMultiplier => CentralizedClimateControlMod.Settings?.AirExhaustMultiplier ?? 1f;
+
     /// <summary>
     ///     Get the Network Manager of the Map
     /// </summary>

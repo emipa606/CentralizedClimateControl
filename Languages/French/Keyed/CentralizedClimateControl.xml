@@ -37,4 +37,7 @@
   <CentralizedClimateControl.Settings.HidepipesTitle>Cacher les tuyaux</CentralizedClimateControl.Settings.HidepipesTitle>
   <CentralizedClimateControl.Settings.HidepipesDescription>Les tuyaux doivent-ils être cachés ?</CentralizedClimateControl.Settings.HidepipesDescription>
   <CentralizedClimateControl.DebugInfo.GridId>Identifiant de grille: {0}</CentralizedClimateControl.DebugInfo.GridId>
+  <CentralizedClimateControl.CurrentModVersion>Version installée du mod : {0}</CentralizedClimateControl.CurrentModVersion>
+  <CentralizedClimateControl.AirFlowMultiplier>Multiplicateur de flux d'air : {0}</CentralizedClimateControl.AirFlowMultiplier>
+  <CentralizedClimateControl.AirExhaustMultiplier>Multiplicateur d'évacuation d'air : {0}</CentralizedClimateControl.AirExhaustMultiplier>
 </LanguageData>

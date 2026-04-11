@@ -64,8 +64,9 @@ public class Building_IntakeFan : Building_AirFlowControl
         }
 
         CompAirProducer.IntakeTemperature = sumTemp / list.Count;
-        CompAirProducer.CurrentAirFlow = CompAirProducer.Props.baseAirFlow -
-                                         (_windCellsBlocked * EfficiencyLossPerWindCubeBlocked);
+        CompAirProducer.CurrentAirFlow = (CompAirProducer.Props.baseAirFlow -
+                                          (_windCellsBlocked * EfficiencyLossPerWindCubeBlocked)) *
+                                         CentralizedClimateControlUtility.AirFlowMultiplier;
 
         if (totalVaccum > 0)
         {

@@ -19,16 +19,16 @@ public class CompAirFlowConsumer : CompAirFlow
     public float ConvertedTemperature;
     private CompFlickable flickableComp;
 
-    public float ExhaustAirFlow => Props.baseAirExhaust;
+    public float ExhaustAirFlow => Props.baseAirExhaust * CentralizedClimateControlUtility.AirExhaustMultiplier;
 
     public float FlowEfficiency => AirFlowNet.FlowEfficiency;
 
     public float ThermalEfficiency => AirFlowNet.ThermalEfficiency;
 
-    public float AirPerSecondPerHundredCells => Props.baseAirExhaust / 5000;
+    public float AirPerSecondPerHundredCells => ExhaustAirFlow / 5000;
 
     /// <summary>
-    /// Post Spawn for Component
+    ///     Post Spawn for Component
     /// </summary>
     /// <param name="respawningAfterLoad">Unused Flag</param>
     public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -40,7 +40,7 @@ public class CompAirFlowConsumer : CompAirFlow
     }
 
     /// <summary>
-    /// Method called during Game Save/Load
+    ///     Method called during Game Save/Load
     /// </summary>
     public override void PostExposeData()
     {
@@ -51,7 +51,7 @@ public class CompAirFlowConsumer : CompAirFlow
     }
 
     /// <summary>
-    /// Component De-spawned from Map
+    ///     Component De-spawned from Map
     /// </summary>
     /// <param name="map">RimWorld Map</param>
     /// <param name="mode"></param>
@@ -63,22 +63,22 @@ public class CompAirFlowConsumer : CompAirFlow
     }
 
     /// <summary>
-    /// Extra Component Inspection string
+    ///     Extra Component Inspection string
     /// </summary>
     /// <returns>String Containing information for Consumers</returns>
     public override string CompInspectStringExtra()
     {
-        if(!flickableComp.SwitchIsOn)
+        if (!flickableComp.SwitchIsOn)
         {
             return ClosedKey.Translate() + "\n" + base.CompInspectStringExtra();
         }
 
-        if(!IsOperating())
+        if (!IsOperating())
         {
             return base.CompInspectStringExtra();
         }
 
-        if(!IsActive())
+        if (!IsActive())
         {
             return (DisconnectedKey.Translate() + "\n" + base.CompInspectStringExtra()).Trim();
         }
@@ -92,7 +92,7 @@ public class CompAirFlowConsumer : CompAirFlow
     }
 
     /// <summary>
-    /// Set the Pipe Priority for Consumers
+    ///     Set the Pipe Priority for Consumers
     /// </summary>
     /// <param name="priority">Priority to Switch to.</param>
     public void SetPriority(AirTypePriority priority)
@@ -103,18 +103,18 @@ public class CompAirFlowConsumer : CompAirFlow
     }
 
     /// <summary>
-    /// Tick for Consumers. Here: - We Rebuild if Priority is Changed - We take the Converted Temperature from Climate
-    /// Units
+    ///     Tick for Consumers. Here: - We Rebuild if Priority is Changed - We take the Converted Temperature from Climate
+    ///     Units
     /// </summary>
     public void TickRare()
     {
-        if(alertChange)
+        if (alertChange)
         {
             CentralizedClimateControlUtility.GetNetManager(parent.Map).IsDirty = true;
             alertChange = false;
         }
 
-        if(!IsOperating())
+        if (!IsOperating())
         {
             return;
         }
@@ -122,10 +122,13 @@ public class CompAirFlowConsumer : CompAirFlow
         ConvertedTemperature = AirFlowNet.AverageConvertedTemperature;
     }
 
-    public override bool IsOperating() { return flickableComp.SwitchIsOn && base.IsOperating(); }
+    public override bool IsOperating()
+    {
+        return flickableComp.SwitchIsOn && base.IsOperating();
+    }
 
     /// <summary>
-    /// Reset the Flow Variables and Forward the Control to Base class for more reset.
+    ///     Reset the Flow Variables and Forward the Control to Base class for more reset.
     /// </summary>
     protected override void ResetFlowVariables()
     {
@@ -134,12 +137,12 @@ public class CompAirFlowConsumer : CompAirFlow
     }
 
     /// <summary>
-    /// Check if Consumer Can work. This check is used after checking for Power.
+    ///     Check if Consumer Can work. This check is used after checking for Power.
     /// </summary>
     /// <returns>Boolean flag to show if Active</returns>
     public bool IsActive()
     {
-        if(AirFlowNet == null)
+        if (AirFlowNet == null)
         {
             return false;
         }
