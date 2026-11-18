@@ -6,9 +6,9 @@ namespace CentralizedClimateControl;
 
 public class GraphicPipe_Overlay : Graphic_Linked
 {
+    private readonly AirFlowType FlowType;
     private readonly Graphic _anyGraphic;
     private readonly Graphic _flowGraphic;
-    private readonly AirFlowType FlowType;
 
     public GraphicPipe_Overlay()
     {

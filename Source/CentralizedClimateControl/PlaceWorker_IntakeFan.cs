@@ -22,11 +22,6 @@ internal class PlaceWorker_IntakeFan : PlaceWorker
             return;
         }
 
-        //var size = def.size;
-
-        //var list = GenAdj.CellsAdjacent8Way(center, rot, size);
-        //var list = GenAdj.CellsAdjacent8Way(center, rot, def.Size);
-        //GenDraw.DrawFieldEdges(list.ToList(), Color.white);
         GenDraw.DrawFieldEdges(
             GenAdj.CellsAdjacent8Way(center, rot, def.Size).ToList(),
             Color.white
@@ -39,22 +34,22 @@ internal class PlaceWorker_IntakeFan : PlaceWorker
     ///     - Current Cell shouldn't have an Air Flow Pipe (Since they already have a Pipe)
     ///     - Surrounding Cells from Center must not be Impassable
     /// </summary>
-    /// <param name="def">The Def Being Built</param>
-    /// <param name="center">Target Location</param>
+    /// <param name="checkingDef">The Def Being Built</param>
+    /// <param name="loc">Target Location</param>
     /// <param name="rot">Rotation of the Object to be Placed</param>
     /// <param name="map"></param>
     /// <param name="thingToIgnore">Unused field</param>
     /// <param name="thing"></param>
     /// <returns>Boolean/Acceptance Report if we can place the object of not.</returns>
-    public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Map map,
+    public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Map map,
         Thing thingToIgnore = null, Thing thing = null)
     {
-        if (center.GetThingList(map).OfType<Building_AirPipe>().Any() || def == null)
+        if (loc.GetThingList(map).OfType<Building_AirPipe>().Any() || checkingDef == null)
         {
             return AcceptanceReport.WasRejected;
         }
 
-        if (GenAdj.CellsAdjacent8Way(center, rot, def.Size)
+        if (GenAdj.CellsAdjacent8Way(loc, rot, checkingDef.Size)
             .Any(intVec => !intVec.InBounds(map) || intVec.Impassable(map)))
         {
             return "CentralizedClimateControl.Producer.IntakeFanPlaceError".Translate();

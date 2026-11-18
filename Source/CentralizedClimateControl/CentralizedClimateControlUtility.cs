@@ -37,11 +37,6 @@ public static class CentralizedClimateControlUtility
 
         switch (currentPriority)
         {
-            case AirTypePriority.Auto:
-                label = SwitchPipeAutoKey.Translate();
-                icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Auto");
-                break;
-
             case AirTypePriority.Hot:
                 label = SwitchPipeRedKey.Translate();
                 icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Red");
@@ -82,8 +77,6 @@ public static class CentralizedClimateControlUtility
                     case AirTypePriority.Cold:
                         compAirFlowConsumer.SetPriority(AirTypePriority.Frozen);
                         break;
-
-                    case AirTypePriority.Frozen:
                     default:
                         compAirFlowConsumer.SetPriority(AirTypePriority.Auto);
                         break;

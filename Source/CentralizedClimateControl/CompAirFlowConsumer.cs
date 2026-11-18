@@ -14,9 +14,9 @@ public class CompAirFlowConsumer : CompAirFlow
     private const string ClosedKey = "CentralizedClimateControl.Consumer.Closed";
     public AirTypePriority AirTypePriority = AirTypePriority.Auto;
 
-    private bool alertChange;
-
     public float ConvertedTemperature;
+
+    private bool alertChange;
     private CompFlickable flickableComp;
 
     public float ExhaustAirFlow => Props.baseAirExhaust * CentralizedClimateControlUtility.AirExhaustMultiplier;

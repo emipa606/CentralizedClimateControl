@@ -1,5 +1,8 @@
 # Changelog for CentralizedClimateControl
 
+1.7.0 - Mod updated for 1.7 and passed autotests
+
+
 1.6.3 - Added mod-options to set the airflow and efficency multipliers
 Used DeepL to update translations for ChineseSimplified, French, German, Russian
 

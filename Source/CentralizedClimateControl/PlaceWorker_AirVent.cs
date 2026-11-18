@@ -21,8 +21,6 @@ public class PlaceWorker_AirVent : PlaceWorker
 
         var map = Find.CurrentMap;
 
-        //var list = center.GetThingList(map);
-        //foreach (var thingType in list)
         foreach (var thingType in center.GetThingList(map))
         {
             if (thingType is not Building_AirVent airVent)
@@ -40,7 +38,10 @@ public class PlaceWorker_AirVent : PlaceWorker
 
         var intVec = center + IntVec3.North.RotatedBy(rot);
 
-        var typeColor = type == AirFlowType.Hot ? Color.red : type == AirFlowType.Cold ? Color.blue : Color.cyan;
+        var typeColor = type switch
+        {
+            AirFlowType.Hot => Color.red, AirFlowType.Cold => Color.blue, _ => Color.cyan
+        };
 
         GenDraw.DrawFieldEdges([intVec], typeColor);
 
@@ -61,20 +62,17 @@ public class PlaceWorker_AirVent : PlaceWorker
     ///     Checks:
     ///     - North Cell from Center must not be Impassable
     /// </summary>
-    /// <param name="def">The Def Being Built</param>
-    /// <param name="center">Target Location</param>
+    /// <param name="checkingDef">The Def Being Built</param>
+    /// <param name="loc">Target Location</param>
     /// <param name="rot">Rotation of the Object to be Placed</param>
     /// <param name="map"></param>
     /// <param name="thingToIgnore">Unused field</param>
     /// <param name="thing"></param>
     /// <returns>Boolean/Acceptance Report if we can place the object of not.</returns>
-    public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Map map,
+    public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Map map,
         Thing thingToIgnore = null, Thing thing = null)
     {
-        //var vec = center + IntVec3.North.RotatedBy(rot);
-
-        //if (vec.Impassable(map))
-        var cellToTest = center + IntVec3.North.RotatedBy(rot);
+        var cellToTest = loc + IntVec3.North.RotatedBy(rot);
         if (!cellToTest.InBounds(map) || cellToTest.Impassable(map))
         {
             return "CentralizedClimateControl.Consumer.AirVentPlaceError".Translate();

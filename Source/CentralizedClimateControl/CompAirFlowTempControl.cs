@@ -85,9 +85,6 @@ public class CompAirFlowTempControl : CompAirFlow
 
         if (IsOperating())
         {
-            //var intake = IntakeTemperature.ToStringTemperature("F0");
-            //var converted = ConvertedTemperature.ToStringTemperature("F0");
-            //str += TemperatureArrowKey.Translate(intake, converted);
             inspectStringExtra += TemperatureArrowKey.Translate(
                 IntakeTemperature.ToStringTemperature("F0"),
                 ConvertedTemperature.ToStringTemperature("F0")

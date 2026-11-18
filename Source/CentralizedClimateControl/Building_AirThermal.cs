@@ -47,9 +47,6 @@ public class Building_AirThermal : Building_AirFlowControl
 
         for (var dx = 0; dx < size.x; dx++)
         {
-            //var currentPos = iterator + IntVec3.South.RotatedBy(Rotation);
-
-            //if (currentPos.Impassable(Map))
             if ((iterator + IntVec3.South.RotatedBy(Rotation)).Impassable(Map))
             {
                 CompAirFlowTempControl.IsBlocked = true;

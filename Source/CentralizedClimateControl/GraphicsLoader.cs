@@ -3,7 +3,7 @@
 namespace CentralizedClimateControl;
 
 [StaticConstructorOnStartup]
-public class GraphicsLoader
+public static class GraphicsLoader
 {
     // Actual Atlas
     private static readonly Graphic BlankPipeAtlas =

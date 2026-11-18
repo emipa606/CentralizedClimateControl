@@ -169,7 +169,7 @@ Generated_Code/
 # to a newer Visual Studio version. Backup files are not needed,
 # because we have git ;-)
 _UpgradeReport_Files/
-Backup*/
+Backup/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
@@ -235,3 +235,11 @@ $RECYCLE.BIN/
 # Rimworld specific
 _PublisherPlus.xml
 lastrun.log
+
+# Continue
+.continue
+build_output.txt
+
+# SonarQube
+.sonarlint
+.sonarqube

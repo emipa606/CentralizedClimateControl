@@ -23,17 +23,12 @@ public class PlaceWorker_AirThermal : PlaceWorker
             return;
         }
 
-        //var size = def.size;
-
         var list = new List<IntVec3>();
 
         var iterator = new IntVec3(center.x, center.y, center.z);
 
-        //for (int dx = 0; dx < size.x; dx++)
         for (var dx = 0; dx < def.size.x; dx++)
         {
-            //IntVec3 intVec = iterator + IntVec3.South.RotatedBy(rot);
-            //list.Add(intVec);
             list.Add(iterator + IntVec3.South.RotatedBy(rot));
 
             iterator += IntVec3.East.RotatedBy(rot);
@@ -48,39 +43,25 @@ public class PlaceWorker_AirThermal : PlaceWorker
     ///     - Current Cell shouldn't have an Air Flow Pipe (Since they already have a Pipe)
     ///     - South Cell from Center must not be Impassable
     /// </summary>
-    /// <param name="def">The Def Being Built</param>
-    /// <param name="center">Target Location</param>
+    /// <param name="checkingDef">The Def Being Built</param>
+    /// <param name="loc">Target Location</param>
     /// <param name="rot">Rotation of the Object to be Placed</param>
     /// <param name="map"></param>
     /// <param name="thingToIgnore">Unused field</param>
     /// <param name="thing"></param>
     /// <returns>Boolean/Acceptance Report if we can place the object of not.</returns>
-    public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Map map,
+    public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Map map,
         Thing thingToIgnore = null, Thing thing = null)
     {
-        //var thingList = center.GetThingList(map);
-
-        //if (thingList.OfType<Building_AirPipe>().Any())
-        if (center.GetThingList(map).OfType<Building_AirPipe>().Any())
+        if (loc.GetThingList(map).OfType<Building_AirPipe>().Any() || checkingDef == null)
         {
             return AcceptanceReport.WasRejected;
         }
 
-        if (def == null)
+        var iterator = new IntVec3(loc.x, loc.y, loc.z);
+
+        for (var dx = 0; dx < checkingDef.Size.x; dx++)
         {
-            return AcceptanceReport.WasRejected;
-        }
-
-        //var size = def.Size;
-
-        var iterator = new IntVec3(center.x, center.y, center.z);
-
-        //for (var dx = 0; dx < size.x; dx++)
-        for (var dx = 0; dx < def.Size.x; dx++)
-        {
-            //var intVec = iterator + IntVec3.South.RotatedBy(rot);
-
-            //if (intVec.Impassable(map))
             var cellToTest = iterator + IntVec3.South.RotatedBy(rot);
             if (cellToTest.InBounds(map) && cellToTest.Impassable(map))
             {

@@ -20,8 +20,8 @@ public class AirFlowNetManager : MapComponent
     private readonly int pipeCount;
 
     private readonly int[,] pipeGrid;
-    private List<AirFlowNet> cachedNets = [];
     public bool IsDirty;
+    private List<AirFlowNet> cachedNets = [];
     private int masterId;
 
     /// <summary>
@@ -33,8 +33,6 @@ public class AirFlowNetManager : MapComponent
     public AirFlowNetManager(Map map) : base(map)
     {
         var length = Enum.GetValues(typeof(AirFlowType)).Length;
-        //var num = map.AllCells.Count();
-        //PipeGrid = new int[length, num];
         pipeGrid = new int[length, map.AllCells.Count()];
 
         pipeCount = length;
@@ -65,8 +63,6 @@ public class AirFlowNetManager : MapComponent
             cachedPipes.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
-        // Useless function call  --Brain
-        // DirtyPipeGrid();
         IsDirty = true;
     }
 
@@ -82,8 +78,6 @@ public class AirFlowNetManager : MapComponent
             cachedPipes.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
-        // Useless function call  --Brain
-        // DirtyPipeGrid();
         IsDirty = true;
     }
 
@@ -99,8 +93,6 @@ public class AirFlowNetManager : MapComponent
             cachedTempControls.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
-        // Useless function call --Brain
-        // DirtyPipeGrid();
         IsDirty = true;
     }
 
@@ -116,8 +108,6 @@ public class AirFlowNetManager : MapComponent
             cachedTempControls.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
-        // Useless function call  --Brain
-        // DirtyPipeGrid();
         IsDirty = true;
     }
 
@@ -133,8 +123,6 @@ public class AirFlowNetManager : MapComponent
             cachedProducers.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
-        // Useless function call  --Brain
-        // DirtyPipeGrid();
         IsDirty = true;
     }
 
@@ -150,8 +138,6 @@ public class AirFlowNetManager : MapComponent
             cachedProducers.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
-        // Useless function call  --Brain
-        // DirtyPipeGrid();
         IsDirty = true;
     }
 
@@ -167,8 +153,6 @@ public class AirFlowNetManager : MapComponent
             cachedConsumers.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
-        // Useless function call  --Brain
-        // DirtyPipeGrid();
         IsDirty = true;
     }
 
@@ -184,28 +168,8 @@ public class AirFlowNetManager : MapComponent
             cachedConsumers.Shuffle(); // ! Why Shuffle?  --Brain
         }
 
-        // Useless function call  --Brain
-        // DirtyPipeGrid();
         IsDirty = true;
     }
-
-    // ? Why are those two methods even here? IsDirty is public, so why raise further calls? --Brain
-
-    // <summary>
-    // Dirty the flag for reconstruction
-    // </summary>
-    /* public void DirtyPipeGrid()
-    {
-        IsDirty = true;
-    } */
-
-    // <summary>
-    // Dirty the flag for reconstruction
-    // </summary>
-    /* public void DirtyPipeWholeGrid()
-    {
-        IsDirty = true;
-    } */
 
     /// <summary>
     ///     Check if that Zone in the Pipe Matrix has a Pipe of some sort or not.
@@ -252,7 +216,6 @@ public class AirFlowNetManager : MapComponent
 
         cachedNets = backupNets;
 
-        // TODO: Not Optimized
         map.mapDrawer.WholeMapChanged(MapMeshFlagDefOf.Buildings);
         map.mapDrawer.WholeMapChanged(MapMeshFlagDefOf.Things);
 
@@ -324,7 +287,7 @@ public class AirFlowNetManager : MapComponent
                 {
                     pipeGrid[flowIndex, map.cellIndices.CellToIndex(intVec)] = gridId;
 
-                    //we assume buildings are small so this is better than iter edge(which contains an gc allocation)
+                    //we assume buildings are small so this is better than iter edge(which contains a gc allocation)
                     enqueueNeighborCells(intVec, visitedCells, toVisitQueue);
                 }
             }
@@ -380,25 +343,15 @@ public class AirFlowNetManager : MapComponent
     {
         for (var i = 0; i < 4; i++)
         {
-            //var thingList = (pos + GenAdj.CardinalDirections[i]).GetThingList(map);
-            //var buildingList = thingList.OfType<Building>();
-            //var buildingList = (pos + GenAdj.CardinalDirections[i]).GetThingList(map).OfType<Building>();
-
             var list = new List<CompAirFlow>();
 
-            //foreach (var current in buildingList)
             foreach (var current in (pos + GenAdj.CardinalDirections[i]).GetThingList(map).OfType<Building>())
             {
-                //var buildingAirComps = current.GetComps<CompAirFlow>().Where(item => item.FlowType == (AirFlowType)flowIndex || (item.FlowType == AirFlowType.Any && item.GridID == RebuildValue));
-
-                //foreach (var buildingAirComp in buildingAirComps)
                 foreach (var buildingAirComp in current.GetComps<CompAirFlow>()
                              .Where(item =>
                                  item.FlowType == (AirFlowType)flowIndex ||
                                  item.FlowType == AirFlowType.Any && item.GridID == RebuildValue))
                 {
-                    // var result = ValidateBuildingPriority(buildingAirComp, network);
-                    // if(!result)
                     if (!validateBuildingPriority(buildingAirComp, network))
                     {
                         continue;
@@ -421,8 +374,6 @@ public class AirFlowNetManager : MapComponent
                     continue;
                 }
 
-                //var iterator = compAirFlow.parent.OccupiedRect().GetIterator();
-                //while (!iterator.Done())
                 foreach (var item in compAirFlow.parent.OccupiedRect())
                 {
                     pipeGrid[flowIndex, map.cellIndices.CellToIndex(item)] = gridId;
@@ -462,8 +413,6 @@ public class AirFlowNetManager : MapComponent
                 GridID = masterId,
                 FlowType = flowType
             };
-            //network.GridID = compAirFlow.GridID;
-            //network.FlowType = flowType;
 
             buildGridOfFlow(compAirFlow.parent.Position, masterId, flowIndex, network);
             listCopy.RemoveAll(item => item.GridID != RebuildValue);

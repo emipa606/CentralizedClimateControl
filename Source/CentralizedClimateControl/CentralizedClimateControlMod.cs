@@ -21,10 +21,10 @@ public class CentralizedClimateControlMod : Mod
         return "Centralized Climate Control";
     }
 
-    public override void DoSettingsWindowContents(Rect rect)
+    public override void DoSettingsWindowContents(Rect inRect)
     {
         var listing = new Listing_Standard();
-        listing.Begin(rect);
+        listing.Begin(inRect);
         listing.Gap();
         Settings.AirFlowMultiplier = Widgets.HorizontalSlider(
             listing.GetRect(24f),

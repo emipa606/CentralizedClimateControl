@@ -39,13 +39,13 @@ public class GraphicPipe : Graphic_Linked
     ///     This Function specifies the condition that will be used.
     ///     Here we just check if the target cell that is asked for linkage has a Pipe of the same Color or not.
     /// </summary>
-    /// <param name="vec">Target Cell</param>
+    /// <param name="c">Target Cell</param>
     /// <param name="parent">Parent Object</param>
     /// <returns>Should Link with Same Color Pipe or not</returns>
-    public override bool ShouldLinkWith(IntVec3 vec, Thing parent)
+    public override bool ShouldLinkWith(IntVec3 c, Thing parent)
     {
-        return vec.InBounds(parent.Map) &&
-               CentralizedClimateControlUtility.GetNetManager(parent.Map).ZoneAt(vec, FlowType);
+        return c.InBounds(parent.Map) &&
+               CentralizedClimateControlUtility.GetNetManager(parent.Map).ZoneAt(c, FlowType);
     }
 
 
@@ -53,50 +53,43 @@ public class GraphicPipe : Graphic_Linked
     ///     Main method to Print an Atlas Pipe Graphic
     /// </summary>
     /// <param name="layer">Section Layer calling this Print command</param>
-    /// <param name="parent">Parent Object</param>
+    /// <param name="thing">Parent Object</param>
     /// <param name="extraRotation"></param>
-    public override void Print(SectionLayer layer, Thing parent, float extraRotation)
+    public override void Print(SectionLayer layer, Thing thing, float extraRotation)
     {
-        if (parent.def.defName.Contains("Hidden"))
+        if (thing.def.defName.Contains("Hidden"))
         {
             return;
         }
 
-        //var material = LinkedDrawMatFrom(parent, parent.Position);
-        //Printer_Plane.PrintPlane(layer, parent.TrueCenter(), Vector2.one, material, 0f);
         Printer_Plane.PrintPlane(
             layer,
-            parent.TrueCenter(),
+            thing.TrueCenter(),
             Vector2.one,
-            LinkedDrawMatFrom(parent, parent.Position)
+            LinkedDrawMatFrom(thing, thing.Position)
         );
 
         for (var i = 0; i < 4; i++)
         {
-            var intVec = parent.Position + GenAdj.CardinalDirections[i];
+            var intVec = thing.Position + GenAdj.CardinalDirections[i];
 
-            if (!intVec.InBounds(parent.Map) ||
-                !CentralizedClimateControlUtility.GetNetManager(parent.Map).ZoneAt(intVec, FlowType) ||
-                intVec.GetTerrain(parent.Map).layerable)
+            if (!intVec.InBounds(thing.Map) ||
+                !CentralizedClimateControlUtility.GetNetManager(thing.Map).ZoneAt(intVec, FlowType) ||
+                intVec.GetTerrain(thing.Map).layerable)
             {
                 continue;
             }
 
-            //var thingList = intVec.GetThingList(parent.Map);
-
-            //if (thingList.Any(predicate))
-            if (intVec.GetThingList(parent.Map).OfType<Building_AirPipe>().Any())
+            if (intVec.GetThingList(thing.Map).OfType<Building_AirPipe>().Any())
             {
                 continue;
             }
 
-            //var material2 = LinkedDrawMatFrom(parent, intVec);
-            //Printer_Plane.PrintPlane(layer, intVec.ToVector3ShiftedWithAltitude(parent.def.Altitude), Vector2.one, material2, 0f);
             Printer_Plane.PrintPlane(
                 layer,
-                intVec.ToVector3ShiftedWithAltitude(parent.def.Altitude),
+                intVec.ToVector3ShiftedWithAltitude(thing.def.Altitude),
                 Vector2.one,
-                LinkedDrawMatFrom(parent, intVec));
+                LinkedDrawMatFrom(thing, intVec));
         }
     }
 }

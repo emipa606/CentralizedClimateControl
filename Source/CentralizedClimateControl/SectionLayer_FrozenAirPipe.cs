@@ -38,10 +38,10 @@ internal class SectionLayer_FrozenAirPipe : SectionLayer_Things
     /// <summary>
     ///     Called when a Draw is initiated from DrawLayer.
     /// </summary>
-    /// <param name="thing">Thing that triggered the Draw Call</param>
-    protected override void TakePrintFrom(Thing thing)
+    /// <param name="t">Thing that triggered the Draw Call</param>
+    protected override void TakePrintFrom(Thing t)
     {
-        if (thing is not Building building)
+        if (t is not Building building)
         {
             return;
         }
